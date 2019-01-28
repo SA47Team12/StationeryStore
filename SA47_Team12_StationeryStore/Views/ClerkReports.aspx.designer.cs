@@ -10,24 +10,33 @@
 namespace SA47_Team12_StationeryStore.Views {
     
     
-    public partial class ClerkSup_ItemOrdered {
+    public partial class ClerkReports {
         
         /// <summary>
-        /// CrystalReportViewer1 control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// CrystalReportSource8 control.
+        /// ClerkReportsDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportSource CrystalReportSource8;
+        protected global::System.Web.UI.WebControls.DropDownList ClerkReportsDropDownList;
+        
+        /// <summary>
+        /// ReportButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ReportButton;
     }
 }

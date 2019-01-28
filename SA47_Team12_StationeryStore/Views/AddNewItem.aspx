@@ -87,6 +87,7 @@
             <br />
             <asp:Button ID="AddNewButton" runat="server" OnClick="AddNewButton_Click" CssClass="btn btn-primary" Text="Add New " />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
         </div>
         <div>
         </div>

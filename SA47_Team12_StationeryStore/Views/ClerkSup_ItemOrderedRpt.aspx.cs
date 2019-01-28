@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SA47_Team12_StationeryStore.Views
 {
-    public partial class ClerkSup_ItemOrdered : System.Web.UI.Page
+    public partial class ClerkSup_ItemOrderedRpt : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
