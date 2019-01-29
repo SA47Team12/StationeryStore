@@ -10,16 +10,17 @@ namespace SA47_Team12_StationeryStore
         int id;
         string empName;
         decimal? amount;
-        DateTime? submittedTime;
-        DateTime? approvedTime;
+        string submittedTime;
+        string approvedTime;
         string status;
+        string remarks;
 
         public ViewRequest()
         {
 
         }
 
-        public ViewRequest(int id, string name, DateTime? submissionDate, DateTime? approvalDate, decimal? amt, string status)
+        public ViewRequest(int id, string name, string submissionDate, string approvalDate, decimal? amt, string status, string remarks)
         {
             this.RequestId = id;
             this.EmployeeName = name;
@@ -27,15 +28,16 @@ namespace SA47_Team12_StationeryStore
             this.SubmittedTime = submissionDate;
             this.ApprovedTime = approvalDate;
             this.Status = status;
-            //this.Remarks = remarks;
+            this.Remarks = remarks;
         }
 
         public int RequestId { get => id; set => id = value; }
         public string EmployeeName { get => empName; set => empName = value; }
         public decimal? Amount { get => amount; set => amount = value; }
-        public DateTime? SubmittedTime { get => submittedTime; set => submittedTime = value; }
-        public DateTime? ApprovedTime { get => approvedTime; set => approvedTime = value; }
-        public string Status { get; set; }
+        public string SubmittedTime { get => submittedTime; set => submittedTime = value; }
+        public string ApprovedTime { get => approvedTime; set => approvedTime = value; }
+        public string Status { get => status; set => status = value; }
+        public string Remarks { get => remarks; set => remarks = value; }
 
         //public string Remarks { get; set; }
     }

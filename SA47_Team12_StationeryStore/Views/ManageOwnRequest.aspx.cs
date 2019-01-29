@@ -32,6 +32,8 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);//hardcord employeeId for testing
                 PendingRequestGridView.DataBind();
+                RequestGridView.Columns[3].Visible = false;
+                RequestGridView.Columns[4].Visible = false;
                 PendingRequestGridView.Visible = true;
                 RequestGridView.Visible = false;
                 RequestDetailsGridView.Visible = false;
@@ -50,20 +52,21 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 RequestGridView.DataSource = RequestBizLogic.ViewRejectedRequest(EmpID);//hardcord employeeId for testing
                 RequestGridView.DataBind();
+                RequestGridView.Columns[3].Visible = false;
                 RequestGridView.Visible = true;
                 PendingRequestGridView.Visible = false;
                 RequestDetailsGridView.Visible = false;
                 //DeleteButton.Visible = false;
             }
-            if (value == "Processed")
-            {
-                RequestGridView.DataSource = RequestBizLogic.ViewProcessedRequest(EmpID);//hardcord employeeId for testing
-                RequestGridView.DataBind();
-                RequestGridView.Visible = true;
-                PendingRequestGridView.Visible = false;
-                RequestDetailsGridView.Visible = false;
-                //DeleteButton.Visible = false;
-            }
+            //if (value == "Processed")
+            //{
+            //    RequestGridView.DataSource = RequestBizLogic.ViewProcessedRequest(EmpID);//hardcord employeeId for testing
+            //    RequestGridView.DataBind();
+            //    RequestGridView.Visible = true;
+            //    PendingRequestGridView.Visible = false;
+            //    RequestDetailsGridView.Visible = false;
+            //    //DeleteButton.Visible = false;
+            //}
         }
 
         protected void RequestGridView_RowDataBound(object sender, GridViewRowEventArgs e)
