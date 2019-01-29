@@ -13,15 +13,6 @@ namespace SA47_Team12_StationeryStore.Views {
     public partial class ManageCatalogue {
         
         /// <summary>
-        /// lblSearchByItemDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSearchByItemDescription;
-        
-        /// <summary>
         /// SearchTextBox control.
         /// </summary>
         /// <remarks>

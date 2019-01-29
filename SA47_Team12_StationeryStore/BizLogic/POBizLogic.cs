@@ -385,24 +385,65 @@ namespace SA47_Team12_StationeryStore.BizLogic
             context.SaveChanges();
         }
         //after schedule, deplist who has scheduled disbursement
-        public static List<int> DepartmentList()
+        public static List<int> DepartmentList(string status)
         {
-            List<int> list = context.Disbursement.Where(x => x.Delivery.Status == "Scheduled").Select<Disbursement, int>(x => (int)x.DepartmentID).Distinct().ToList<int>();
+            DateTime today = DateTime.Now.Date;
+            List<int> list = new List<int>();
+            if (status == "Today's Delivery")
+            {
+                list = context.Disbursement.Where(x => x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate == today).Select<Disbursement, int>(x => (int)x.DepartmentID).Distinct().ToList<int>();
+            }
+            else if(status == "Pending Delivery")
+            {
+                list = context.Disbursement.Where(x => x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate < today).Select<Disbursement, int>(x => (int)x.DepartmentID).Distinct().ToList<int>();
+            }
+            else
+            {
+                list = context.Disbursement.Where(x => x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate > today).Select<Disbursement, int>(x => (int)x.DepartmentID).Distinct().ToList<int>();
+
+            }
             return list;
         }
 
         //after schedule, list items and Qty by dep
-        public static List<DisburseInfo> BindDisbursementByEmp(int DepartmentID)
+        public static List<DisburseInfo> BindDisbursementByEmp(int DepartmentID, string status)
         {
             DateTime today = DateTime.Now.Date;
-            List<DisburseInfo> d = context.Disbursement.Where(x => x.DepartmentID == DepartmentID && x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate == today).Select(y => new DisburseInfo()
+            
+
+            if (status == "Today's Delivery")
             {
-                DisbursementID = y.DisbursementID,
-                DepartmentDes = y.Department.Description,
-                DisbursedQty = y.DisbursedQty,
-                ItemDes = y.CatalogueInventory.Item_Description
-            }).ToList<DisburseInfo>();
-            return d;
+                List<DisburseInfo> d = context.Disbursement.Where(x => x.DepartmentID == DepartmentID && x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate == today).Select(y => new DisburseInfo()
+                {
+                    DisbursementID = y.DisbursementID,
+                    DepartmentDes = y.Department.Description,
+                    DisbursedQty = y.DisbursedQty,
+                    ItemDes = y.CatalogueInventory.Item_Description
+                }).ToList<DisburseInfo>();
+                return d;
+            }
+            else if (status == "Pending Delivery")
+            {
+                List<DisburseInfo> d = context.Disbursement.Where(x => x.DepartmentID == DepartmentID && x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate < today).Select(y => new DisburseInfo()
+                {
+                    DisbursementID = y.DisbursementID,
+                    DepartmentDes = y.Department.Description,
+                    DisbursedQty = y.DisbursedQty,
+                    ItemDes = y.CatalogueInventory.Item_Description
+                }).ToList<DisburseInfo>();
+                return d;
+            }
+            else
+            {
+                List<DisburseInfo> d = context.Disbursement.Where(x => x.DepartmentID == DepartmentID && x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate > today).Select(y => new DisburseInfo()
+                {
+                    DisbursementID = y.DisbursementID,
+                    DepartmentDes = y.Department.Description,
+                    DisbursedQty = y.DisbursedQty,
+                    ItemDes = y.CatalogueInventory.Item_Description
+                }).ToList<DisburseInfo>();
+                return d;
+            }
         }
 
         public static int RequestQty(string ItemID, int DepartmentID)

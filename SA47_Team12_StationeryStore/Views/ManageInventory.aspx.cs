@@ -65,6 +65,7 @@ namespace SA47_Team12_StationeryStore.Views
             else
             {
                 PopulateControlLists();
+                BindGrid();
 
                 if (!IsPostBack)
                 {                   

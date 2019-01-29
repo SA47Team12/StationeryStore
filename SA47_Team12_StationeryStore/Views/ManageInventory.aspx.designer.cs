@@ -13,15 +13,6 @@ namespace SA47_Team12_StationeryStore.Views {
     public partial class ManageInventory {
         
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
         /// SearchTextBox control.
         /// </summary>
         /// <remarks>

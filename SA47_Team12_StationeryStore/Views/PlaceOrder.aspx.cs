@@ -76,6 +76,7 @@ namespace SA47_Team12_StationeryStore.Views
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
             POBizLogic.PlaceOrder(EmpID);
             BindGrid();
+            Response.Write("<script>alert('Order Placed !');</script>");
         }
 
         protected List<Supplier> GetSupplier(string ItemID)
@@ -95,41 +96,7 @@ namespace SA47_Team12_StationeryStore.Views
                     dropdownCodes.DataSource = POBizLogic.ListSup(e.Row.Cells[0].Text);
                     dropdownCodes.DataBind();
                 }
-
-                /*
-                // In case of template fields, use FindControl
-                dd = e.Row.Cells[2].FindControl("MyDD") as DropDownList;
-                */
             }
-
-            //GridViewRow drv = PlaceOrderGridView.Rows[e.Row.DataItemIndex];
-            ////    if (e.Row.RowType == DataControlRowType.DataRow)
-            ////    {
-            //String ItemID = drv.Cells[0].Text;
-            ////        //Now You Have State So You Can Get All Code Values By State Name
-            ////        //DataTable dtcodes = GetByState();
-            ////        //Now Bind This Code To DropDownList Of Codes
-            //DropDownList dropdownCodes = (DropDownList)e.Row.FindControl("DropDownList1");
-            //dropdownCodes.DataSource = POBizLogic.ListSup(ItemID);
-            //dropdownCodes.DataBind();
-            //}
-
-            //protected void GridView_RowDataBound(Object sender, GridViewRowEventArgs e)
-            //{
-            //    System.Data.DataRowView drv = (System.Data.DataRowView)e.Row.DataItem;
-            //    if (e.Row.RowType == DataControlRowType.DataRow)
-            //    {
-            //        String ItemID = drv["ItemID"].ToString();
-            //        //Now You Have State So You Can Get All Code Values By State Name
-            //        //DataTable dtcodes = GetByState();
-            //        //Now Bind This Code To DropDownList Of Codes
-            //        DropDownList dropdownCodes = (DropDownList)e.Row.FindControl("DropDownList1");
-            //        dropdownCodes.DataSource = POBizLogic.ListSup(ItemID);
-            //        dropdownCodes.DataBind();
-
-            //    }
-
-            //}
         }
     }
 }

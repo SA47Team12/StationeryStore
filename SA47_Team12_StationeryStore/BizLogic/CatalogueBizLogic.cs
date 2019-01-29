@@ -11,12 +11,10 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
             using (StationeryStoreEntities _entities = new StationeryStoreEntities())
             {
-                var catalogueList = _entities.CatalogueInventory
-                                    
-                                    
+                var catalogueList = _entities.CatalogueInventory                                    
                                     .Select(c => new CatalogueInventoryViewModel
                                     {
-                                        ItemNo = c.ItemID,
+                                        ItemID = c.ItemID,
                                         CategoryDescription = c.Category.Category_Description,
                                         ItemDescription = c.Item_Description,
                                         ReorderLevel = c.ReorderLevel,
@@ -45,7 +43,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                                     .Where(c => c.Category.Category_Description.Contains(searchString))
                                     .Select(c => new CatalogueInventoryViewModel
                                     {
-                                        ItemNo = c.ItemID,
+                                        ItemID = c.ItemID,
                                         CategoryDescription = c.Category.Category_Description,
                                         ItemDescription = c.Item_Description,
                                         ReorderLevel = c.ReorderLevel,

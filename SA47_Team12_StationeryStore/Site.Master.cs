@@ -92,7 +92,6 @@ namespace SA47_Team12_StationeryStore
 
                     if (HttpContext.Current.User.IsInRole("Dept Head"))
                     {
-                        Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Dept Head");
                         if (deptID == 2007)
                         {
                             PurchasingDHTreeView.Visible = true;
@@ -108,48 +107,41 @@ namespace SA47_Team12_StationeryStore
                         Delegation d = context.Delegation.Where(x => x.EmployeeID == empId && (x.StartDate <= today && x.EndDate >= today)).FirstOrDefault<Delegation>();
                         if (d != null)
                         {
-                            Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Dept Delegated Staff");
                             DHTreeView.Visible = true;
                         }
                         else
                         {
                             if (emp.isUserRep == 1)
                             {
-                                Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Dept Staff");
                                 URDeptStaffTreeView.Visible = true;
                             }
                             else
                             {
-                                Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Dept Staff");
                                 DeptStaffTreeView.Visible = true;
                             }
                         }
                     }
                     else if (HttpContext.Current.User.IsInRole("Store Manager"))
                     {
-                        Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Store Manager");
                         ManagerTreeView.Visible = true;
                     }
                     else if (HttpContext.Current.User.IsInRole("Store Supervisor"))
                     {
-                        Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Store Supervisor");
                         SupervisorTreeView.Visible = true;
                     }
                     else if (HttpContext.Current.User.IsInRole("Store Clerk"))
                     {
-                        Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Store Clerk");
                         ClerkTreeView.Visible = true;
                     }
                     else if (HttpContext.Current.User.IsInRole("Admin"))
                     {
-                        Label1.Text = String.Format("Hello {0}/{1}", HttpContext.Current.User.Identity.Name, " Admin");
                         AdminTreeView.Visible = true;
                     }
                 }
             }
             else
             {
-                Label1.Text = "Not logged in";
+                //Label1.Text = "Not logged in";
             }
         }
 
@@ -158,16 +150,6 @@ namespace SA47_Team12_StationeryStore
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
-        //protected bool IsDelegated()
-        //{
-        //    DateTime today = DateTime.Now.Date;
-        //    StationeryStoreEntities context = new StationeryStoreEntities();
-        //    String id = HttpContext.Current.User.Identity.GetUserId();
-        //    Employee emp = context.Employee.Where(x => x.Id == id).ToList().FirstOrDefault();
-        //    Delegation d = context.Delegation.Where(x => x.DepartmentID == emp.DepartmentID && (x.StartDate <= today && x.EndDate >= today)).FirstOrDefault();
-        //    if (d != null) return true;
-        //    else return false;
-        //}
     }
 
 }

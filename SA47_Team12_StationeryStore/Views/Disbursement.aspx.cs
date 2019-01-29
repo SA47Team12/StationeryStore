@@ -26,15 +26,14 @@ namespace SA47_Team12_StationeryStore.Views
                 {
                     POBizLogic.GenerateDisbursementwithOuts();
                     BindGrid();
+                    if (DisbursementGridView.Rows.Count == 0)
+                    {
+                        ProceedToDeliverButton.Visible = false;                       
+                    }
                 }
-            }
-            
+            }            
         }
 
-        protected List<int> DepartmentList()
-        {
-            return POBizLogic.DepartmentList();
-        }
 
         protected void DisbursementGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {

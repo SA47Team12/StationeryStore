@@ -2,8 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-        <asp:Label ID="lblSearchByItemDescription" runat="server" Text="Search By Item Description"></asp:Label>
-        <div style="border: 5px solid; padding: 10px; margin-right: 65%">
+        <div>
             <asp:TextBox ID="SearchTextBox" runat="server" placeholder=" Type to search here..." Width="550px" Height="30px"></asp:TextBox>
             &nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" CssClass="btn btn-primary" Width="76px" />

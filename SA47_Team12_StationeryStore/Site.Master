@@ -97,7 +97,7 @@
             </div>
         </div>
 
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <%--<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>--%>
         <br />
         <%-- menus for user based on roles --%>
         <div class="row">

@@ -3,6 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div>
+        <asp:Label ID="Label2" runat="server" Text="Select status:"></asp:Label>
+            <br />
+            <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
+                <asp:ListItem>Pending Delivery</asp:ListItem>
+                <asp:ListItem Selected="True">Today's Delivery</asp:ListItem>
+                <asp:ListItem>Upcoming Delivery</asp:ListItem>
+            </asp:RadioButtonList>
+            <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
+            <br />
+    </div>
+
+    <div>
         <br />
         <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2001" runat="server" CssClass="table table-striped table-bordered"
@@ -324,5 +336,6 @@
         <asp:Button ID="Confirm2007" runat="server" Text="Confirm" OnClick="Confirm2007_Click" CssClass="btn btn-primary" Visible="false" />
 
     </div>
+
 
 </asp:Content>

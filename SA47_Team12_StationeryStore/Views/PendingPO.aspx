@@ -33,7 +33,7 @@
                     
                     <asp:TemplateField>
                        <ItemTemplate>
-                            <asp:Button ID="Confirm" runat="server" Text="Confirm Order" OnClick="Confirm_Click" />
+                            <asp:Button ID="Confirm" runat="server" Text="Confirm Delivery" OnClick="Confirm_Click" />
                        </ItemTemplate>
                     </asp:TemplateField>
                     

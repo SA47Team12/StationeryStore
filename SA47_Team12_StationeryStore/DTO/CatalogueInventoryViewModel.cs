@@ -9,7 +9,7 @@ namespace SA47_Team12_StationeryStore
     public class CatalogueInventoryViewModel
     {
         public int? SerialNo { get; set; }
-        public string ItemNo { get; set; }
+        public string ItemID { get; set; }
         public string CategoryDescription { get; set; }
         public string ItemDescription { get; set; }
         public int? ReorderLevel { get; set; }

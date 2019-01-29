@@ -30,8 +30,8 @@ namespace SA47_Team12_StationeryStore
                 MailMessage mailMessage = new MailMessage();
                 mailMessage.To.Add("teststationery47@gmail.com");
                 mailMessage.From = new MailAddress("teststationery47@gmail.com");
-                mailMessage.Subject = String.Format("Item {0} is low in stock - {1}", c.ItemNo, c.ItemDescription);
-                mailMessage.Body = String.Format(" Item {0} is low in stock - {1}", c.ItemNo, c.ItemDescription);
+                mailMessage.Subject = String.Format("Item {0} is low in stock - {1}", c.ItemID, c.ItemDescription);
+                mailMessage.Body = String.Format(" Item {0} is low in stock - {1}", c.ItemID, c.ItemDescription);
 
                 smtpClient.EnableSsl = true;
                 smtpClient.Send(mailMessage);

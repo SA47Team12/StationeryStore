@@ -89,6 +89,8 @@ namespace SA47_Team12_StationeryStore.Views
             else if (Supplier3.Checked)
                 BindGridBySup(13003);
             else BindGridBySup(13004);
+
+            Response.Write("<script>alert('Sent delivery confirmation!');</script>");
         }
 
         protected void SelectSupButton_Click(object sender, EventArgs e)

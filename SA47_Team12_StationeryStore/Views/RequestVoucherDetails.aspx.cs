@@ -14,8 +14,13 @@ namespace SA47_Team12_StationeryStore.Views
 
         private void BindGrid()
         {
+
             RaiseVouReqGridView.DataSource = VoucherBizLogic.ListVoucherDetails((int)HttpContext.Current.Session["EmpID"]); // previously hardcoded as 1005
             RaiseVouReqGridView.DataBind();
+            if (RaiseVouReqGridView.Rows.Count == 0)
+            {
+                RaiseVouReqButton.Visible = false;
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
