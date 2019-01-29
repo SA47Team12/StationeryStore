@@ -16,14 +16,14 @@ namespace SA47_Team12_StationeryStore.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ClerkSup_ItemOrderedRpt : ReportClass {
+    public class ClerkSup_ItemOrdered : ReportClass {
         
-        public ClerkSup_ItemOrderedRpt() {
+        public ClerkSup_ItemOrdered() {
         }
         
         public override string ResourceName {
             get {
-                return "ClerkSup_ItemOrderedRpt.rpt";
+                return "ClerkSup_ItemOrdered.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace SA47_Team12_StationeryStore.Reports {
         
         public override string FullResourceName {
             get {
-                return "SA47_Team12_StationeryStore.Reports.ClerkSup_ItemOrderedRpt.rpt";
+                return "SA47_Team12_StationeryStore.Reports.ClerkSup_ItemOrdered.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace SA47_Team12_StationeryStore.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,9 @@ namespace SA47_Team12_StationeryStore.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.ReportDefinition.Sections[4];
             }
         }
         
@@ -103,12 +95,20 @@ namespace SA47_Team12_StationeryStore.Reports {
                 return this.DataDefinition.ParameterFields[0];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Item_Category {
+            get {
+                return this.DataDefinition.ParameterFields[1];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedClerkSup_ItemOrderedRpt : Component, ICachedReport {
+    public class CachedClerkSup_ItemOrdered : Component, ICachedReport {
         
-        public CachedClerkSup_ItemOrderedRpt() {
+        public CachedClerkSup_ItemOrdered() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace SA47_Team12_StationeryStore.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ClerkSup_ItemOrderedRpt rpt = new ClerkSup_ItemOrderedRpt();
+            ClerkSup_ItemOrdered rpt = new ClerkSup_ItemOrdered();
             rpt.Site = this.Site;
             return rpt;
         }

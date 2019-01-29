@@ -256,7 +256,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\AddNewItem.aspx" />
     <Content Include="Views\CancelDelegation.aspx" />
-    <Content Include="Views\ClerkSup_ItemOrdered.aspx" />
+    <Content Include="Views\ClerkSup_ItemOrderedRpt.aspx" />
     <Content Include="Views\ClerkSup_ItemReqBreakdownByDeptRpt.aspx" />
     <Content Include="Views\ClerkSup_ItemReqHistoryFullRpt.aspx" />
     <Content Include="Views\ClerkSup_ItemReqQtyBreakdownRpt.aspx" />
@@ -435,6 +435,13 @@
     <Compile Include="Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ClerkSup_ItemOrdered.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClerkSup_ItemOrdered.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Reports\ClerkSup_ItemReqQtyBreakdownByDept.cs">
       <DependentUpon>ClerkSup_ItemReqQtyBreakdownByDept.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -555,10 +562,10 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Reports\ClerkSup_ItemOrderedRpt.cs">
+    <Compile Include="Reports\ClerkSup_ItemOrderedRpt%28notinuse%29.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClerkSup_ItemOrderedRpt.rpt</DependentUpon>
+      <DependentUpon>ClerkSup_ItemOrderedRpt%28notinuse%29.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -634,12 +641,12 @@
     <Compile Include="Views\CancelDelegation.aspx.designer.cs">
       <DependentUpon>CancelDelegation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ClerkSup_ItemOrdered.aspx.cs">
-      <DependentUpon>ClerkSup_ItemOrdered.aspx</DependentUpon>
+    <Compile Include="Views\ClerkSup_ItemOrderedRpt.aspx.cs">
+      <DependentUpon>ClerkSup_ItemOrderedRpt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ClerkSup_ItemOrdered.aspx.designer.cs">
-      <DependentUpon>ClerkSup_ItemOrdered.aspx</DependentUpon>
+    <Compile Include="Views\ClerkSup_ItemOrderedRpt.aspx.designer.cs">
+      <DependentUpon>ClerkSup_ItemOrderedRpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ClerkSup_ItemReqBreakdownByDeptRpt.aspx.cs">
       <DependentUpon>ClerkSup_ItemReqBreakdownByDeptRpt.aspx</DependentUpon>
@@ -835,6 +842,11 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ClerkSup_ItemOrdered.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClerkSup_ItemOrdered.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ClerkSup_ItemReqQtyBreakdownByDept.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ClerkSup_ItemReqQtyBreakdownByDept.cs</LastGenOutput>
@@ -859,9 +871,9 @@
       <LastGenOutput>Clerk_ItemReqQtyBreakdownFull.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ClerkSup_ItemOrderedRpt.rpt">
+    <EmbeddedResource Include="Reports\ClerkSup_ItemOrderedRpt%28notinuse%29.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ClerkSup_ItemOrderedRpt.cs</LastGenOutput>
+      <LastGenOutput>ClerkSup_ItemOrderedRpt%28notinuse%29.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq.rpt">
