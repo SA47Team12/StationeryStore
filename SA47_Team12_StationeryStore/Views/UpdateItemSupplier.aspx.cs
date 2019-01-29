@@ -29,12 +29,12 @@ namespace SA47_Team12_StationeryStore.Views
         protected void GoButton_Click(object sender, EventArgs e)
         {
             ItemID = ItemDropDownList.SelectedItem.Value;
-            Label1.Text = "Current 1st Priorty Supplier: " + SupplierBizLogic.FindItemSupplierByID(ItemID).P1Supplier;
-            Label2.Text = "Current 2nd Priorty Supplier: " + SupplierBizLogic.FindItemSupplierByID(ItemID).P2Supplier;
-            Label3.Text = "Current 3rd Priorty Supplier: " + SupplierBizLogic.FindItemSupplierByID(ItemID).P3Supplier;
-            Label4.Text = "Select for your updates:";
-            Label5.Text = "Select for your updates:";
-            Label6.Text = "Select for your updates:";
+            Label1.Text = "Current 1st Priorty Supplier : " + SupplierBizLogic.FindItemSupplierByID(ItemID).P1Supplier;
+            Label2.Text = "Current 2nd Priorty Supplier : " + SupplierBizLogic.FindItemSupplierByID(ItemID).P2Supplier;
+            Label3.Text = "Current 3rd Priorty Supplier : " + SupplierBizLogic.FindItemSupplierByID(ItemID).P3Supplier;
+            Label4.Text = "Select for your updates :";
+            Label5.Text = "Select for your updates :";
+            Label6.Text = "Select for your updates :";
             Priority1DropDownList.Visible = true;
             Priority2DropDownList.Visible = true;
             Priority3DropDownList.Visible = true;

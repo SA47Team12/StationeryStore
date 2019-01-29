@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div>
+        <asp:Label ID="Label1" runat="server" Text="Select status :"></asp:Label>
         <asp:RadioButtonList ID="StatusRadioButtonList" runat="server" >
         </asp:RadioButtonList>
         <br />

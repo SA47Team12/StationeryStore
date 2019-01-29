@@ -67,9 +67,9 @@ namespace SA47_Team12_StationeryStore.BizLogic
                                                     ItemId = c.ItemID,
                                                     ItemDescription = c.Item_Description,
                                                     UnitOfMeasure = c.UnitOfMeasure,
-                                                    FirstSupplier = c.Supplier.P1name,
-                                                    SecondSupplier = c.Supplier.P2name,
-                                                    ThirdSupplier = c.Supplier.P3name
+                                                    FirstSupplier = c.Supplier.Name,
+                                                    SecondSupplier = c.Supplier1.Name,
+                                                    ThirdSupplier = c.Supplier2.Name
 
                                                 }).ToList();
 

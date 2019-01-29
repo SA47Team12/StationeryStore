@@ -154,6 +154,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
             RequestBizLogic.DeletePendingRequest(EmpID);
+            Response.Write("<script>alert('Request Deleted!');</script>");
         }
 
         protected void ButtonSubmitRequest_Click(object sender, EventArgs e)
@@ -161,6 +162,7 @@ namespace SA47_Team12_StationeryStore.Views
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
             RequestBizLogic.SubmitRequest(EmpID);//hardcord for testing
             GridViewCartBindGrid();
+            Response.Write("<script>alert('Request Submitted Successfully !');</script>");
 
             //send mail to DH
             String from = "teststationery47@gmail.com";

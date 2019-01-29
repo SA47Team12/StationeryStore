@@ -5,7 +5,7 @@
     <br />
     <div class="row">
         <div class="col-sm-4" style="border: 5px solid; padding: 10px">
-            <asp:TextBox ID="TextBoxSearch" placeholder="Type item to search here..." runat="server" Width="500px" Height="30px"></asp:TextBox>
+            <asp:TextBox ID="TextBoxSearch" placeholder=" Type item to search here..." runat="server" Width="500px" Height="30px"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;
             <asp:Button ID="ButtonSearch" runat="server" OnClick="ButtonSearch_Click" CssClass="btn btn-primary" Text="Search" />
         </div>

@@ -9,7 +9,7 @@
         </div>
         <br />
         <br />
-        <asp:GridView DataKeyNames="ItemNo" ID="ManageCatalogueGridView" runat="server" CssClass="table table-striped table-bordered"
+        <asp:GridView DataKeyNames="ItemID" ID="ManageCatalogueGridView" runat="server" CssClass="table table-striped table-bordered"
             AutoGenerateColumns="False" OnRowEditing="ManageCatalogueGridView_RowEditing"
             OnRowCancelingEdit="ManageCatalogueGridView_RowCancelingEdit"
             OnRowUpdating="ManageCatalogueGridView_RowUpdating" EmptyDataText="There are no catalogue items" ShowHeaderWhenEmpty="True"
@@ -18,7 +18,7 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="SerialNo" ReadOnly="true" HeaderText="Serial No." />
-                <asp:BoundField DataField="ItemNo" ReadOnly="true" HeaderText="Item No." />
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="Item No." />
                 <asp:BoundField DataField="CategoryDescription" ReadOnly="true" HeaderText="Category Description" />
                 <asp:BoundField DataField="ItemDescription" ReadOnly="true" HeaderText="Item Description" />
                 <asp:TemplateField HeaderText="Reorder Level">

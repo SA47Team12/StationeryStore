@@ -40,6 +40,7 @@
                 <FooterStyle BackColor="#284775" ForeColor="White" />
                 <HeaderStyle BackColor="#284775" ForeColor="White" />
                 <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="White" />
             </asp:GridView>
             <br />
 
@@ -65,6 +66,7 @@
                 <FooterStyle BackColor="#284775" ForeColor="White" />
                 <HeaderStyle BackColor="#284775" ForeColor="White" />
                 <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="White" />
             </asp:GridView>
             &nbsp;
             <br />

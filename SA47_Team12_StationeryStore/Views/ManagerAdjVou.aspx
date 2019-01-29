@@ -18,9 +18,6 @@
             <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="List of Adjustment Vouchers"></asp:Label>
-            <br />
-            <br />
             <asp:GridView ID="AdjVouGridView"  CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="False"  
                 DataKeyNames="VoucherID" OnSelectedIndexChanged="AdjVouGridView_SelectedIndexChanged"
                 EmptyDataText="There are no request to display." ShowHeaderWhenEmpty="True"
@@ -38,6 +35,7 @@
             <FooterStyle BackColor="#284775" ForeColor="White" />
             <HeaderStyle BackColor="#284775" ForeColor="White" />
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="White" />
             </asp:GridView>
             <br />
             <asp:GridView ID="AdjVouDetailsGridView" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False"  
@@ -57,6 +55,7 @@
             <FooterStyle BackColor="#284775" ForeColor="White" />
             <HeaderStyle BackColor="#284775" ForeColor="White" />
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="White" />
             </asp:GridView>
             <br />
             <br />
