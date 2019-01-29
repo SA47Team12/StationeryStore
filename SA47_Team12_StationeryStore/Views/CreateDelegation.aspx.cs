@@ -23,19 +23,6 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 if (!this.IsPostBack)
                 {
-                    //WindowsPrincipal wp = new WindowsPrincipal(WindowsIdentity.GetCurrent());
-                    //String username = wp.Identity.Name;
-
-                    //static string id = HttpContext.Current.User.Identity.ToString();
-                    string name = (string)HttpContext.Current.Session["User"];
-                    StationeryStoreEntities context = new StationeryStoreEntities();
-                    //Employee emp = context.Employee.Where(x => x.Id == user.UserName).FirstOrDefault<Employee>();
-                    Label5.Text = "Hello" + name;
-                    //String Empid = id;
-
-
-                    //Employee emp = context.Employee.Where(x => x.Id = id).
-
                     int EmpID = (int)HttpContext.Current.Session["EmpID"];
                     int DeptID = (int)HttpContext.Current.Session["DeptID"];
                     SelectStaffDropDownList.DataSource = SupplierBizLogic.FindEmpByDepID2(DeptID, EmpID);
@@ -55,7 +42,7 @@ namespace SA47_Team12_StationeryStore.Views
                 {
                     if (Calendar1.SelectedDate >= DateTime.Now.Date)
                     {
-                        Label1.Text = Calendar1.SelectedDate.ToShortDateString();
+                        Label1.Text = String.Format("{0:ddd, MMM d, yyyy}", Calendar1.SelectedDate);
                         d = Calendar1.SelectedDate;
                         Label3.Text = "Your Selected Start Date : ";
                     }
@@ -76,7 +63,8 @@ namespace SA47_Team12_StationeryStore.Views
                     {
                         if (Calendar1.SelectedDate <= d2 && Calendar1.SelectedDate >= DateTime.Now.Date)
                         {
-                            Label1.Text = Calendar1.SelectedDate.ToShortDateString();
+                            Label1.Text = String.Format("{0:ddd, MMM d, yyyy}", Calendar1.SelectedDate);
+                            
                             d = Calendar1.SelectedDate;
                             Label3.Text = "Your Selected Start Date : ";
                         }
@@ -93,7 +81,7 @@ namespace SA47_Team12_StationeryStore.Views
 
                 if (Calendar1.SelectedDate >=d && Calendar1.SelectedDate>DateTime.Today)
                 {
-                    Label2.Text = Calendar1.SelectedDate.ToShortDateString();
+                    Label2.Text = String.Format("{0:ddd, MMM d, yyyy}", Calendar1.SelectedDate);
                     Label4.Text = "Your Selected End Date : ";
                     d2 = Calendar1.SelectedDate;
                     count++;
@@ -116,8 +104,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             if (Label1.Text != "Invalid Selection" && Label2.Text != "Invalid Selection")
-            {
-                
+            {                
                 int DeptID = (int)HttpContext.Current.Session["DeptID"];
                 
                 int EmpID = Convert.ToInt32(SelectStaffDropDownList.SelectedValue);
@@ -130,6 +117,7 @@ namespace SA47_Team12_StationeryStore.Views
                     Label2.Text = "";
                     Label3.Text = "";
                     Label4.Text = "";
+                    Calendar1.SelectedDate = DateTime.Now.Date;
                     SelectStaffDropDownList.SelectedIndex = 0;
                     DateRadioButtonList.SelectedIndex = 0;
                     count = 0;
@@ -142,9 +130,9 @@ namespace SA47_Team12_StationeryStore.Views
                     Label2.Text = "";
                     Label3.Text = "";
                     Label4.Text = "";
+                    Calendar1.SelectedDate = DateTime.Now.Date;
                     SelectStaffDropDownList.SelectedIndex = 0;
                     DateRadioButtonList.SelectedIndex = 0;
-
 
                     //send mail to delegated employee
                     String from = "teststationery47@gmail.com";

@@ -10,7 +10,7 @@
         <asp:GridView DataKeyNames="VoucherDetailId" ID="RaiseVouReqGridView" runat="server" CssClass="table table-striped table-bordered"
             AutoGenerateColumns="False" OnRowDeleting="RaiseVouReqGridView_RowDeleting" OnRowCancelingEdit="RaiseVouReqGridView_RowCancelingEdit"
             OnRowEditing="RaiseVouReqGridView_RowEditing" OnRowUpdating="RaiseVouReqGridView_RowUpdating"
-            EmptyDataText="There are no items" ShowHeaderWhenEmpty="True" Width="728px"
+            EmptyDataText="There are no items" ShowHeaderWhenEmpty="True" Width="1362px"
             AllowPaging="True" OnPageIndexChanging="RaiseVouReqGridView_PageIndexChanging" PageSize="5"
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
@@ -77,7 +77,7 @@
             ControlToValidate="ItemCodeTextBox" Display="None" ValidationGroup="ValidateAddVoucher_ServerValidate">
         </asp:CustomValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator0" runat="server" ControlToValidate="ItemCodeTextBox"
-            ErrorMessage="ItemCode must not be empty" ValidationGroup="ValidateAddVoucher" Display="none"></asp:RequiredFieldValidator>
+            ErrorMessage="ItemCode must not be empty" ValidationGroup="ValidateAddVoucher" Display="none" ForeColor="Red"></asp:RequiredFieldValidator>
 
         <br />
         <br />
@@ -90,7 +90,7 @@
             ControlToValidate="AdjQtyTextBox" Operator="DataTypeCheck" Type="Integer" ValidationGroup="ValidateAddVoucher" Display="None">
         </asp:CompareValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="AdjQtyTextBox"
-            ErrorMessage="AdjustedQty must not be empty" ValidationGroup="ValidateAddVoucher" Display="None"></asp:RequiredFieldValidator>
+            ErrorMessage="AdjustedQty must not be empty" ValidationGroup="ValidateAddVoucher" Display="None" ForeColor="Red"></asp:RequiredFieldValidator>
 
         <br />
         <br />
@@ -102,7 +102,7 @@
         <asp:TextBox ID="ReasonTextBox" runat="server"></asp:TextBox>
 
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ReasonTextBox"
-            ErrorMessage="Reason must not be empty" ValidationGroup="ValidateAddVoucher" Display="None"></asp:RequiredFieldValidator>
+            ErrorMessage="Reason must not be empty" ValidationGroup="ValidateAddVoucher" Display="None" ForeColor="Red"></asp:RequiredFieldValidator>
 
         <br />
         <br />

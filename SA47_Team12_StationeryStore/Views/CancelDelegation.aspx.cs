@@ -13,15 +13,13 @@ namespace SA47_Team12_StationeryStore.Views
         StationeryStoreEntities context = new StationeryStoreEntities();
 
         private void BindGrid()
-        {
-            
+        {          
             int DeptID = (int)HttpContext.Current.Session["DeptID"];
             
             DelegationHistoryGridView.DataSource = SupplierBizLogic.FindDelegation2(DeptID).ToList();
             DelegationHistoryGridView.DataBind();
             DelegationScheduleGridView.DataSource = SupplierBizLogic.FindDelegation(DeptID).ToList();
             DelegationScheduleGridView.DataBind();
-
         }
 
         protected void Page_Load(object sender, EventArgs e)

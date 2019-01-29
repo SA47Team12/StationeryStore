@@ -34,7 +34,7 @@
                     <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" />
                     <asp:BoundField DataField="SubmissionDate" HeaderText="Submission Date" />
                     <asp:BoundField DataField="Status" HeaderText="Status" />
-                    <asp:CommandField HeaderText="Details" ShowSelectButton="True" />
+                    <asp:CommandField ButtonType="Button" HeaderText="Details" ShowSelectButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#284775" ForeColor="White" />

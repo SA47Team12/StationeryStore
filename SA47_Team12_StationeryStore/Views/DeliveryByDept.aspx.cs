@@ -54,8 +54,7 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 if (!IsPostBack)
                 {
-                    BindGrid(status);
-                    
+                    BindGrid(status);                    
                 }
             }
             

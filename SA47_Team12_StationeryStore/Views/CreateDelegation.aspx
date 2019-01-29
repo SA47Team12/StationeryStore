@@ -5,7 +5,7 @@
         <h2 aria-dropeffect="none">Delegation of Role</h2>
 
         <div class="well">
-            &nbsp;<asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+            
             <asp:RadioButtonList ID="DateRadioButtonList" runat="server" >
                 <asp:ListItem Selected="True">Select Start Date</asp:ListItem>
                 <asp:ListItem>Select End Date</asp:ListItem>

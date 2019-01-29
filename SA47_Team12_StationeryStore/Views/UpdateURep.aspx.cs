@@ -20,12 +20,6 @@ namespace SA47_Team12_StationeryStore.Views
                 int DepID = (int)HttpContext.Current.Session["DeptID"];
                 if (!this.IsPostBack)
                 {
-                    //String id = HttpContext.Current.User.Identity.GetUserId();
-                    //Label6.Text = id;
-                    //StationeryStoreEntities context = new StationeryStoreEntities();
-                    //Employee emp = context.Employee.Where(x => x.Id == id).ToList().FirstOrDefault();
-                    //Label7.Text = emp.EmployeeID.ToString();
-                    //Label8.Text = emp.DepartmentID.ToString();
                     BindData(DepID);
                 }
             }
@@ -67,7 +61,7 @@ namespace SA47_Team12_StationeryStore.Views
                 SupplierBizLogic.UpdateNewURinEmptable(NewEmployeeID);
                 SupplierBizLogic.UpdateOldURinEmptable(OldEmployeeID);
                 updatedDeptURCollection = SupplierBizLogic.UpdateURcollectiontableUR(DepID, NewEmployeeID);
-
+                Response.Write("<script>alert('User Representative changed!');</script>");
             }
             catch (Exception exp)
             {
@@ -80,12 +74,11 @@ namespace SA47_Team12_StationeryStore.Views
                 MailMessage mailMessage = new MailMessage();
                 mailMessage.To.Add("teststationery47@gmail.com");
                 mailMessage.From = new MailAddress("teststationery47@gmail.com");
-                mailMessage.Subject = String.Format("Collection Point Details Changed for {0}", updatedDeptURCollection.Department.Description);
+                mailMessage.Subject = String.Format("User Representative Changed for {0}", updatedDeptURCollection.Department.Description);
                 mailMessage.Body =
                     String.Format("Updated Collection Point Details\n\nCollection Point: {0}\nUser Representative: {1}\n",
                     String.Format(updatedDeptURCollection.Collection.Location + " " + updatedDeptURCollection.Collection.Time),
                     updatedDeptURCollection.Employee.Name);
-
 
                 URDropDownList.SelectedIndex = 0;
 

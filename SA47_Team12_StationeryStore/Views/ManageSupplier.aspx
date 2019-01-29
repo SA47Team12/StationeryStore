@@ -35,7 +35,7 @@
                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("Phone") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:CommandField ShowEditButton="True" />
+                    <asp:CommandField ButtonType="Button" ShowEditButton="True" />
                 </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />

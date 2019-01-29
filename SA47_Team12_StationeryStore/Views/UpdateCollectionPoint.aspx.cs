@@ -20,12 +20,6 @@ namespace SA47_Team12_StationeryStore.Views
                 int DepID = (int)HttpContext.Current.Session["DeptID"];
                 if (!this.IsPostBack)
                 {
-                    //String id = HttpContext.Current.User.Identity.GetUserId();
-                    //Label6.Text = id;
-                    //StationeryStoreEntities context = new StationeryStoreEntities();
-                    //Employee emp = context.Employee.Where(x => x.Id == id).ToList().FirstOrDefault();
-                    //Label7.Text = emp.EmployeeID.ToString();
-                    //Label8.Text = emp.DepartmentID.ToString();
                     BindData(DepID);
                 }
             }
@@ -61,7 +55,7 @@ namespace SA47_Team12_StationeryStore.Views
             try
             {
                 updatedDeptURCollection = SupplierBizLogic.UpdateURcollectiontableCollection(DepID, NewCollectionID); // changed this to return a userrepcollection object
-                //Response.Redirect("Default2.aspx?username=" + user);
+                Response.Write("<script>alert('Collection Point updated!');</script>");
             }
             catch (Exception exp)
             {

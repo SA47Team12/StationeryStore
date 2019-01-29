@@ -8,14 +8,12 @@
             &nbsp;&nbsp;&nbsp;
             <br />
             <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
-
             </asp:RadioButtonList>
             <br />
             <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="List of Requests"></asp:Label>
-            <br />
+            
             <asp:GridView ID="RequestGridView" runat="server" AutoGenerateColumns="False"  CssClass="table table-striped table-bordered"
                 OnSelectedIndexChanged="RequestGridView_SelectedIndexChanged" DataKeyNames="RequestID" 
                 EmptyDataText="There are no request to display."  ShowHeaderWhenEmpty="True" 
@@ -30,7 +28,7 @@
                     <asp:BoundField DataField="SubmittedTime" HeaderText="Date Submitted" />
                     <asp:BoundField DataField="Status" HeaderText="Status" />
                     <asp:BoundField DataField="ApprovedTime" HeaderText="Date Approved" />
-                    <asp:CommandField HeaderText="Details" ShowSelectButton="True" />
+                    <asp:CommandField ButtonType="Button" HeaderText="Details" ShowSelectButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#284775" ForeColor="White" />
