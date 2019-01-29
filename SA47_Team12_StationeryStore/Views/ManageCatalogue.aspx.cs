@@ -10,7 +10,7 @@ namespace SA47_Team12_StationeryStore.Views
 {
     public partial class ManageCatalogue : System.Web.UI.Page
     {
-        static string searchString;
+        static string searchString ="";
 
         private void BindGrid()
         {
@@ -22,18 +22,16 @@ namespace SA47_Team12_StationeryStore.Views
         {
             ManageCatalogueGridView.DataSource = CatalogueBizLogic.ListCatalogue();
             ManageCatalogueGridView.DataBind();
-
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["EmpID"] == null)
                 Response.Redirect("/Account/Login.aspx");
-            else
+            else if (!IsPostBack)
             {
-                BindGrid1();
+                BindGrid(); // previously BindGrid1();
             }
-            
         }
 
         protected void SearchButton_Click(object sender, EventArgs e)

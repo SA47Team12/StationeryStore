@@ -256,6 +256,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\AddNewItem.aspx" />
     <Content Include="Views\CancelDelegation.aspx" />
+    <Content Include="Views\ClerkReports.aspx" />
     <Content Include="Views\ClerkSup_ItemOrderedRpt.aspx" />
     <Content Include="Views\ClerkSup_ItemReqBreakdownByDeptRpt.aspx" />
     <Content Include="Views\ClerkSup_ItemReqHistoryFullRpt.aspx" />
@@ -263,6 +264,7 @@
     <Content Include="Views\Clerk_ItemStockRpt.aspx" />
     <Content Include="Views\CreateDelegation.aspx" />
     <Content Include="Views\DeliveryByDept.aspx" />
+    <Content Include="Views\DHReports.aspx" />
     <Content Include="Views\DH_GenerateReport.aspx" />
     <Content Include="Views\DH_GenerateReport2.aspx" />
     <Content Include="Views\Disbursement.aspx" />
@@ -278,6 +280,7 @@
     <Content Include="Views\RaiseRequest.aspx" />
     <Content Include="Views\RequestVoucherDetails.aspx" />
     <Content Include="Views\SupervisorAdjVou.aspx" />
+    <Content Include="Views\SupervisorReports.aspx" />
     <Content Include="Views\UpdateCollectionPoint.aspx" />
     <Content Include="Views\UpdateItemSupplier.aspx" />
     <Content Include="Views\UpdateURep.aspx" />
@@ -641,6 +644,13 @@
     <Compile Include="Views\CancelDelegation.aspx.designer.cs">
       <DependentUpon>CancelDelegation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ClerkReports.aspx.cs">
+      <DependentUpon>ClerkReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ClerkReports.aspx.designer.cs">
+      <DependentUpon>ClerkReports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ClerkSup_ItemOrderedRpt.aspx.cs">
       <DependentUpon>ClerkSup_ItemOrderedRpt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -689,6 +699,13 @@
     </Compile>
     <Compile Include="Views\DeliveryByDept.aspx.designer.cs">
       <DependentUpon>DeliveryByDept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DHReports.aspx.cs">
+      <DependentUpon>DHReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DHReports.aspx.designer.cs">
+      <DependentUpon>DHReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\DH_GenerateReport.aspx.cs">
       <DependentUpon>DH_GenerateReport.aspx</DependentUpon>
@@ -794,6 +811,13 @@
     </Compile>
     <Compile Include="Views\SupervisorAdjVou.aspx.designer.cs">
       <DependentUpon>SupervisorAdjVou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupervisorReports.aspx.cs">
+      <DependentUpon>SupervisorReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SupervisorReports.aspx.designer.cs">
+      <DependentUpon>SupervisorReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateCollectionPoint.aspx.cs">
       <DependentUpon>UpdateCollectionPoint.aspx</DependentUpon>

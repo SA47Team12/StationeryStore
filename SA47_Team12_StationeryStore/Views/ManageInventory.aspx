@@ -5,10 +5,7 @@
     <div class="row">
         <div class="col-sm-7">
             <asp:Label ID="Label2" runat="server" Text="Search to search" Font-Bold="True" Font-Overline="False"></asp:Label>
-            <asp:RadioButtonList ID="SearchCatRadioButtonList" runat="server" Width="159px">
-                <asp:ListItem Value="0">Item Code</asp:ListItem>
-                <asp:ListItem Value="1">Item Category</asp:ListItem>
-            </asp:RadioButtonList>
+            
         </div>
         <div class="col-sm-5" style="border: 5px solid; padding: 10px">
             <asp:TextBox ID="SearchTextBox" runat="server" placeholder="Type here..." Width="450px" Height="26px"></asp:TextBox>
@@ -19,19 +16,19 @@
     <br />
 
     <div>
-        <asp:GridView DataKeyNames="ItemId" CssClass="table table-striped table-bordered" ID="InventoryGridView" runat="server" AutoGenerateColumns="False"
+        <asp:GridView DataKeyNames="ItemNo" CssClass="table table-striped table-bordered" ID="InventoryGridView" runat="server" AutoGenerateColumns="False"
             OnSelectedIndexChanged="InventoryGridView_SelectedIndexChanged" OnRowCommand="InventoryGridView_RowCommand"
             EmptyDataText="There are no items" OnSelectedIndexChanging="InventoryGridView_SelectedIndexChanging" ShowHeaderWhenEmpty="True"
-            AllowPaging="true" OnPageIndexChanging="InventoryGridView_PageIndexChanging" PageSize="10" GridLines="None" CellPadding="4" ForeColor="#333333">
+            AllowPaging="True" OnPageIndexChanging="InventoryGridView_PageIndexChanging" GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="SerialNo" HeaderText="Serial No" SortExpression="SerialNo" />
                 <asp:TemplateField HeaderText="Item Number" SortExpression="StockCardDescription">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtItemId_TemplateField" runat="server" Text='<%# Bind("ItemId") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtItemId_TemplateField" runat="server" Text='<%# Bind("ItemNo") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="labelItemId_TemplateField" runat="server" Text='<%# Bind("ItemId") %>'></asp:Label>
+                        <asp:Label ID="labelItemId_TemplateField" runat="server" Text='<%# Bind("ItemNo") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="CategoryDescription" HeaderText="Category Description" />

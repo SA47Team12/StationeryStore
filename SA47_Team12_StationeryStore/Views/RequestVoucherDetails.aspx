@@ -65,6 +65,9 @@
      </div>   
 
         <asp:Button ID="AddVouButton2" runat="server" Text="Add Voucher Item" OnClick="AddVouButton2_Click" CssClass="btn btn-primary" Width="157px"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="ViewPendingVouchersButton" runat="server" Text="View Pending Vouchers" OnClick="ViewPendingVouchersButton_Click" />
+
         <br />
         <br />
         <asp:GridView DataKeyNames="VoucherDetailId" ID="RaiseVouReqGridView" runat="server" CssClass="table table-striped table-bordered"

@@ -94,6 +94,30 @@ namespace SA47_Team12_StationeryStore.BizLogic
             }
         }
 
+        //Use this method to list voucher Details
+        public static List<VoucherDetailView> ListVoucherDetails(int employeeId, int voucherId)
+        {
+            using (StationeryStoreEntities _entities = new StationeryStoreEntities())
+            {
+                var listOfVoucherDetails = _entities.VoucherDetail
+                    .Where(v => v.EmployeeID == employeeId && v.VoucherID == voucherId)
+                    .Select(v => new VoucherDetailView
+                    {
+                        VoucherDetailId = v.AdjustmentID,
+                        ItemId = v.ItemID,
+                        AdjustedQty = v.AdjustedQty,
+                        Remarks = v.Remarks
+
+                    }).ToList();
+
+                for (int i = 0; i < listOfVoucherDetails.Count; i++)
+                {
+                    listOfVoucherDetails.ElementAt(i).SerialNo = i + 1;
+                }
+                return listOfVoucherDetails;
+            }
+        }
+
         // use this method when clerk clicks on raise request button
         public static void CreateVoucher(int employeeId)
         {

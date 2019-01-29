@@ -24,7 +24,6 @@ namespace SA47_Team12_StationeryStore.Views
         {
             searchControls = new List<Control>();
             searchControls.Add(InventoryGridView);
-            searchControls.Add(SearchCatRadioButtonList);
             searchControls.Add(SearchButton);
             searchControls.Add(SearchTextBox);
 
@@ -59,13 +58,6 @@ namespace SA47_Team12_StationeryStore.Views
             }
         }
 
-        // enum to represent options for RadSearch
-        enum Radiobuttonoptions
-        {
-            ItemCode = 0,
-            ItemCategory = 1
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["EmpID"] == null)
@@ -75,8 +67,7 @@ namespace SA47_Team12_StationeryStore.Views
                 PopulateControlLists();
 
                 if (!IsPostBack)
-                {
-                    
+                {                   
                     SetVisibilityofControlLists("Search");
                 }
             }
@@ -84,30 +75,17 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            if (SearchCatRadioButtonList.SelectedIndex == (int)Radiobuttonoptions.ItemCode) // Search By Item Code
-            {
-                InventoryGridView.DataSource = InventoryBizLogic.ListInventoryByItemCode(SearchTextBox.Text);
-                InventoryGridView.DataBind();
-            }
-
-            else if (SearchCatRadioButtonList.SelectedIndex == (int)Radiobuttonoptions.ItemCategory) // Search By Item Category
-            {
-                InventoryGridView.DataSource = InventoryBizLogic.ListInventoryByItemCategory(SearchTextBox.Text);
-                InventoryGridView.DataBind();
-            }
-        }
-
-        private void BindGrid1()
-        {
-            string itemCode = InventoryGridView.DataKeys[InventoryGridView.SelectedRow.RowIndex].Values[0].ToString();
-            StockCardsGridView.DataSource = InventoryBizLogic.GetStockCardsForItem(itemCode);
-            StockCardsGridView.DataBind();
+            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(SearchTextBox.Text);
+            InventoryGridView.DataBind();
         }
 
         protected void InventoryGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             //show stock cards for selected item
-            BindGrid1();
+            string itemCode = InventoryGridView.DataKeys[InventoryGridView.SelectedRow.RowIndex].Values[0].ToString();
+
+            StockCardsGridView.DataSource = InventoryBizLogic.GetCatalogueItem(itemCode);
+            StockCardsGridView.DataBind();
         }
 
         protected void InventoryGridView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -131,7 +109,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             InventoryGridView.PageIndex = e.NewPageIndex;
             InventoryGridView.DataBind();
-            //BindGrid();
+            BindGrid();
         }
 
         protected void StockCardsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

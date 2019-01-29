@@ -30,59 +30,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 return listOfInventoryItems;
             }
         }
-
-        // list catalogue-inventory items for manage inventory page when search criteria is by item code
-        public static List<InventoryView> ListInventoryByItemCode(string searchString)
-        {
-            using (StationeryStoreEntities _entities = new StationeryStoreEntities())
-            {
-                var listOfInventoryItems = _entities.CatalogueInventory
-                                            .Where(c => c.ItemID.Contains(searchString))
-                                            //.Include(c => c.Category)
-                                            .Select(c => new InventoryView
-                                            {
-                                                ItemId = c.ItemID,
-                                                CategoryDescription = c.Category.Category_Description,
-                                                ItemDescription = c.Item_Description,
-                                                ActualQty = c.ActualQty,
-                                                UnitOfMeasure = c.UnitOfMeasure
-
-                                            }).ToList();
-
-                for (int i = 0; i < listOfInventoryItems.Count; i++)
-                {
-                    listOfInventoryItems.ElementAt(i).SerialNo = i + 1;
-                }
-                return listOfInventoryItems;
-            }
-        }
-
-        // list catalogue-inventory items for manage inventory page when search criteria is by item category
-        public static List<InventoryView> ListInventoryByItemCategory(string searchString)
-        {
-            using (StationeryStoreEntities _entities = new StationeryStoreEntities())
-            {
-                var listOfInventoryItems = _entities.CatalogueInventory
-                                            //.Include(c => c.Category)
-                                            .Where(c => c.Category.Category_Description.Contains(searchString))
-                                            .Select(c => new InventoryView
-                                            {
-                                                ItemId = c.ItemID,
-                                                CategoryDescription = c.Category.Category_Description,
-                                                ItemDescription = c.Item_Description,
-                                                ActualQty = c.ActualQty,
-                                                UnitOfMeasure = c.UnitOfMeasure
-
-                                            }).ToList();
-
-                for (int i = 0; i < listOfInventoryItems.Count; i++)
-                {
-                    listOfInventoryItems.ElementAt(i).SerialNo = i + 1;
-                }
-                return listOfInventoryItems;
-            }
-        }
-
+       
         // after clicking on an item "details" button, page will load gridview with the list of stockcards for item
         public static List<StockCardView> GetStockCardsForItem(string itemId)
         {

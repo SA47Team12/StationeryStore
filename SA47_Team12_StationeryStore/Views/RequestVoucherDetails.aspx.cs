@@ -14,7 +14,7 @@ namespace SA47_Team12_StationeryStore.Views
 
         private void BindGrid()
         {
-            RaiseVouReqGridView.DataSource = VoucherBizLogic.ListVoucherDetails(1005);
+            RaiseVouReqGridView.DataSource = VoucherBizLogic.ListVoucherDetails((int)HttpContext.Current.Session["EmpID"]); // previously hardcoded as 1005
             RaiseVouReqGridView.DataBind();
         }
 
@@ -43,6 +43,7 @@ namespace SA47_Team12_StationeryStore.Views
                         AddVouButton2.Visible = true;
                         RaiseVouReqGridView.Visible = true;
                         RaiseVouReqButton.Visible = true;
+                        ViewPendingVouchersButton.Visible = true;
 
                         BindGrid();
                     }
@@ -56,6 +57,7 @@ namespace SA47_Team12_StationeryStore.Views
                         AddVouButton2.Visible = false;
                         RaiseVouReqGridView.Visible = false;
                         RaiseVouReqButton.Visible = false;
+                        ViewPendingVouchersButton.Visible = false;
                     }
                 }
             }
@@ -70,7 +72,7 @@ namespace SA47_Team12_StationeryStore.Views
                 int adjustedQty = Convert.ToInt32(AdjQtyTextBox.Text);
                 string Remarks = ReasonTextBox.Text;
 
-                VoucherBizLogic.CreateVoucherDetail(itemId, adjustedQty, Remarks, 1005); //hardcoded employeeid for now; to retrieve employeeID from login later
+                VoucherBizLogic.CreateVoucherDetail(itemId, adjustedQty, Remarks, (int)HttpContext.Current.Session["EmpID"]);// previously hardcoded employeeid as 1005; to retrieve employeeID from login later
                 BindGrid();
 
                 // make add voucher detail page non-visible
@@ -88,6 +90,7 @@ namespace SA47_Team12_StationeryStore.Views
                 AddVouButton2.Visible = true;
                 RaiseVouReqGridView.Visible = true;
                 RaiseVouReqButton.Visible = true;
+                ViewPendingVouchersButton.Visible = true;
             }
         }
 
@@ -112,14 +115,24 @@ namespace SA47_Team12_StationeryStore.Views
             AddVouButton2.Visible = false;
             RaiseVouReqGridView.Visible = false;
             RaiseVouReqButton.Visible = false;
+            ViewPendingVouchersButton.Visible = false;
         }
 
         //to raise request
         protected void RaiseVouReqButton_Click(object sender, EventArgs e)
         {
-            int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            VoucherBizLogic.CreateVoucher(EmpID);
-            Response.Redirect("~/Views/PendingVouchers.aspx");
+            BindGrid();
+            if (RaiseVouReqGridView.Rows.Count != 0)
+            {
+                int EmpID = (int)HttpContext.Current.Session["EmpID"];
+                VoucherBizLogic.CreateVoucher(EmpID);
+                Response.Redirect("~/Views/PendingVouchers.aspx");
+            }
+            else
+            {
+                RaiseVouReqButton.Visible = false;
+                Response.Write("<script>alert('No voucher items to add');</script>");
+            }
         }
 
         protected void RaiseVouReqGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -174,6 +187,11 @@ namespace SA47_Team12_StationeryStore.Views
             RaiseVouReqGridView.PageIndex = e.NewPageIndex;
             RaiseVouReqGridView.DataBind();
             BindGrid();
+        }
+
+        protected void ViewPendingVouchersButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/PendingVouchers.aspx");
         }
     }
 }

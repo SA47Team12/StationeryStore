@@ -42,7 +42,6 @@ namespace SA47_Team12_StationeryStore.BizLogic
             using (StationeryStoreEntities _entities = new StationeryStoreEntities())
             {
                 var catalogueList = _entities.CatalogueInventory
-                                    //.Include(c => c.Category)
                                     .Where(c => c.Category.Category_Description.Contains(searchString))
                                     .Select(c => new CatalogueInventoryViewModel
                                     {
@@ -61,7 +60,6 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 {
                     catalogueList.ElementAt(i).SerialNo = i + 1;
                 }
-
                 return catalogueList;
             }
         }

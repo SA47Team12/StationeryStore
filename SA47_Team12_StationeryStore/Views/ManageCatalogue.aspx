@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-        <asp:Label ID="lblSearchByCategoryName" runat="server" Text="Search By Category Name:"></asp:Label>
+        <asp:Label ID="lblSearchByItemDescription" runat="server" Text="Search By Item Description"></asp:Label>
         <div style="border: 5px solid; padding: 10px; margin-right: 65%">
             <asp:TextBox ID="SearchTextBox" runat="server" placeholder=" Type to search here..." Width="550px" Height="30px"></asp:TextBox>
             &nbsp;&nbsp;
@@ -61,7 +61,7 @@
                 <asp:BoundField DataField="UnitOfMeasure" ReadOnly="true" HeaderText="Unit of Measure" />
                 <asp:BoundField DataField="UnitCost" ReadOnly="true" HeaderText="Unit Cost" />
                 <asp:BoundField DataField="ActualQty" ReadOnly="true" HeaderText="Actual Qty" />
-                <asp:CommandField EditText="Update Reorder Level/Qty" ShowEditButton="True" />
+                <asp:CommandField EditText="Update Reorder Level/Qty" ShowEditButton="True" ButtonType="Button" />
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />

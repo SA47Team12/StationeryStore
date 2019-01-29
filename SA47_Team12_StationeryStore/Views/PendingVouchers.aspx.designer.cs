@@ -13,6 +13,33 @@ namespace SA47_Team12_StationeryStore.Views {
     public partial class PendingVouchers {
         
         /// <summary>
+        /// lblSelection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelection;
+        
+        /// <summary>
+        /// radioButtonAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radioButtonAll;
+        
+        /// <summary>
+        /// radioButtonLatest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radioButtonLatest;
+        
+        /// <summary>
         /// PendingVouchersGridView control.
         /// </summary>
         /// <remarks>
@@ -20,5 +47,14 @@ namespace SA47_Team12_StationeryStore.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView PendingVouchersGridView;
+        
+        /// <summary>
+        /// PendingVoucherItemsGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PendingVoucherItemsGridView;
     }
 }
