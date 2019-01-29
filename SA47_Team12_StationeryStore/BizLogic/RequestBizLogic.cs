@@ -214,7 +214,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                         amt[i] += rd.CatalogueInventory.UnitCost * rd.Qty;
                     }
 
-                    ViewRequest rc = new ViewRequest(r[i].RequestID, null, r[i].SubmissionDate, null, amt[i], null);
+                    ViewRequest rc = new ViewRequest(r[i].RequestID, null, String.Format("{0:ddd, MMM d, yyyy}", r[i].SubmissionDate), null, amt[i], null, null);
                     req.Add(rc);
                 }
                 return req;
