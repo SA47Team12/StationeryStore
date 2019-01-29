@@ -44,6 +44,8 @@
                 <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
                 <asp:BoundField DataField="Amount" HeaderText="Amount" DataFormatString="{0:C}"/>
                 <asp:BoundField DataField="SubmittedTime" HeaderText="Submitted Date"/>
+                <asp:BoundField DataField="Status" HeaderText="Status"/>
+                <asp:BoundField DataField="Remarks" HeaderText="Remarks"/>
                 <asp:CommandField ButtonType="Button" SelectText="View Details" ShowSelectButton="True" />
             </Columns>
             <EditRowStyle BackColor="#999999" />

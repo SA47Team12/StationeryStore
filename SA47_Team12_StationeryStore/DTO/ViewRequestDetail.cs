@@ -97,7 +97,7 @@ namespace SA47_Team12_StationeryStore
             this.UnitOfMeasure = unitOfMeasure;
             this.UnitCost = unitCost;
             this.TotalPrice = totalPrice;
-           
+
         }
     }
 }

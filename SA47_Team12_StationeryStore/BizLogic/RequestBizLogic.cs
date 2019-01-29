@@ -109,7 +109,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
-                List<Request> r = context.Request.Where(x => x.EmployeeID == id && x.Status == "Approved").ToList(); //RequestID is null when request is not submitted
+                List<Request> r = context.Request.Where(x => x.EmployeeID == id && (x.Status == "Approved" || x.Status == "Scheduled" || x.Status == "Delivered" || x.Status == "Processed")).ToList(); //RequestID is null when request is not submitted
 
                 List<ViewRequest> req = new List<ViewRequest>();
 
@@ -128,7 +128,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                         desc[i] = rd.CatalogueInventory.Item_Description;
                         qty[i] = rd.Qty;
                     }
-                    ViewRequest rc = new ViewRequest(r[i].RequestID, desc[i], r[i].SubmissionDate, null, qty[i], null);
+                    ViewRequest rc = new ViewRequest(r[i].RequestID, desc[i], String.Format("{0:ddd, MMM d, yyyy}", r[i].SubmissionDate), null, qty[i], r[i].Status, r[i].Remarks);
                     req.Add(rc);
                 }
                 return req;
@@ -159,7 +159,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                         desc[i] = rd.CatalogueInventory.Item_Description;
                         qty[i] = rd.Qty;
                     }
-                    ViewRequest rc = new ViewRequest(r[i].RequestID, desc[i], r[i].SubmissionDate, null, qty[i], null);
+                    ViewRequest rc = new ViewRequest(r[i].RequestID, desc[i], String.Format("{0:ddd, MMM d, yyyy}", r[i].SubmissionDate), null, qty[i], null, r[i].Remarks);
                     req.Add(rc);
                 }
                 return req;
@@ -167,31 +167,31 @@ namespace SA47_Team12_StationeryStore.BizLogic
         }
 
         //8. View delivering list of request
-        public static List<ViewRequest> ViewProcessedRequest(int id)
-        {
-            using (StationeryStoreEntities context = new StationeryStoreEntities())
-            {
-                List<Request> r = context.Request.Where(x => x.EmployeeID == id && x.Status == "Processed").ToList(); //RequestID is null when request is not submitted
+        //public static List<ViewRequest> ViewProcessedRequest(int id)
+        //{
+        //    using (StationeryStoreEntities context = new StationeryStoreEntities())
+        //    {
+        //        List<Request> r = context.Request.Where(x => x.EmployeeID == id && x.Status == "Processed").ToList(); //RequestID is null when request is not submitted
 
-                List<ViewRequest> req = new List<ViewRequest>();
-                for (int i = 0; i < r.Count; i++)
-                {
-                    decimal?[] amt = new decimal?[r.Count];
-                    amt[i] = 0;
+        //        List<ViewRequest> req = new List<ViewRequest>();
+        //        for (int i = 0; i < r.Count; i++)
+        //        {
+        //            decimal?[] amt = new decimal?[r.Count];
+        //            amt[i] = 0;
 
-                    HashSet<RequestDetail> l = (HashSet<RequestDetail>)r[i].RequestDetails;
+        //            HashSet<RequestDetail> l = (HashSet<RequestDetail>)r[i].RequestDetails;
 
-                    foreach (RequestDetail rd in l)
-                    {
-                        amt[i] += rd.CatalogueInventory.UnitCost * rd.Qty;
-                    }
+        //            foreach (RequestDetail rd in l)
+        //            {
+        //                amt[i] += rd.CatalogueInventory.UnitCost * rd.Qty;
+        //            }
 
-                    ViewRequest rc = new ViewRequest(r[i].RequestID, null, r[i].SubmissionDate, null, amt[i], null);
-                    req.Add(rc);
-                }
-                return req;
-            }
-        }
+        //            ViewRequest rc = new ViewRequest(r[i].RequestID, null, String.Format("{0:ddd, MMM d, yyyy}", r[i].SubmissionDate), null, amt[i], null);
+        //            req.Add(rc);
+        //        }
+        //        return req;
+        //    }
+        //}
 
         //9. View approved list of request
         //8. View delivering list of request
@@ -327,8 +327,16 @@ namespace SA47_Team12_StationeryStore.BizLogic
             {
                 Employee emp = context.Employee.Where(e => e.EmployeeID == id).First();
                 int? deptId = emp.DepartmentID;
+                List<Request> r;
 
-                List<Request> r = context.Request.Where(rq => rq.Status.Contains(status) && rq.Employee.DepartmentID == deptId).ToList(); //RequestID is null when request is not submitted
+                if (status == "Pending" || status == "Rejected")
+                {
+                    r = context.Request.Where(rq => rq.Status.Contains(status) && rq.Employee.DepartmentID == deptId).ToList();
+                }
+                else
+                {
+                    r = context.Request.Where(rq => (rq.Status == "Approved" || rq.Status == "Delivered" || rq.Status == "Processed" || rq.Status == "Scheduled") && rq.Employee.DepartmentID == deptId).ToList();
+                }
 
                 List<ViewRequest> req = new List<ViewRequest>();
 
@@ -344,7 +352,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                         amt[i] += rd.CatalogueInventory.UnitCost * rd.Qty;
                     }
 
-                    ViewRequest rc = new ViewRequest(r[i].RequestID, r[i].Employee.Name, r[i].SubmissionDate, r[i].ApprovalDate, amt[i], r[i].Status);
+                    ViewRequest rc = new ViewRequest(r[i].RequestID, r[i].Employee.Name, String.Format("{0:ddd, MMM d, yyyy}", r[i].SubmissionDate), String.Format("{0:ddd, MMM d, yyyy}", r[i].ApprovalDate), amt[i], r[i].Status, null);
                     req.Add(rc);
                 }
                 return req;

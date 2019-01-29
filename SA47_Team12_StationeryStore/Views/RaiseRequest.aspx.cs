@@ -224,6 +224,12 @@ namespace SA47_Team12_StationeryStore.Views
             GridViewCartBindGrid();
             ViewGVCart();
             HideGV();
+            CartGridView.EmptyDataText = "There are no items to display.";
+            if (CartGridView.Rows.Count == 0)
+            {
+                ButtonDeleteRequest.Visible = false;
+                ButtonSubmitRequest.Visible = false;
+            }
             //Response.Redirect("UserViewCart.aspx?id=" + empID);
         }
 

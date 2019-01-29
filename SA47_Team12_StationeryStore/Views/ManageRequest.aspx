@@ -8,9 +8,7 @@
             &nbsp;&nbsp;&nbsp;
             <br />
             <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
-                <asp:ListItem>Pending</asp:ListItem>
-                <asp:ListItem>Approved</asp:ListItem>
-                <asp:ListItem>Rejected</asp:ListItem>
+
             </asp:RadioButtonList>
             <br />
             <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />

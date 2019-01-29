@@ -14,7 +14,14 @@ namespace SA47_Team12_StationeryStore.Views
         {
             if (HttpContext.Current.Session["EmpID"] == null)
                 Response.Redirect("/Account/Login.aspx");
-           
+            else
+            {
+                if (!IsPostBack)
+                {
+                    StatusRadioButtonList.DataSource = RequestBizLogic.statusList();
+                    StatusRadioButtonList.DataBind();
+                }
+            }
         }
 
         protected void ViewButton_Click(object sender, EventArgs e)
@@ -92,7 +99,7 @@ namespace SA47_Team12_StationeryStore.Views
             MailBizLogic.sendMail(from, to, subject, body);
 
             //to generate popup page and then refresh page again
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Voucher Rejected');window.location ='ManageRequest.aspx';", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Request Rejected');window.location ='ManageRequest.aspx';", true);
         }
 
         protected void ApproveButton_Click(object sender, EventArgs e)
@@ -114,7 +121,7 @@ namespace SA47_Team12_StationeryStore.Views
             MailBizLogic.sendMail(from, to, subject, body);
 
             //to generate popup page and then refresh page again
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Voucher Approved');window.location ='ManageRequest.aspx';", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Request Approved');window.location ='ManageRequest.aspx';", true);
         }
     }
 }
