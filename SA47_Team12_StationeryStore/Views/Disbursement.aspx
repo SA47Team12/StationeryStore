@@ -41,7 +41,7 @@
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
             <HeaderStyle BackColor="#284775" ForeColor="White" />
-            <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+            <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
         <br />
     </div>

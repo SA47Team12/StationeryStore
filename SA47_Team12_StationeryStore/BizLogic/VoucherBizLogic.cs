@@ -151,11 +151,11 @@ namespace SA47_Team12_StationeryStore.BizLogic
             using (StationeryStoreEntities _entities = new StationeryStoreEntities())
             {
                 var listOfPendingVoucherRequests = _entities.Voucher
-                                                    .Where(v => v.EmployeeID == employeeId && v.Status == "Pending Supervisor Approval")
+                                                    .Where(v => v.EmployeeID == employeeId && v.Status == "Pending Supervisor Approval").AsEnumerable()
                                                     .Select(v => new PendingVoucherRequest
                                                     {
                                                         VoucherId = v.VoucherID,
-                                                        SubmissionDate = v.SubmissionDate,
+                                                        SubmissionDate = String.Format("{0:ddd, MMM d, yyyy}", v.SubmissionDate),
                                                         Status = v.Status
 
                                                     }).ToList();

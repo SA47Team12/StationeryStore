@@ -12,12 +12,12 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
-                var voucherlist = context.Voucher.Where(vc => vc.Status.Contains(status))
+                var voucherlist = context.Voucher.Where(vc => vc.Status.Contains(status)).AsEnumerable()
                 .Select(vc => new VoucherListView //.Include(vc => vc.Employee)
                 {
                     VoucherID = vc.VoucherID,
                     EmployeeName = vc.Employee.Name,
-                    SubmissionDate = vc.SubmissionDate,
+                    SubmissionDate = String.Format("{0:ddd, MMM d, yyyy}", vc.SubmissionDate),
                     Status = vc.Status,
 
                 }).ToList();

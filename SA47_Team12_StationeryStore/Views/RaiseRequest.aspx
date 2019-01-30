@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RaiseRequest.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.RaiseRequest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <br />
     <div class="row">
         <div class="col-sm-4" style="border: 5px solid; padding: 10px">
@@ -29,7 +28,7 @@
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#284775" ForeColor="White" />
         <HeaderStyle BackColor="#284775" ForeColor="White" />
-        <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
     </asp:GridView>
     <br />
 

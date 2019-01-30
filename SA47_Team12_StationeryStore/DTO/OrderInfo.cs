@@ -25,6 +25,6 @@ namespace SA47_Team12_StationeryStore
 
         public int POID { get; set; }
 
-        public DateTime SubmissionDate { get; set; }
+        public string SubmissionDate { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace SA47_Team12_StationeryStore
     {
         public int? SerialNo { get; set; }
         public int? VoucherId { get; set; }
-        public DateTime? SubmissionDate { get; set; }
+        public string SubmissionDate { get; set; }
         public string Status { get; set; }
     }
 }

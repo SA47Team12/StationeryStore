@@ -8,7 +8,7 @@ namespace SA47_Team12_StationeryStore
     public class StockCardView
     {
         public int? SerialNo {get; set;}
-        public DateTime? TransactionDate { get; set; }
+        public string TransactionDate { get; set; }
         public string StockCardDescription { get; set; }    
         public int? AdjustedQty { get; set; }
     }

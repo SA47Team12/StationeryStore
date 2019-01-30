@@ -140,27 +140,27 @@ namespace SA47_Team12_StationeryStore.BizLogic
         //List pending PO , can without EmployeeID?, because other employee can also confirm
         public static List<OrderInfo> ListPendingPOBySupplier(int EmployeeID, int SupplierID)
         {
-            List<OrderInfo> OIlist = context.PO.Where(x => x.SupplierID == SupplierID && x.Status == "Pending").OrderByDescending(y => y.SubmissionDate).Select(z => new OrderInfo()
+            List<OrderInfo> OIlist = context.PO.Where(x => x.SupplierID == SupplierID && x.Status == "Pending").AsEnumerable().OrderByDescending(y => y.SubmissionDate).Select(z => new OrderInfo()
             {
 
                 POID = z.POID,
                 Description = z.CatalogueInventory.Item_Description,
                 FirstSupplier = z.Supplier.Name,
                 OrderQty = z.Qty,
-                SubmissionDate = (DateTime)z.SubmissionDate
+                SubmissionDate = String.Format("{0:ddd, MMM d, yyyy}", (DateTime)z.SubmissionDate)
             }).ToList<OrderInfo>();
             return OIlist;
 
         }
         public static List<OrderInfo> ListPendingPOByDate(int EmployeeID)
         {
-            List<OrderInfo> OIlist = context.PO.Where(x => x.Status == "Pending").OrderByDescending(y => y.SubmissionDate).Select(z => new OrderInfo()
+            List<OrderInfo> OIlist = context.PO.Where(x => x.Status == "Pending").AsEnumerable().OrderByDescending(y => y.SubmissionDate).Select(z => new OrderInfo()
             {
                 POID = z.POID,
                 Description = z.CatalogueInventory.Item_Description,
                 FirstSupplier = z.Supplier.Name,
                 OrderQty = z.Qty,
-                SubmissionDate = (DateTime)z.SubmissionDate
+                SubmissionDate = String.Format("{0:ddd, MMM d, yyyy}", (DateTime)z.SubmissionDate)
             }).ToList<OrderInfo>();
             return OIlist;
         }

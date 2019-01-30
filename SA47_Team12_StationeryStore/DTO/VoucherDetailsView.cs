@@ -16,6 +16,6 @@ namespace SA47_Team12_StationeryStore
         public string Remarks { get; set; }
         public string Reasons { get; set; }
         public string Status { get; set; }
-        public DateTime? ApprovalDate{ get; set; }
+        public string ApprovalDate{ get; set; }
     }
 }

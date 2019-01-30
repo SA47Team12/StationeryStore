@@ -33,7 +33,7 @@
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#284775" ForeColor="White" />
                 <HeaderStyle BackColor="#284775" ForeColor="White" />
-                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
             </asp:GridView>
             <br />
             <asp:GridView ID="RequestDetailsGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"
@@ -52,7 +52,7 @@
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#284775" ForeColor="White" />
                 <HeaderStyle BackColor="#284775" ForeColor="White" />
-                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
             </asp:GridView>
             <br />
             <asp:Label ID="Label3" runat="server" Text="Additional comments" Visible="False"></asp:Label>

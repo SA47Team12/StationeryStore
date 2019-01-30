@@ -39,7 +39,7 @@
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#284775" ForeColor="White" />
                 <HeaderStyle BackColor="#284775" ForeColor="White" />
-                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
                 <RowStyle BackColor="White" />
             </asp:GridView>
             <br />
@@ -57,15 +57,11 @@
                     <asp:BoundField DataField="AdjQty" HeaderText="Adjusted Qty" />
                     <asp:BoundField DataField="AdjAmt" HeaderText="Adjusted Amt" />
                     <asp:BoundField DataField="Remarks" HeaderText="Supervisor/Manager Remarks" />
-                    <%--<asp:BoundField DataField="ItemID" HeaderText="ItemID" />
-                    <asp:BoundField DataField="ActualQty" HeaderText="Actual Qty" />
-                    <asp:BoundField DataField="Status" HeaderText="Status" />
-                    <asp:BoundField DataField="ApprovalDate" HeaderText="Approval Date" />--%>
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#284775" ForeColor="White" />
                 <HeaderStyle BackColor="#284775" ForeColor="White" />
-                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+                <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
                 <RowStyle BackColor="White" />
             </asp:GridView>
             &nbsp;

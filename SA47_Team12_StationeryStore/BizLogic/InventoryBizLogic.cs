@@ -38,10 +38,10 @@ namespace SA47_Team12_StationeryStore.BizLogic
             {
                 var listofItemStockCards = _entities.StockCard
                                             //.Include(s => s.SCCategory)
-                                            .Where(s => s.ItemID == itemId)
+                                            .Where(s => s.ItemID == itemId).AsEnumerable()
                                             .Select(s => new StockCardView
                                             {
-                                                TransactionDate = s.TransactionDate,
+                                                TransactionDate = String.Format("{0:ddd, MMM d, yyyy}", s.TransactionDate),
                                                 StockCardDescription = s.Description,
                                                 AdjustedQty = s.AdjustedQty
 

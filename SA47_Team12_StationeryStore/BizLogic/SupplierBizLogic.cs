@@ -248,13 +248,13 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
-                List<BriefDelegation> i = context.Delegation.Where(p => p.DepartmentID == DepID & p.EndDate > DateTime.Now)
+                List<BriefDelegation> i = context.Delegation.Where(p => p.DepartmentID == DepID & p.EndDate > DateTime.Now).AsEnumerable()
                     .Select(y => new BriefDelegation()
                     {
                         DelegationID = y.DelegationID,
                         EmpID = y.EmployeeID,
-                        StartDate = y.StartDate,
-                        EndDate = y.EndDate,
+                        StartDate = String.Format("{0:ddd, MMM d, yyyy}", y.StartDate),
+                        EndDate = String.Format("{0:ddd, MMM d, yyyy}", y.EndDate),
                         Name = y.Employee.Name,
 
                     }).ToList<BriefDelegation>();
@@ -266,13 +266,13 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
-                List<BriefDelegation> i = context.Delegation.Where(p => p.DepartmentID == DepID)
+                List<BriefDelegation> i = context.Delegation.Where(p => p.DepartmentID == DepID).AsEnumerable()
                     .Select(y => new BriefDelegation()
                     {
                         DelegationID = y.DelegationID,
                         EmpID = y.EmployeeID,
-                        StartDate = y.StartDate,
-                        EndDate = y.EndDate,
+                        StartDate = String.Format("{0:ddd, MMM d, yyyy}", y.StartDate),
+                        EndDate = String.Format("{0:ddd, MMM d, yyyy}", y.EndDate),
                         Name = y.Employee.Name,
 
                     }).ToList<BriefDelegation>();
