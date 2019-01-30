@@ -107,7 +107,7 @@
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
-                        <asp:TreeNode Text="AdminMenu">
+                        <asp:TreeNode Text="Admin's Menu">
                             <asp:TreeNode NavigateUrl="AssignRoles.aspx" Text="Assign Roles" Value="Assign Roles"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
@@ -117,7 +117,7 @@
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
-                        <asp:TreeNode Text="DHMenu">
+                        <asp:TreeNode Text="DH's Menu">
                             <asp:TreeNode NavigateUrl="/Views/ManageRequest.aspx" Text="Manage Request" Value="Manage Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/UpdateURep.aspx" Text="Update User Rep" Value="Update User Rep"></asp:TreeNode>
@@ -132,7 +132,7 @@
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
-                        <asp:TreeNode Text="DHMenu">
+                        <asp:TreeNode Text="Purchasing Department's Menu">
                             <asp:TreeNode NavigateUrl="/Views/AddNewItem.aspx" Text="Add New Item" Value="Add New Item"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageSupplier.aspx" Text="Manage Supplier" Value="Manage Supplier"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/UpdateItemSupplier.aspx" Text="Update Item Supplier" Value="Update Item Supplier"></asp:TreeNode>
@@ -144,7 +144,7 @@
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
-                        <asp:TreeNode Text="DeptStaffMenu">
+                        <asp:TreeNode Text="Deptartment Staff's Menu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
                         </asp:TreeNode>
@@ -156,7 +156,7 @@
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
 
                     <Nodes>
-                        <asp:TreeNode Text="DeptStaffMenu">
+                        <asp:TreeNode Text="UR's Menu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
@@ -168,7 +168,7 @@
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
-                        <asp:TreeNode Text="ManagerMenu">
+                        <asp:TreeNode Text="Manager's Menu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManagerAdjVou.aspx" Text="Manage Adjustment Voucher" Value="Manage Adjustment Voucher"></asp:TreeNode>
@@ -180,7 +180,7 @@
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
-                        <asp:TreeNode Text="SupervisorMenu">
+                        <asp:TreeNode Text="Supervisor's Menu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/SupervisorAdjVou.aspx" Text="Manage Adjustment Voucher" Value="Manage Adjustment Voucher"></asp:TreeNode>
@@ -193,7 +193,7 @@
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
-                        <asp:TreeNode Text="ClerkMenu">
+                        <asp:TreeNode Text="Clerk's Menu">
                             <asp:TreeNode NavigateUrl="/Views/ManageInventory.aspx" Text="Manage Inventory" Value="Manage Inventory"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageCatalogue.aspx" Text="Manage Catalogue" Value="Manage Catalogue"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/PlaceOrder.aspx" Text="Place order" Value="Place order"></asp:TreeNode>

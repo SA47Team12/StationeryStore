@@ -4,32 +4,48 @@
     <h2 aria-dropeffect="none">Delivery Details by department</h2>
     <div>
         <asp:Label ID="Label2" runat="server" Text="Select status:" Font-Size="Large"></asp:Label>
-            <br />
-            <br />
-            <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
-                <asp:ListItem>Pending Delivery</asp:ListItem>
-                <asp:ListItem Selected="True">Today's Delivery</asp:ListItem>
-                <asp:ListItem>Upcoming Delivery</asp:ListItem>
-            </asp:RadioButtonList>
-            <br />
-            <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
-            <br />
+        <br />
+        <br />
+        <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
+            <asp:ListItem>Pending Delivery</asp:ListItem>
+            <asp:ListItem Selected="True">Today's Delivery</asp:ListItem>
+            <asp:ListItem>Upcoming Delivery</asp:ListItem>
+        </asp:RadioButtonList>
+        <br />
+        <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
+        <br />
     </div>
-
+    
+               
     <div>
         <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <asp:Label ID="Label1" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                 <asp:Label ID="Dep2001" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+               <asp:Label ID="Label3" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="CP2001" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+                <asp:Label ID="Label4" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="UR2001" runat="server" Font-Size="Large"></asp:Label>               
+            </div>
+        </div>
         <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2001" runat="server" CssClass="table table-striped table-bordered"
             Visible="false" AutoGenerateColumns="False" OnRowEditing="DeliveryDepTable2001_RowEditing"
             OnRowCancelingEdit="DeliveryDepTable2001_RowCancelingEdit"
             OnRowUpdating="DeliveryDepTable2001_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
-            AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2001_PageIndexChanging" PageSize="5" 
+            AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2001_PageIndexChanging" PageSize="5"
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
 
             <Columns>
-                <asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />
+                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -65,6 +81,23 @@
     <br />
     <br />
     <div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <asp:Label ID="Label5" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                 <asp:Label ID="Dep2002" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+               <asp:Label ID="Label7" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="CP2002" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+                <asp:Label ID="Label9" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="UR2002" runat="server" Font-Size="Large"></asp:Label>               
+            </div>
+        </div>
+        <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2002" runat="server" CssClass="table table-striped table-bordered"
             Visible="false" AutoGenerateColumns="False" OnRowEditing="DeliveryDepTable2002_RowEditing"
             OnRowCancelingEdit="DeliveryDepTable2002_RowCancelingEdit"
@@ -75,7 +108,7 @@
             <AlternatingRowStyle BackColor="White" />
 
             <Columns>
-                <asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />
+                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -111,6 +144,23 @@
     <br />
     <br />
     <div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <asp:Label ID="Label6" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                 <asp:Label ID="Dep2003" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+               <asp:Label ID="Label10" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="CP2003" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+                <asp:Label ID="Label12" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="UR2003" runat="server" Font-Size="Large"></asp:Label>               
+            </div>
+        </div>
+        <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2003" runat="server" CssClass="table table-striped table-bordered"
             Visible="false" AutoGenerateColumns="False" OnRowEditing="DeliveryDepTable2003_RowEditing"
             OnRowCancelingEdit="DeliveryDepTable2003_RowCancelingEdit"
@@ -120,7 +170,7 @@
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />
+                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -157,6 +207,23 @@
     <br />
 
     <div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <asp:Label ID="Label14" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                 <asp:Label ID="Dep2004" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+               <asp:Label ID="Label16" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="CP2004" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+                <asp:Label ID="Label18" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="UR2004" runat="server" Font-Size="Large"></asp:Label>               
+            </div>
+        </div>
+        <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2004" runat="server" CssClass="table table-striped table-bordered"
             Visible="false" AutoGenerateColumns="False" OnRowEditing="DeliveryDepTable2004_RowEditing"
             OnRowCancelingEdit="DeliveryDepTable2004_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2004_RowUpdating"
@@ -165,7 +232,7 @@
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />
+                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -201,6 +268,23 @@
     <br />
     <br />
     <div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <asp:Label ID="Label20" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                 <asp:Label ID="Dep2005" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+               <asp:Label ID="Label22" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="CP2005" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+                <asp:Label ID="Label24" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="UR2005" runat="server" Font-Size="Large"></asp:Label>               
+            </div>
+        </div>
+        <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2005" runat="server" CssClass="table table-striped table-bordered"
             Visible="false" AutoGenerateColumns="False" OnRowEditing="DeliveryDepTable2005_RowEditing"
             OnRowCancelingEdit="DeliveryDepTable2005_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2005_RowUpdating"
@@ -209,7 +293,7 @@
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />
+                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -245,6 +329,23 @@
     <br />
     <br />
     <div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <asp:Label ID="Label26" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                 <asp:Label ID="Dep2006" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+               <asp:Label ID="Label28" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="CP2006" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+                <asp:Label ID="Label30" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="UR2006" runat="server" Font-Size="Large"></asp:Label>               
+            </div>
+        </div>
+        <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2006" runat="server" CssClass="table table-striped table-bordered"
             Visible="false" AutoGenerateColumns="False" OnRowEditing="DeliveryDepTable2006_RowEditing"
             OnRowCancelingEdit="DeliveryDepTable2006_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2006_RowUpdating"
@@ -253,7 +354,7 @@
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />
+                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -289,6 +390,23 @@
     <br />
     <br />
     <div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <asp:Label ID="Label32" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                 <asp:Label ID="Dep2007" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+               <asp:Label ID="Label34" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="CP2007" runat="server" Font-Size="Large"></asp:Label>
+            </div>
+            <div class="col-sm-4">
+                <asp:Label ID="Label36" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="UR2007" runat="server" Font-Size="Large"></asp:Label>               
+            </div>
+        </div>
+        <br />
         <asp:GridView DataKeyNames="DisbursementID" ID="DeliveryDepTable2007" runat="server" CssClass="table table-striped table-bordered"
             Visible="false" AutoGenerateColumns="False" OnRowEditing="DeliveryDepTable2007_RowEditing"
             OnRowCancelingEdit="DeliveryDepTable2007_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2007_RowUpdating"
@@ -297,7 +415,7 @@
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />
+                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">

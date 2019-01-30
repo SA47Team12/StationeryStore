@@ -404,5 +404,10 @@ namespace SA47_Team12_StationeryStore.BizLogic
             }
         }
 
+
+        //var item = context.Request.Where(c => c.RequestID == RequestId).Single();
+        //to = item.Employee.Email;
+
+        //    int? deptid = item.Employee.DepartmentID;
     }
 }

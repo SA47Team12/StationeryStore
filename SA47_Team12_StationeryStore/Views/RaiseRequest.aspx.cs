@@ -55,7 +55,6 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void ItemListGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            string searchBy = TextBoxSearch.Text.ToString();
             ItemListGridView.DataSource = RequestBizLogic.SearchCatalogue(searchBy);
             ItemListGridView.PageIndex = e.NewPageIndex;
             ItemListGridView.DataBind();
@@ -145,6 +144,9 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void CartGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            int EmpID = (int)HttpContext.Current.Session["EmpID"];
+            CartGridView.DataSource = RequestBizLogic.ViewNotSubmittedRequestDetail(EmpID);//employeeId
+
             CartGridView.PageIndex = e.NewPageIndex;
             CartGridView.DataBind();
             //BindGrid();
@@ -163,7 +165,7 @@ namespace SA47_Team12_StationeryStore.Views
             RequestBizLogic.SubmitRequest(EmpID);//hardcord for testing
             GridViewCartBindGrid();
             Response.Write("<script>alert('Request Submitted Successfully !');</script>");
-
+            
             //send mail to DH
             String from = "teststationery47@gmail.com";
             String to = (String)HttpContext.Current.Session["Email"];

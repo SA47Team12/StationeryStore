@@ -60,6 +60,7 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void SupplierGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            SupplierGridView.DataSource = SupplierBizLogic.ListSupplier();
             SupplierGridView.PageIndex = e.NewPageIndex;
             SupplierGridView.DataBind();
             BindGrid();

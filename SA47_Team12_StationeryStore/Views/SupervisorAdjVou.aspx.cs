@@ -30,6 +30,8 @@ namespace SA47_Team12_StationeryStore.Views
             AdjVouDetailsGridView.Visible = false;
             string status = StatusRadioButtonList.SelectedValue;
             AdjVouGridView.DataSource = AdjustmentBizLogic.ListVouchers(status);
+            ViewState["status"] = status;
+
             AdjVouGridView.DataBind();
             if (AdjVouGridView.Rows.Count == 0)
             {
@@ -43,6 +45,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             //find which orderID has been clicked
             VoucherId = (int)AdjVouGridView.SelectedDataKey.Value;
+            ViewState["vid"] = VoucherId;
             AdjVouDetailsGridView.Visible = true;
             Label3.Visible = true;
             RemarkTextBox.Visible = true;
@@ -70,6 +73,9 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void AdjVouGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            string status = (string) ViewState["status"];
+            AdjVouGridView.DataSource = AdjustmentBizLogic.ListVouchers(status);
+            
             AdjVouGridView.PageIndex = e.NewPageIndex;
             AdjVouGridView.DataBind();
             //BindGrid();
@@ -113,6 +119,9 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void AdjVouDetailsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            int VoucherId =(int) ViewState["vid"];
+            AdjVouDetailsGridView.DataSource = AdjustmentBizLogic.ListVoucherDetails(VoucherId);
+
             AdjVouDetailsGridView.PageIndex = e.NewPageIndex;
             AdjVouDetailsGridView.DataBind();
             //BindGrid();

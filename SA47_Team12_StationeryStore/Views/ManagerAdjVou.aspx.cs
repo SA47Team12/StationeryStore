@@ -29,7 +29,7 @@ namespace SA47_Team12_StationeryStore.Views
             AdjVouGridView.DataBind();
             if (AdjVouGridView.Rows.Count == 0)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No Requests');window.location ='ManagerAdjVou.aspx';", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No Vouchers');window.location ='ManagerAdjVou.aspx';", true);
             }
         }
 
@@ -37,6 +37,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             //find which orderID has been clicked
             int VoucherId = (int)AdjVouGridView.SelectedDataKey.Value;
+            ViewState["voucherid"] = VoucherId;
             AdjVouDetailsGridView.Visible = true;
             AdjVouDetailsGridView.DataSource = AdjustmentBizLogic.ListVoucherDetails(VoucherId);
             AdjVouDetailsGridView.DataBind();
@@ -57,6 +58,8 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void AdjVouGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            string status = StatusRadioButtonList.SelectedValue;
+            AdjVouGridView.DataSource = AdjustmentBizLogic.ListVouchers(status);
             AdjVouGridView.PageIndex = e.NewPageIndex;
             AdjVouGridView.DataBind();
             //BindGrid();
@@ -69,6 +72,9 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void AdjVouDetailsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            int VoucherId=(int) ViewState["voucherid"];
+            AdjVouDetailsGridView.DataSource = AdjustmentBizLogic.ListVoucherDetails(VoucherId);
+
             AdjVouDetailsGridView.PageIndex = e.NewPageIndex;
             AdjVouDetailsGridView.DataBind();
             //BindGrid();

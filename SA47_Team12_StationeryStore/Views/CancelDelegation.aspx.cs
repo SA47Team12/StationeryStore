@@ -64,6 +64,10 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void DelegationHistoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            //adin for page index
+            int DeptID = (int)HttpContext.Current.Session["DeptID"];
+            DelegationHistoryGridView.DataSource = SupplierBizLogic.FindDelegation2(DeptID).ToList();
+
             DelegationHistoryGridView.PageIndex = e.NewPageIndex;
             DelegationHistoryGridView.DataBind();
             BindGrid();
@@ -71,6 +75,10 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void DelegationScheduleGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            //adin for page index
+            int DeptID = (int)HttpContext.Current.Session["DeptID"];
+            DelegationScheduleGridView.DataSource = SupplierBizLogic.FindDelegation(DeptID).ToList();
+
             DelegationScheduleGridView.PageIndex = e.NewPageIndex;
             DelegationScheduleGridView.DataBind();
             BindGrid();

@@ -84,7 +84,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             //show stock cards for selected item
             string itemCode = InventoryGridView.DataKeys[InventoryGridView.SelectedRow.RowIndex].Values[0].ToString();
-
+            ViewState["itemcode"] = itemCode;
             StockCardsGridView.DataSource = InventoryBizLogic.GetCatalogueItem(itemCode);
             StockCardsGridView.DataBind();
         }
@@ -108,6 +108,9 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void InventoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            //pagination
+
+            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(SearchTextBox.Text);
             InventoryGridView.PageIndex = e.NewPageIndex;
             InventoryGridView.DataBind();
             BindGrid();
@@ -115,6 +118,10 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void StockCardsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            //pagination code
+            string itemCode = (string)ViewState["itemcode"];
+            StockCardsGridView.DataSource = InventoryBizLogic.GetCatalogueItem(itemCode);
+
             StockCardsGridView.PageIndex = e.NewPageIndex;
             StockCardsGridView.DataBind();
             //BindGrid1();

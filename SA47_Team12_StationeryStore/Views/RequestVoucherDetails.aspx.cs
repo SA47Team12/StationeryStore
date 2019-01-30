@@ -189,6 +189,7 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void RaiseVouReqGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            RaiseVouReqGridView.DataSource = VoucherBizLogic.ListVoucherDetails((int)HttpContext.Current.Session["EmpID"]); // previously hardcoded as 1005
             RaiseVouReqGridView.PageIndex = e.NewPageIndex;
             RaiseVouReqGridView.DataBind();
             BindGrid();

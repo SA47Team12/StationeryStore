@@ -10,7 +10,7 @@ namespace SA47_Team12_StationeryStore.Views
 {
     public partial class PendingVouchers : System.Web.UI.Page
     {
-        //BindGrid with argument from selected radiobutton
+        /* Change: Added BindGrid(string stateOfRadioButton) */
         private void BindGrid(string stateOfRadioButton)
         {
             if (stateOfRadioButton == "latest")
@@ -30,7 +30,7 @@ namespace SA47_Team12_StationeryStore.Views
             }
         }
 
-        //BindGrid default 
+        /* Change: Added BindGridAuto() */
         private void BindGridAuto()
         {
             if (radioButtonLatest.Checked) BindGrid("latest");
@@ -70,12 +70,14 @@ namespace SA47_Team12_StationeryStore.Views
         protected void PendingVouchersGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             PendingVoucherItemsGridView.Visible = true;
+
         }
 
         protected void PendingVouchersGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int voucherId = Convert.ToInt32(PendingVouchersGridView.DataKeys[e.RowIndex].Values[0]);
             VoucherBizLogic.DeletePendingVoucher(voucherId);
+            /*Change: Changed bindgrid() to bindgridauto() */
             BindGridAuto();
         }
 
@@ -83,6 +85,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             PendingVouchersGridView.PageIndex = e.NewPageIndex;
             PendingVouchersGridView.DataBind();
+            /*Change: Changed bindgrid() to bindgridauto() */
             BindGridAuto();
         }
 
@@ -90,7 +93,17 @@ namespace SA47_Team12_StationeryStore.Views
         {
             PendingVoucherItemsGridView.PageIndex = e.NewPageIndex;
             PendingVoucherItemsGridView.DataBind();
+            /*Change: Changed bindgrid() to bindgridauto() */
             BindGridAuto();
         }
+
+        //protected void PendingVoucherItemsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        //{
+        //    PendingVoucherItemsGridView.PageIndex = e.NewPageIndex;
+        //    PendingVoucherItemsGridView.DataBind();
+        //    /*Change: Changed bindgrid() to bindgridauto() */
+        //    BindGridAuto();
+        //}
+
     }
 }

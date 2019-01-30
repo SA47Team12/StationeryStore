@@ -59,7 +59,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="Name" HeaderText="Employee Name" SortExpression="Name" />
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" DeleteText="Cancel Delegation Now" />
+            <asp:CommandField  ShowDeleteButton="True" DeleteText="Cancel Delegation Now" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />

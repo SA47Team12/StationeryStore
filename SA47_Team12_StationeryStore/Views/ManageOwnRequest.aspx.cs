@@ -28,6 +28,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
             string value = StatusRadioButtonList.SelectedValue;
+            ViewState["value"] = value;
             if (value == "Pending")
             {
                 PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);//hardcord employeeId for testing
@@ -78,7 +79,17 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void RequestGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            RequestGridView.PageIndex = e.NewPageIndex;
+            int EmpID = (int)HttpContext.Current.Session["EmpID"];
+            string value = (string)ViewState["value"];
+            if (value == "Approved")
+            {
+                RequestGridView.DataSource = RequestBizLogic.ViewApprovedRequest(EmpID);//hardcord employeeId for testing
+            }
+            if (value == "Rejected")
+            {
+                RequestGridView.DataSource = RequestBizLogic.ViewRejectedRequest(EmpID);//hardcord employeeId for testing
+            }
+                RequestGridView.PageIndex = e.NewPageIndex;
             RequestGridView.DataBind();
             //BindGrid();
         }

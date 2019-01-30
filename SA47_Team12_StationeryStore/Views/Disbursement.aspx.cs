@@ -62,6 +62,7 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void DisbursementGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            DisbursementGridView.DataSource = POBizLogic.BindDisbursement();
             DisbursementGridView.PageIndex = e.NewPageIndex;
             DisbursementGridView.DataBind();
             BindGrid();

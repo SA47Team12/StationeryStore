@@ -67,6 +67,7 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void ManageCatalogueGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            ManageCatalogueGridView.DataSource = CatalogueBizLogic.ListCatalogue(searchString);
             ManageCatalogueGridView.PageIndex = e.NewPageIndex;
             ManageCatalogueGridView.DataBind();
             BindGrid1();

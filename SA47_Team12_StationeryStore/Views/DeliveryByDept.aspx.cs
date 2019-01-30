@@ -14,36 +14,72 @@ namespace SA47_Team12_StationeryStore.Views
         protected void BindGrid(string status)
         {
             HideGV();
-            foreach (int id in POBizLogic.DepartmentList(status))
+            foreach (DepartmentInfo d in POBizLogic.DepartmentList(status))
             {
                 ContentPlaceHolder placeholder;
                 placeholder = (ContentPlaceHolder)this.Page.Master.FindControl("MainContent");
                 if (placeholder != null)
                 {
-                    (placeholder.FindControl("DeliveryDepTable" + id) as GridView).DataSource = POBizLogic.BindDisbursementByEmp(id,status);
-                    (placeholder.FindControl("DeliveryDepTable" + id) as GridView).DataBind();
-                    (placeholder.FindControl("DeliveryDepTable" + id) as GridView).Visible = true;
-                    (placeholder.FindControl("Confirm" + id) as Button).Visible = true;
+                    (placeholder.FindControl("DeliveryDepTable" + d.DepartmentID) as GridView).DataSource = POBizLogic.BindDisbursementByEmp(d.DepartmentID, status);
+                    (placeholder.FindControl("DeliveryDepTable" + d.DepartmentID) as GridView).DataBind();
+                    (placeholder.FindControl("DeliveryDepTable" + d.DepartmentID) as GridView).Visible = true;
+                    (placeholder.FindControl("Confirm" + d.DepartmentID) as Button).Visible = true;
+                    (placeholder.FindControl("Dep" + d.DepartmentID) as Label).Text = d.Description;
+                    (placeholder.FindControl("CP" + d.DepartmentID) as Label).Text = d.Collection;
+                    (placeholder.FindControl("UR" + d.DepartmentID) as Label).Text = d.UserPresentative;
+                    (placeholder.FindControl("Dep" + d.DepartmentID) as Label).Visible = true;
+                    (placeholder.FindControl("CP" + d.DepartmentID) as Label).Visible = true;
+                    (placeholder.FindControl("UR" + d.DepartmentID) as Label).Visible = true;
                 }
             }
         }
 
         protected void HideGV()
         {
+            //List<int> deps = new List<int>{ 2001, 2002, 2003, 2004, 2005, 2006, 2007 };
+            //foreach(int dep in deps)
+            //{
+            //    DeliveryDepTable2001.Visible = false;
+            //    Confirm2001.Visible = false;
+            //    Dep2001.Visible = false;
+            //    CP2001.Visible = false;
+            //    UR2001.Visible = false;
+            //}
             DeliveryDepTable2001.Visible = false;
             Confirm2001.Visible = false;
+            Dep2001.Visible = false;
+            CP2001.Visible = false;
+            UR2001.Visible = false;
             DeliveryDepTable2002.Visible = false;
             Confirm2002.Visible = false;
+            Dep2002.Visible = false;
+            CP2002.Visible = false;
+            UR2002.Visible = false;
             DeliveryDepTable2003.Visible = false;
             Confirm2003.Visible = false;
+            Dep2003.Visible = false;
+            CP2003.Visible = false;
+            UR2003.Visible = false;
             DeliveryDepTable2004.Visible = false;
             Confirm2004.Visible = false;
+            Dep2004.Visible = false;
+            CP2004.Visible = false;
+            UR2004.Visible = false;
             DeliveryDepTable2005.Visible = false;
             Confirm2005.Visible = false;
+            Dep2005.Visible = false;
+            CP2005.Visible = false;
+            UR2005.Visible = false;
             DeliveryDepTable2006.Visible = false;
             Confirm2006.Visible = false;
+            Dep2006.Visible = false;
+            CP2006.Visible = false;
+            UR2006.Visible = false;
             DeliveryDepTable2007.Visible = false;
             Confirm2007.Visible = false;
+            Dep2007.Visible = false;
+            CP2007.Visible = false;
+            UR2007.Visible = false;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -98,13 +134,8 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void Confirm2001_Click(object sender, EventArgs e)
         {
-            //Get the button that raised the event
-            //Button btn = (Button)sender;
-
-            //Get the row that contains this button
-            //GridViewRow row = (GridViewRow)btn.NamingContainer;
-            //int DisbursementID = Convert.ToInt32(DeliveryDepTable.DataKeys[row.RowIndex].Values[0]);
-            POBizLogic.ConfirmDeliveryToDep(1006, 2001);
+            int EmpID = (int)HttpContext.Current.Session["EmpID"];
+            POBizLogic.ConfirmDeliveryToDep(EmpID, 2001);
             BindGrid(status);
         }
 
@@ -141,8 +172,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void Confirm2002_Click(object sender, EventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            int DeptID = (int)HttpContext.Current.Session["DeptID"];
-            POBizLogic.ConfirmDeliveryToDep(EmpID, DeptID);
+            POBizLogic.ConfirmDeliveryToDep(EmpID, 2002);
             BindGrid(status);
         }
 
@@ -179,9 +209,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void Confirm2003_Click(object sender, EventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            int DeptID = (int)HttpContext.Current.Session["DeptID"];
-            POBizLogic.ConfirmDeliveryToDep(EmpID, DeptID);
-            //POBizLogic.ConfirmDeliveryToDep(1006, 2003);
+            POBizLogic.ConfirmDeliveryToDep(EmpID, 2003);
             BindGrid(status);
         }
 
@@ -218,9 +246,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void Confirm2004_Click(object sender, EventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            int DeptID = (int)HttpContext.Current.Session["DeptID"];
-            POBizLogic.ConfirmDeliveryToDep(EmpID, DeptID);
-            //POBizLogic.ConfirmDeliveryToDep(1006, 2004);
+            POBizLogic.ConfirmDeliveryToDep(EmpID, 2004);
             BindGrid(status);
         }
 
@@ -257,9 +283,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void Confirm2005_Click(object sender, EventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            int DeptID = (int)HttpContext.Current.Session["DeptID"];
-            POBizLogic.ConfirmDeliveryToDep(EmpID, DeptID);
-            //POBizLogic.ConfirmDeliveryToDep(1006, 2005);
+            POBizLogic.ConfirmDeliveryToDep(EmpID, 2005);
             BindGrid(status);
         }
 
@@ -296,9 +320,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void Confirm2006_Click(object sender, EventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            int DeptID = (int)HttpContext.Current.Session["DeptID"];
-            POBizLogic.ConfirmDeliveryToDep(EmpID, DeptID);
-            //POBizLogic.ConfirmDeliveryToDep(1006, 2006);
+            POBizLogic.ConfirmDeliveryToDep(EmpID, 2006);
             BindGrid(status);
         }
 
@@ -335,9 +357,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void Confirm2007_Click(object sender, EventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            int DeptID = (int)HttpContext.Current.Session["DeptID"];
-            POBizLogic.ConfirmDeliveryToDep(EmpID, DeptID);
-            //POBizLogic.ConfirmDeliveryToDep(1006, 2007);
+            POBizLogic.ConfirmDeliveryToDep(EmpID, 2007);
             BindGrid(status);
         }
 

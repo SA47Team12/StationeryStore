@@ -33,6 +33,8 @@ namespace SA47_Team12_StationeryStore.Views
             RemarksTextBox.Visible = false;
             Label3.Visible = false;
             string status = StatusRadioButtonList.SelectedValue;
+            ViewState["status"] = status;
+
             RequestGridView.DataSource = RequestBizLogic.ListRequests(status, EmpID);
 
             if (StatusRadioButtonList.SelectedValue == "Approved" || StatusRadioButtonList.SelectedValue == "Rejected")
@@ -75,6 +77,10 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void RequestGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            int EmpID = (int)HttpContext.Current.Session["EmpID"];
+            string status = (string) ViewState["status"];
+            RequestGridView.DataSource = RequestBizLogic.ListRequests(status, EmpID);
+
             RequestGridView.PageIndex = e.NewPageIndex;
             RequestGridView.DataBind();
         }
