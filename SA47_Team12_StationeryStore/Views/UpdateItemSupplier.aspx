@@ -12,7 +12,7 @@
                 DataTextField="Item_Description" DataValueField="ItemID" Width="211px" OnDataBound="ItemDropDownList_DataBound">
             </asp:DropDownList>
             &nbsp;
-            <asp:Button ID="GoButton" runat="server" OnClick="GoButton_Click" CssClass="btn btn-primary" Text="Go" />
+            <asp:Button ID="GoButton" runat="server" OnClick="GoButton_Click" CssClass="btn btn-primary" Text="Go" Height="29px" Width="53px" />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" 
                 SelectCommand="SELECT [ItemID], [Item_Description] FROM [CatalogueInventory]">
             </asp:SqlDataSource>

@@ -5,13 +5,13 @@
     <h2 aria-dropeffect="none">Add A New Item</h2>
     
         <div class="well">
-            &nbsp;ItemID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            &nbsp;ItemID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
             <asp:TextBox ID="ItemIdTextBox" runat="server" Height="20px" Width="243px"></asp:TextBox>
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="ItemIdTextBox" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
-            Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="CategoryDropDownList" runat="server" 
+            Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <asp:DropDownList ID="CategoryDropDownList" runat="server" 
                 DataSourceID="SqlDataSource1" DataTextField="Category_Description" DataValueField="CatID" 
                 Height="20px" OnDataBound="CategoryDropDownList_DataBound" Width="254px">
             </asp:DropDownList>
@@ -22,7 +22,7 @@
                 ErrorMessage="Please Select One" InitialValue="--Select--" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
-            Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="DescTextBox" runat="server" Height="20px" Width="248px"></asp:TextBox>
+            Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:TextBox ID="DescTextBox" runat="server" Height="20px" Width="248px"></asp:TextBox>
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 ControlToValidate="DescTextBox" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
@@ -33,7 +33,7 @@
                 ControlToValidate="UoMTextBox" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
-            Unit Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Unit Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="UPTextBox" runat="server" Height="20px" Width="154px"></asp:TextBox>
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                 ControlToValidate="UPTextBox" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -44,7 +44,7 @@
             <br />
             Select supplier for each priority<br />
             <br />
-            1st Priority Supplier&nbsp;&nbsp;&nbsp;
+            1st Priority&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="Priority1DropDownList" runat="server" DataSourceID="SqlDataSource2" 
                 DataTextField="Name" DataValueField="SupplierID" Width="259px" OnDataBound="Priority1DropDownList_DataBound" Height="20px"> 
             </asp:DropDownList>
@@ -55,7 +55,7 @@
                 ErrorMessage="Please Select One" ForeColor="Red" InitialValue="--Select 1st Priority--"></asp:RequiredFieldValidator>
             <br />
             <br />
-            2nd Priority Supplier&nbsp;&nbsp; <asp:DropDownList ID="Priority2DropDownList" runat="server" DataSourceID="SqlDataSource2" 
+            2nd Priority &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="Priority2DropDownList" runat="server" DataSourceID="SqlDataSource2" 
                 DataTextField="Name" DataValueField="SupplierID" Width="259px" OnDataBound="Priority2DropDownList_DataBound" Height="20px">
             </asp:DropDownList>
             &nbsp;
@@ -66,7 +66,7 @@
                 ErrorMessage="Cannot be the same as 1st Priority Selection" ForeColor="Red" Operator="NotEqual"></asp:CompareValidator>
             <br />
             <br />
-            3rd Priority Supplier&nbsp;&nbsp;&nbsp;
+            3rd Priority&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="Priority3DropDownList" runat="server" 
                 DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="SupplierID" Width="259px" 
                 OnDataBound="Priority3DropDownList_DataBound" Height="20px">

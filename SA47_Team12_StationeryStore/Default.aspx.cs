@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using SA47_Team12_StationeryStore.BizLogic;
 
 namespace SA47_Team12_StationeryStore
 {
     public partial class _Default : Page
     {
+        static string searchString = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["EmpID"] != null)
@@ -24,8 +27,29 @@ namespace SA47_Team12_StationeryStore
                     int deptID = (int)emp.DepartmentID;
                     Session["EmpID"] = empId;
                     Session["DeptID"] = deptID;
-                }
+                }               
             }
+        }
+        
+        private void BindGrid()
+        {
+            ItemListGridView.DataSource = RequestBizLogic.SearchCatalogue(searchString);
+            ItemListGridView.DataBind();
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            searchString = SearchTextBox.Text;
+            ItemListGridView.DataSource = RequestBizLogic.SearchCatalogue(searchString);
+            ItemListGridView.DataBind();
+            BindGrid();
+        }
+
+        protected void ItemListGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ItemListGridView.PageIndex = e.NewPageIndex;
+            ItemListGridView.DataBind();
+            BindGrid();
         }
     }
 }

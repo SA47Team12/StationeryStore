@@ -208,6 +208,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="IconBooks.ico" />
+    <Content Include="Images\BG.jpg" />
+    <Content Include="Images\BG1.jpg" />
+    <Content Include="Images\Book.jpg" />
+    <Content Include="Images\Files.jpg" />
+    <Content Include="Images\Files1.jpg" />
+    <Content Include="Images\IconBooks.ico" />
+    <Content Include="Images\Note.jpg" />
+    <Content Include="Images\Note1.jpg" />
+    <Content Include="Images\Pen.jpg" />
+    <Content Include="Images\Pencils.jpg" />
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
@@ -914,6 +925,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconBooks.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

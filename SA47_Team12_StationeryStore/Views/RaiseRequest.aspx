@@ -20,10 +20,11 @@
         AllowPaging="True" OnPageIndexChanging="ItemListGridView_PageIndexChanging" PageSize="15"
         GridLines="None" CellPadding="4" ForeColor="#333333" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+        <Columns>            
             <asp:BoundField DataField="Item_Description" HeaderText="Item Description" />
             <asp:BoundField DataField="UnitCost" HeaderText="Unit Cost" />
+            <asp:BoundField DataField="UnitOfMeasure" HeaderText="Unit Of Measure" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -57,7 +58,7 @@
         </Columns>
         <FooterStyle BackColor="#284775" ForeColor="White" />
         <HeaderStyle BackColor="#284775" ForeColor="White" />
-        <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
     </asp:GridView>
 
     <br />

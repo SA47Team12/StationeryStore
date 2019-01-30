@@ -20,8 +20,6 @@
             <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text="View List" />
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="List of Adjustment Vouchers"></asp:Label>
-            <br />
             <br />
             <asp:GridView ID="AdjVouGridView" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False" 
                 OnSelectedIndexChanged="AdjVouGridView_SelectedIndexChanged" DataKeyNames="VoucherID"

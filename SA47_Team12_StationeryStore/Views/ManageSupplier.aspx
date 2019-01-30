@@ -11,14 +11,8 @@
             <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="SupplierID" HeaderText="SupplierID" InsertVisible="False" ReadOnly="True" SortExpression="SupplierID" />
-                    <asp:TemplateField HeaderText="Name" SortExpression="Name">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:BoundField DataField="Name" HeaderText="Name" InsertVisible="False" ReadOnly="True" SortExpression="Name" />
+
                     <asp:TemplateField HeaderText="Address" SortExpression="Address">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox>
@@ -27,13 +21,14 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("Address") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Phone" SortExpression="Phone">
+                    <asp:TemplateField HeaderText="Phone" SortExpression="Phone" ValidateRequestMode="Enabled">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
-                        </EditItemTemplate>
+                        </EditItemTemplate>                        
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("Phone") %>'></asp:Label>
                         </ItemTemplate>
+                        
                     </asp:TemplateField>
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" />
                 </Columns>
