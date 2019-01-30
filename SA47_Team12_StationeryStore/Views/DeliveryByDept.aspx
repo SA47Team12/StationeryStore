@@ -1,15 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DeliveryByDept.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.DeliveryByDept" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h2 aria-dropeffect="none">Delivery Details by department</h2>
     <div>
-        <asp:Label ID="Label2" runat="server" Text="Select status:"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Select status:" Font-Size="Large"></asp:Label>
+            <br />
             <br />
             <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
                 <asp:ListItem>Pending Delivery</asp:ListItem>
                 <asp:ListItem Selected="True">Today's Delivery</asp:ListItem>
                 <asp:ListItem>Upcoming Delivery</asp:ListItem>
             </asp:RadioButtonList>
+            <br />
             <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
             <br />
     </div>
@@ -58,7 +60,6 @@
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
         <br />
-        <br />
         <asp:Button ID="Confirm2001" runat="server" Text="Confirm" OnClick="Confirm2001_Click" CssClass="btn btn-primary" Visible="false" />
     </div>
     <br />
@@ -105,7 +106,6 @@
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
         <br />
-        <br />
         <asp:Button ID="Confirm2002" runat="server" Text="Confirm" OnClick="Confirm2002_Click" CssClass="btn btn-primary" Visible="false" />
     </div>
     <br />
@@ -150,7 +150,6 @@
             <HeaderStyle BackColor="#284775" ForeColor="White" />
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
-        <br />
         <br />
         <asp:Button ID="Confirm2003" runat="server" Text="Confirm" OnClick="Confirm2003_Click" CssClass="btn btn-primary" Visible="false" />
     </div>
@@ -197,7 +196,6 @@
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
         <br />
-        <br />
         <asp:Button ID="Confirm2004" runat="server" Text="Confirm" OnClick="Confirm2004_Click" CssClass="btn btn-primary" Visible="false" />
     </div>
     <br />
@@ -241,7 +239,6 @@
             <HeaderStyle BackColor="#284775" ForeColor="White" />
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
-        <br />
         <br />
         <asp:Button ID="Confirm2005" runat="server" Text="Confirm" OnClick="Confirm2005_Click" CssClass="btn btn-primary" Visible="false" />
     </div>
@@ -287,7 +284,6 @@
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
         <br />
-        <br />
         <asp:Button ID="Confirm2006" runat="server" Text="Confirm" OnClick="Confirm2006_Click" CssClass="btn btn-primary" Visible="false" />
     </div>
     <br />
@@ -331,7 +327,6 @@
             <HeaderStyle BackColor="#284775" ForeColor="White" />
             <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
         </asp:GridView>
-        <br />
         <br />
         <asp:Button ID="Confirm2007" runat="server" Text="Confirm" OnClick="Confirm2007_Click" CssClass="btn btn-primary" Visible="false" />
 

@@ -166,7 +166,7 @@ namespace SA47_Team12_StationeryStore.Views
 
             //send mail to DH
             String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
+            String to = (String)HttpContext.Current.Session["Email"];
             String subject = "New Request";
             String body = "New Request has been raised. Check website for further deatils.";
 

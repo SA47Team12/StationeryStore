@@ -65,27 +65,19 @@ namespace SA47_Team12_StationeryStore.Views
             // added code below:
             try
             {
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.To.Add("teststationery47@gmail.com");
-                mailMessage.From = new MailAddress("teststationery47@gmail.com");
-                mailMessage.Subject = String.Format("Collection Point Details Changed for {0}", updatedDeptURCollection.Department.Description);
-                mailMessage.Body =
-                    String.Format("Updated Collection Point Details\n\nCollection Point: {0}\nUser Representative: {1}\n",
-                    String.Format(updatedDeptURCollection.Collection.Location + " " + updatedDeptURCollection.Collection.Time),
-                    updatedDeptURCollection.Employee.Name);
+                //to clerk
+                string oldCollection = Label1.Text;
+                String from = "teststationery47@gmail.com";
+                String to1 = "sithulinhtut16@gmail.com";
+                String to2 = "yanyuhan96@gmail.com";
+                String to3 = "shree.sri23@gmail.com";
+                String subject = String.Format("[Auto Notification] Changes on Collection Point for {0}", updatedDeptURCollection.Department.Description);
+                String body = String.Format("Collection Point For '{0}' has been changed from '{1}' to '{2}'.\n\nThis is a system generated email, please do not reply", updatedDeptURCollection.Department.Description, oldCollection, updatedDeptURCollection.Collection.Location);
 
-                CPRadioButtonList.SelectedIndex = 0;
+                MailBizLogic.sendMail(from, to1, subject, body);
+                MailBizLogic.sendMail(from, to2, subject, body);
+                MailBizLogic.sendMail(from, to3, subject, body);
 
-                BindData(DepID);
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                smtpClient.Credentials = new System.Net.NetworkCredential()
-                {
-                    UserName = "teststationery47@gmail.com",
-                    Password = "rFEq8D6UnwV9"
-                };
-                smtpClient.EnableSsl = true;
-                smtpClient.Send(mailMessage);
-                Response.Write("E-mail sent!");
             }
             catch (Exception ex)
             {

@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageOwnRequest.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.ManageOwnRequest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+     <h2 aria-dropeffect="none">Manage own request</h2>
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Select status :"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Select status :" Font-Size="Large"></asp:Label>
+        <br />
         <asp:RadioButtonList ID="StatusRadioButtonList" runat="server" >
         </asp:RadioButtonList>
         <br />
@@ -74,7 +75,6 @@
                 <HeaderStyle BackColor="#284775" ForeColor="White" />
                 <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
             </asp:GridView>
-        <br />
         <br />
         <asp:Button ID="DeleteButton" runat="server" OnClick="ButtonDeleteRequest_Click" CssClass="btn btn-danger" Text="Delete Request" Visible="False" />
         <br />

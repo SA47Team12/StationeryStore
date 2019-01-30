@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PendingPO.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.PendingPO" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h2 aria-dropeffect="none">Pending List of Orders </h2>
            <div>
-            List of suppliers
+               <asp:Label ID="Label1" runat="server" Font-Size="Large" Text="Select supplier :"></asp:Label>
+               <br />
             <br />
             <asp:RadioButton ID="AllSupplier" runat="server"  Text="All" Checked="true" GroupName="Supplier" OnCheckedChanged="AllSupplier_CheckedChanged" />
                &nbsp;&nbsp;
@@ -18,6 +19,7 @@
             <br />
             <asp:Button ID="SelectSupButton" runat="server" Text="Select" OnClick="SelectSupButton_Click" CssClass="btn btn-primary" />
             <br />
+               <br />
             <br />
             <asp:GridView DataKeyNames="POID" ID="PendingOrderGridView" runat="server" CssClass="table table-striped table-bordered"
                 AutoGenerateColumns="False" EmptyDataText="There are no orders" ShowHeaderWhenEmpty="True"

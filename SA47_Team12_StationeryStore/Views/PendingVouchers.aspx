@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PendingVouchers.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.PendingVouchers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <h2 aria-dropeffect="none">Pending vVuchers</h2>
     <br /> 
-    <asp:Label ID="lblSelection" runat="server" Text="Select to view all or latest:"></asp:Label>
-    &nbsp;&nbsp;
-    <asp:RadioButton ID="radioButtonAll" runat="server" AutoPostBack="True" Text="Select All" GroupName="radioButtonViews"/>
+    <asp:Label ID="lblSelection" runat="server" Text="Select to view all or latest:" Font-Size="Large"></asp:Label>
+    &nbsp;&nbsp;<br />
+&nbsp;<asp:RadioButton ID="radioButtonAll" runat="server" AutoPostBack="True" Text="Select All" GroupName="radioButtonViews"/>
     &nbsp;&nbsp;
     <asp:RadioButton ID="radioButtonLatest" runat="server" Checked="True" Text="Select Latest" GroupName="radioButtonViews" AutoPostBack="True"/>
    <br />

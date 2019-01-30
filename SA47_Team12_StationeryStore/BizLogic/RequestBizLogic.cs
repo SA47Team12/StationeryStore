@@ -263,7 +263,6 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
             List<String> status = new List<string>();
             status.Add("Pending");
-            status.Add("Processed");
             status.Add("Approved");
             status.Add("Rejected");
             return status;

@@ -3,9 +3,10 @@
 
         <div>
         <h2 aria-dropeffect="none">Manage Request</h2>
-              <asp:Label ID="Label2" runat="server" Text="Select status:"></asp:Label>
+              <asp:Label ID="Label2" runat="server" Text="Select status:" Font-Size="Large"></asp:Label>
 &nbsp;
             &nbsp;&nbsp;&nbsp;
+            <br />
             <br />
             <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
             </asp:RadioButtonList>
@@ -13,12 +14,13 @@
             <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
             <br />
             <br />
+            <br />
             
             <asp:GridView ID="RequestGridView" runat="server" AutoGenerateColumns="False"  CssClass="table table-striped table-bordered"
                 OnSelectedIndexChanged="RequestGridView_SelectedIndexChanged" DataKeyNames="RequestID" 
                 EmptyDataText="There are no request to display."  ShowHeaderWhenEmpty="True" 
                 AllowPaging="True" OnPageIndexChanging="RequestGridView_PageIndexChanging" PageSize="5" 
-                GridLines="None" CellPadding="4" ForeColor="#333333">
+                GridLines="None" CellPadding="4" ForeColor="#333333" >
                 <AlternatingRowStyle BackColor="White" />
 
                 <Columns>
@@ -55,7 +57,8 @@
                 <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Right" />
             </asp:GridView>
             <br />
-            <asp:Label ID="Label3" runat="server" Text="Additional comments" Visible="False"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Additional comments for approval/rejection (optional) :" Visible="False" Font-Size="Medium"></asp:Label>
+            &nbsp;<br />
             <br />
             <asp:TextBox ID="RemarksTextBox" runat="server" Height="118px" TextMode="MultiLine" Visible="False" Width="368px"></asp:TextBox>
             <br />

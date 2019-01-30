@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PlaceOrder.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.PlaceOrder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+     <h2 aria-dropeffect="none">Place Orders </h2>
    <div>
             <asp:GridView ID="PlaceOrderGridView" runat="server" DataKeyNames="ItemID" CssClass="table table-striped table-bordered"
                 AutoGenerateColumns="False" OnRowEditing="PlaceOrderGridView_RowEditing"

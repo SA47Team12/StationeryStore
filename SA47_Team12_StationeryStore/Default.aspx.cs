@@ -25,8 +25,10 @@ namespace SA47_Team12_StationeryStore
                 {
                     int empId = emp.EmployeeID;
                     int deptID = (int)emp.DepartmentID;
+                    String email = emp.Email;
                     Session["EmpID"] = empId;
                     Session["DeptID"] = deptID;
+                    Session["Email"] = email;
                 }               
             }
         }

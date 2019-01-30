@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Disbursement.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.Disbursement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h2 aria-dropeffect="none">Disbursement list</h2>
     <div>
         <asp:GridView DataKeyNames="ItemID" ID="DisbursementGridView" runat="server" CssClass="table table-striped table-bordered"
             AutoGenerateColumns="False" OnRowEditing="DisbursementGridView_RowEditing"
@@ -11,7 +11,6 @@
             AllowPaging="True" OnPageIndexChanging="DisbursementGridView_PageIndexChanging" PageSize="5"
             GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
-
             <Columns>
 
                 <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="ItemID" />
@@ -48,7 +47,4 @@
     <asp:Button ID="ProceedToDeliverButton" runat="server" Text="Proceed to Schedule" OnClick="ProceedToDeliverButton_Click" class="btn btn-primary" />
 
     <br />
-
-    <br />
-
 </asp:Content>

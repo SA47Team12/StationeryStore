@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RequestVoucherDetails.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.RequestVoucherDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h2 aria-dropeffect="none">Request Voucher Details</h2>
     <div>
         <asp:Button ID="AddVouButton2" runat="server" Text="Add Voucher Item" OnClick="AddVouButton2_Click" CssClass="btn btn-primary" Width="157px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -42,3 +42,44 @@
     background-color: #eee;
     border-color: #ddd;
 }
+
+
+/*Tree view*/
+
+.treeNode {
+    transition: all .3s;
+    padding: 12px 5px;
+    text-align: center;
+    /*width: 100%;*/
+    margin: 0;
+    min-width: 200px !important;
+    border: 2px solid #0000cc;
+    text-decoration: none !important;
+    color: black;
+    /*color:blue;
+            font:14px Arial, Sans-Serif;*/
+}
+
+.rootNode {
+    font-size: 18px;
+    /*width:100%;*/
+    border: none 2px black;
+    color: #0000cc;
+}
+
+.leafNode {
+    background-color: #b3b3b3;
+    border: none 2px black;
+    padding: 10px;
+    background-color: #8d979d;
+    font-weight: bold;
+    color: white;
+}
+
+.selectNode {
+    background-color: white;
+    border: 6px solid blue;
+    /*border: none 2px black;*/
+    font-weight: bold;
+    color: #808080;
+}

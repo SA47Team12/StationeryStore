@@ -1,15 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SupervisorAdjVou.aspx.cs" Inherits="SA47_Team12_StationeryStore.Views.SupervisorAdjVou" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
     <div class="form-horizontal">
         <h2 aria-dropeffect="none">Manage Adjustment Voucher</h2>
 
         <div class="well">
-            &nbsp;
-            <asp:Label ID="Label2" runat="server" Text="Select status:"></asp:Label>
-            &nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <asp:Label ID="Label2" runat="server" Text="Select status:" Font-Size="Large"></asp:Label>
             <br />
             <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
                 <asp:ListItem>Pending Supervisor Approval</asp:ListItem>
@@ -64,7 +61,7 @@
             </asp:GridView>
             &nbsp;
             <br />
-            <asp:Label ID="Label3" runat="server" Text="Additional comments for approval/rejection (optional)" Visible="False"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Additional comments for approval/rejection (optional) :" Visible="False" Font-Size="Large"></asp:Label>
             <br />
             <br />
             <asp:TextBox ID="RemarkTextBox" runat="server" Height="211px" TextMode="MultiLine" Visible="False" Width="607px"></asp:TextBox>
@@ -77,7 +74,7 @@
             &nbsp;&nbsp;&nbsp;<br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="ManagerAppButton" runat="server" OnClick="ManagerAppButton_Click" Text="Submit to Manager for Approval" Visible="False" Width="293px" />
+            <asp:Button ID="ManagerAppButton" runat="server" OnClick="ManagerAppButton_Click" Text="Submit to Manager for Approval" CssClass="btn" Visible="False" Width="293px" />
         </div>
     </div>
 

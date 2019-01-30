@@ -6,17 +6,20 @@
 
         <div class="well">
                     &nbsp;
-            <asp:Label ID="Label2" runat="server" Text="Select status:"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Select status:" Font-Size="Large"></asp:Label>
 &nbsp;
-            &nbsp;&nbsp;&nbsp;
+            &nbsp;<br />
+                    &nbsp;&nbsp;
             <br />
             <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
                 <asp:ListItem>Pending Manager Approval</asp:ListItem>
                 <asp:ListItem>Approved</asp:ListItem>
                 <asp:ListItem>Rejected</asp:ListItem>
             </asp:RadioButtonList>
+                    <br />
             <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
             <br />
+                    <br />
             <br />
             <asp:GridView ID="AdjVouGridView"  CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="False"  
                 DataKeyNames="VoucherID" OnSelectedIndexChanged="AdjVouGridView_SelectedIndexChanged"
@@ -58,8 +61,7 @@
                 <RowStyle BackColor="White" />
             </asp:GridView>
             <br />
-            <br />
-            <asp:Label ID="Label3" runat="server" Text="Additional comments for approval/rejection (optional)" Visible="False"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Additional comments for approval/rejection (optional) :" Visible="False" Font-Size="Medium"></asp:Label>
             <br />
             <br />
             <asp:TextBox ID="RemarkTextBox" runat="server" Height="160px" TextMode="MultiLine" Visible="False" Width="464px"></asp:TextBox>

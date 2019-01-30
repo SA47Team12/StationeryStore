@@ -6,8 +6,8 @@
         <h2 aria-dropeffect="none">Update Supplier Priority</h2>
 
         <div class="well">
-
-            Select Item :
+            <asp:Label ID="Label7" runat="server" Text="Select Item :" Font-Size="Medium"></asp:Label>
+           
             <asp:DropDownList ID="ItemDropDownList" runat="server" DataSourceID="SqlDataSource1" 
                 DataTextField="Item_Description" DataValueField="ItemID" Width="211px" OnDataBound="ItemDropDownList_DataBound">
             </asp:DropDownList>
@@ -21,9 +21,9 @@
             </asp:RequiredFieldValidator>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Size="Medium"></asp:Label>
             <br />
-            <asp:Label ID="Label4" runat="server"></asp:Label>
+            <asp:Label ID="Label4" runat="server" Font-Size="Medium"></asp:Label>
             <asp:DropDownList ID="Priority1DropDownList" runat="server" Visible="False" DataSourceID="SqlDataSource2" 
                 DataTextField="Name" DataValueField="SupplierID" OnDataBound="Priority1DropDownList_DataBound">
             </asp:DropDownList>
@@ -37,9 +37,9 @@
             <br />
             <br />
             
-            <asp:Label ID="Label2" runat="server"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Font-Size="Medium"></asp:Label>
             <br />
-            <asp:Label ID="Label5" runat="server"></asp:Label>
+            <asp:Label ID="Label5" runat="server" Font-Size="Medium"></asp:Label>
             <asp:DropDownList ID="Priority2DropDownList" runat="server" Visible="False" DataSourceID="SqlDataSource2" 
                 DataTextField="Name" DataValueField="SupplierID" OnDataBound="Priority2DropDownList_DataBound">
             </asp:DropDownList>
@@ -53,9 +53,9 @@
             <br />
             <br />
             
-            <asp:Label ID="Label3" runat="server"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Font-Size="Medium"></asp:Label>
             <br />
-            <asp:Label ID="Label6" runat="server"></asp:Label>
+            <asp:Label ID="Label6" runat="server" Font-Size="Medium"></asp:Label>
             <asp:DropDownList ID="Priority3DropDownList" runat="server" Visible="False" DataSourceID="SqlDataSource2" 
                 DataTextField="Name" DataValueField="SupplierID" OnDataBound="Priority3DropDownList_DataBound">
             </asp:DropDownList>

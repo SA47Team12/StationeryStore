@@ -11,11 +11,13 @@
                 <asp:ListItem>Select End Date</asp:ListItem>
             </asp:RadioButtonList>
             <br />
-            <asp:Label ID="Label3" runat="server"></asp:Label>
-            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Font-Size="Medium"></asp:Label>
+            &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label1" runat="server" Font-Size="Medium"></asp:Label>
             <br />
-            <asp:Label ID="Label4" runat="server"></asp:Label>
-            <asp:Label ID="Label2" runat="server"></asp:Label>
+            <asp:Label ID="Label4" runat="server" Font-Size="Medium"></asp:Label>
+            &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label2" runat="server" Font-Size="Medium"></asp:Label>
             <br />
             <br />
             <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" 
@@ -31,7 +33,9 @@
                 <TodayDayStyle BackColor="#CCCC99" />
             </asp:Calendar>
             <br />
-            Select Staff<br />
+            <asp:Label ID="Label5" runat="server" Text="Select Staff" Font-Size="Medium"></asp:Label>
+            <br />
+            <br />
             <asp:DropDownList ID="SelectStaffDropDownList" runat="server" OnDataBound="SelectStaffDropDownList_DataBound" Height="20px" Width="218px" >
             </asp:DropDownList>
             <br />

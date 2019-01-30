@@ -55,21 +55,21 @@
                             <li><a runat="server" href="~/Contact">Contact</a></li>
                         </ul>
                         <%if (HttpContext.Current.Session["EmpID"] == null)
-                          { %>
+                            { %>
                         <asp:LoginView runat="server" ViewStateMode="Disabled">
                             <AnonymousTemplate>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a runat="server" href="~/Account/Register">Register</a></li>
                                     <li><a runat="server" href="~/Account/Login">Log in</a></li>
                                 </ul>
-                            </AnonymousTemplate> 
+                            </AnonymousTemplate>
                             <LoggedInTemplate>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a runat="server" href="~/Account/Register">Register</a></li>
                                     <li><a runat="server" href="~/Account/Login">Log in</a></li>
                                 </ul>
                             </LoggedInTemplate>
-                            
+
                         </asp:LoginView>
                         <%} %>
                         <%else
@@ -81,7 +81,7 @@
                                     <li><a runat="server" href="~/Account/Login">Log in</a></li>
                                 </ul>
                             </AnonymousTemplate>
-                            
+
                             <LoggedInTemplate>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
@@ -103,16 +103,19 @@
         <div class="row">
             <div class="col-sm-2" style="margin: 15px; padding: 10px; font-size: 15px">
 
-                <asp:TreeView ID="AdminTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">
+                <asp:TreeView ID="AdminTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="AdminMenu">
                             <asp:TreeNode NavigateUrl="AssignRoles.aspx" Text="Assign Roles" Value="Assign Roles"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="ManageSupplierList.aspx" Text="Assign Roles" Value="Manage Supplier List"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
 
-                <asp:TreeView ID="DHTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">
+                <asp:TreeView ID="DHTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="DHMenu">
                             <asp:TreeNode NavigateUrl="/Views/ManageRequest.aspx" Text="Manage Request" Value="Manage Request"></asp:TreeNode>
@@ -125,7 +128,9 @@
                     </Nodes>
                 </asp:TreeView>
 
-                <asp:TreeView ID="PurchasingDHTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">
+                <asp:TreeView ID="PurchasingDHTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="DHMenu">
                             <asp:TreeNode NavigateUrl="/Views/AddNewItem.aspx" Text="Add New Item" Value="Add New Item"></asp:TreeNode>
@@ -134,29 +139,34 @@
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
-               
-                <asp:TreeView ID="DeptStaffTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">                 
+
+                <asp:TreeView ID="DeptStaffTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="DeptStaffMenu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>                            
+                            <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
 
-                <asp:TreeView ID="URDeptStaffTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">
-                   
+                <asp:TreeView ID="URDeptStaffTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
+
                     <Nodes>
                         <asp:TreeNode Text="DeptStaffMenu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
-
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
-                
-                <asp:TreeView ID="ManagerTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">
+
+                <asp:TreeView ID="ManagerTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="ManagerMenu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
@@ -166,7 +176,9 @@
                     </Nodes>
                 </asp:TreeView>
 
-                <asp:TreeView ID="SupervisorTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">
+                <asp:TreeView ID="SupervisorTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="SupervisorMenu">
                             <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
@@ -177,7 +189,9 @@
                     </Nodes>
                 </asp:TreeView>
 
-                <asp:TreeView ID="ClerkTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px">
+                <asp:TreeView ID="ClerkTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="ClerkMenu">
                             <asp:TreeNode NavigateUrl="/Views/ManageInventory.aspx" Text="Manage Inventory" Value="Manage Inventory"></asp:TreeNode>
@@ -194,30 +208,30 @@
                 </asp:TreeView>
             </div>
 
-             <div class="hidden">
-                    <div class="container mt-3">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="ManageInventory.aspx">Manage Inventory</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="ManageCatalogue.aspx">Manage Catalogue</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="PlaceOrder.aspx">Place order</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="ConfirmOrder.aspx">Confirm Order</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="RequestVoucher.aspx">Request Voucher</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="ClerkReports.aspx">Clerk Reports</a>
-                            </li>
-                        </ul>                 
-                   </div>
-                 </div>
+            <div class="hidden">
+                <div class="container mt-3">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="ManageInventory.aspx">Manage Inventory</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ManageCatalogue.aspx">Manage Catalogue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="PlaceOrder.aspx">Place order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ConfirmOrder.aspx">Confirm Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="RequestVoucher.aspx">Request Voucher</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ClerkReports.aspx">Clerk Reports</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
 
             <div class="col-sm-8">

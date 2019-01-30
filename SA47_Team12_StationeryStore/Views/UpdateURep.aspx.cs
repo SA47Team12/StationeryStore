@@ -71,27 +71,16 @@ namespace SA47_Team12_StationeryStore.Views
             // added code below:
             try
             {
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.To.Add("teststationery47@gmail.com");
-                mailMessage.From = new MailAddress("teststationery47@gmail.com");
-                mailMessage.Subject = String.Format("User Representative Changed for {0}", updatedDeptURCollection.Department.Description);
-                mailMessage.Body =
-                    String.Format("Updated Collection Point Details\n\nCollection Point: {0}\nUser Representative: {1}\n",
-                    String.Format(updatedDeptURCollection.Collection.Location + " " + updatedDeptURCollection.Collection.Time),
-                    updatedDeptURCollection.Employee.Name);
+                String from = "teststationery47@gmail.com";
+                String to1 = "sithulinhtut16@gmail.com";
+                String to2 = "yanyuhan96@gmail.com";
+                String to3 = "shree.sri23@gmail.com";
+                String subject = String.Format("[Auto Notification] Changes on User Representative for {0}", updatedDeptURCollection.Department.Description);
+                String body = String.Format("New User Representative For '{0}' has been assigned to {1}.\n\nThis is a system generated email, please do not reply", updatedDeptURCollection.Department.Description, updatedDeptURCollection.Employee.Name);
 
-                URDropDownList.SelectedIndex = 0;
-
-                BindData(DepID);
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                smtpClient.Credentials = new System.Net.NetworkCredential()
-                {
-                    UserName = "teststationery47@gmail.com",
-                    Password = "rFEq8D6UnwV9"
-                };
-                smtpClient.EnableSsl = true;
-                smtpClient.Send(mailMessage);
-                Response.Write("E-mail sent!");
+                MailBizLogic.sendMail(from, to1, subject, body);
+                MailBizLogic.sendMail(from, to2, subject, body);
+                MailBizLogic.sendMail(from, to3, subject, body);
             }
             catch (Exception ex)
             {
