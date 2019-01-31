@@ -11,7 +11,8 @@ namespace SA47_Team12_StationeryStore.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (HttpContext.Current.Session["EmpID"] == null)
+                Response.Redirect("/Account/Login.aspx");
         }
 
         protected void ReportButton_Click(object sender, EventArgs e)
