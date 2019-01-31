@@ -70,7 +70,6 @@ namespace SA47_Team12_StationeryStore.Views
 
             DelegationHistoryGridView.PageIndex = e.NewPageIndex;
             DelegationHistoryGridView.DataBind();
-            BindGrid();
         }
 
         protected void DelegationScheduleGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -81,7 +80,6 @@ namespace SA47_Team12_StationeryStore.Views
 
             DelegationScheduleGridView.PageIndex = e.NewPageIndex;
             DelegationScheduleGridView.DataBind();
-            BindGrid();
         }
     }
 }

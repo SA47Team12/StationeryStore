@@ -89,7 +89,7 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 RequestGridView.DataSource = RequestBizLogic.ViewRejectedRequest(EmpID);//hardcord employeeId for testing
             }
-                RequestGridView.PageIndex = e.NewPageIndex;
+            RequestGridView.PageIndex = e.NewPageIndex;
             RequestGridView.DataBind();
             //BindGrid();
         }
@@ -106,6 +106,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
 
             int RequestID = (int)RequestGridView.SelectedDataKey.Value;
+            ViewState["rid"] = (int)RequestID;
             RequestDetailsGridView.Visible = true;
             RequestDetailsGridView.DataSource = RequestBizLogic.ListRequestDetails(RequestID);
             RequestDetailsGridView.DataBind();
@@ -114,6 +115,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void PendingRequestGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             int RequestID = (int)PendingRequestGridView.SelectedDataKey.Value;
+            ViewState["rid"] = (int)RequestID;
             RequestDetailsGridView.Visible = true;
             RequestDetailsGridView.DataSource = RequestBizLogic.ListRequestDetails(RequestID);
             RequestDetailsGridView.DataBind();
@@ -122,12 +124,30 @@ namespace SA47_Team12_StationeryStore.Views
         protected void PendingRequestGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            int RequestID = (int)PendingRequestGridView.SelectedDataKey.Value;
-            RequestBizLogic.DeleteSelectedPendingRequest(RequestID);
+
+            int requestID = Convert.ToInt32(PendingRequestGridView.DataKeys[e.RowIndex].Values[0]);
+            RequestBizLogic.DeleteSelectedPendingRequest(requestID);
             PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);//hardcord employeeId for testing
             PendingRequestGridView.DataBind();
             RequestDetailsGridView.Visible = false;
 
+        }
+
+        protected void PendingRequestGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            int EmpID = (int)HttpContext.Current.Session["EmpID"];
+            PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);//hardcord employeeId for testing
+            PendingRequestGridView.PageIndex = e.NewPageIndex;
+            PendingRequestGridView.DataBind();
+
+        }
+
+        protected void RequestDetailsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            int requestID = (int)ViewState["rid"];
+            RequestDetailsGridView.DataSource = RequestBizLogic.ListRequestDetails(requestID);
+            RequestDetailsGridView.PageIndex = e.NewPageIndex;
+            RequestDetailsGridView.DataBind();
         }
     }
 }

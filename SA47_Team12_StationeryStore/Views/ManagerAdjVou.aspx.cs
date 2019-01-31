@@ -41,6 +41,7 @@ namespace SA47_Team12_StationeryStore.Views
             AdjVouDetailsGridView.Visible = true;
             AdjVouDetailsGridView.DataSource = AdjustmentBizLogic.ListVoucherDetails(VoucherId);
             AdjVouDetailsGridView.DataBind();
+            ViewState["status"] = (string)StatusRadioButtonList.SelectedValue;
             if (StatusRadioButtonList.SelectedValue == "Approved")
             {
                 ApproveButton.Visible = false;
@@ -58,7 +59,7 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void AdjVouGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            string status = StatusRadioButtonList.SelectedValue;
+            string status = (string)ViewState["status"];
             AdjVouGridView.DataSource = AdjustmentBizLogic.ListVouchers(status);
             AdjVouGridView.PageIndex = e.NewPageIndex;
             AdjVouGridView.DataBind();

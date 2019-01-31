@@ -66,6 +66,8 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void PlaceOrderGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            int EmpID = (int)HttpContext.Current.Session["EmpID"];
+            PlaceOrderGridView.DataSource = POBizLogic.DataBind(EmpID);
             PlaceOrderGridView.PageIndex = e.NewPageIndex;
             PlaceOrderGridView.DataBind();
             BindGrid();

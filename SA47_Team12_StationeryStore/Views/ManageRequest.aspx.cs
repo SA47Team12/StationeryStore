@@ -58,6 +58,7 @@ namespace SA47_Team12_StationeryStore.Views
         {
             //find which requestID has been clicked
             int RequestID = (int)RequestGridView.SelectedDataKey.Value;
+            ViewState["rid"] = (int)RequestID;
             RequestDetailsGridView.Visible = true;
             RequestDetailsGridView.DataSource = RequestBizLogic.ListRequestDetails(RequestID);
             RequestDetailsGridView.DataBind();
@@ -88,21 +89,23 @@ namespace SA47_Team12_StationeryStore.Views
         protected void RejectButton_Click(object sender, EventArgs e)
         {
             string remarks = RemarksTextBox.Text;
+            int count = 0;
             foreach (GridViewRow row in RequestDetailsGridView.Rows)
             {
                 int RequestId = (int)RequestDetailsGridView.DataKeys[row.RowIndex].Values["Id"];
 
                 DateTime dt = DateTime.Now;
-                RequestBizLogic.RejectRequest(RequestId, dt, remarks);
+                RequestBizLogic.RejectRequest(RequestId, dt, remarks,count);
+                count++;
             }
 
-            //mail to employee who raised request
-            String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
-            String subject = "Request Status";
-            String body = "Sorry! Your request has been rejected.";
+            ////mail to employee who raised request
+            //String from = "teststationery47@gmail.com";
+            //String to = "yazh25894@gmail.com";
+            //String subject = "Request Status";
+            //String body = "Sorry! Your request has been rejected.";
 
-            MailBizLogic.sendMail(from, to, subject, body);
+            //MailBizLogic.sendMail(from, to, subject, body);
 
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Request Rejected');window.location ='ManageRequest.aspx';", true);
@@ -111,23 +114,34 @@ namespace SA47_Team12_StationeryStore.Views
         protected void ApproveButton_Click(object sender, EventArgs e)
         {
             string remarks = RemarksTextBox.Text;
+            int count = 0;
             foreach (GridViewRow row in RequestDetailsGridView.Rows)
             {
                 int RequestId = (int)RequestDetailsGridView.DataKeys[row.RowIndex].Values["Id"];
                 DateTime dt = DateTime.Now;
 
-                RequestBizLogic.ApproveRequest(RequestId, dt, remarks);
+                RequestBizLogic.ApproveRequest(RequestId, dt, remarks,count);
+                count++;
             }
-            //mail to employee who raised request
-            String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
-            String subject = "Request Status";
-            String body = "Your request has been approved.";
+            ////mail to employee who raised request
+            //String from = "teststationery47@gmail.com";
+            //String to = "yazh25894@gmail.com";
+            //String subject = "Request Status";
+            //String body = "Your request has been approved.";
 
-            MailBizLogic.sendMail(from, to, subject, body);
+            //MailBizLogic.sendMail(from, to, subject, body);
 
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Request Approved');window.location ='ManageRequest.aspx';", true);
+        }
+
+        protected void RequestDetailsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            int RequestID=(int)ViewState["rid"];
+            RequestDetailsGridView.DataSource = RequestBizLogic.ListRequestDetails(RequestID);
+            RequestDetailsGridView.PageIndex = e.NewPageIndex;
+            RequestDetailsGridView.DataBind();
+
         }
     }
 }

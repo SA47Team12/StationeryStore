@@ -367,6 +367,45 @@ namespace SA47_Team12_StationeryStore.BizLogic
             d.DepartmentID = DepartmentID;
             d.EmployeeID = EmployeeID;
             d.DeliveryDate = DateTime.Now.Date; //??need to set the next Monday
+
+            /*set delivery date to next monday*/
+            int timespan=0;
+            int today = (int) DateTime.Now.DayOfWeek;
+            switch (today)
+            {
+                case 0:
+                    timespan = 1;
+                    break;
+
+                case 1:
+                    timespan = 7;
+                    break;
+
+                case 2:
+                    timespan = 6;
+                    break;
+
+                case 3:
+                    timespan = 5;
+                    break;
+
+                case 4:
+                    timespan = 4;
+                    break;
+
+                case 5:
+                   timespan = 3;
+                    break;
+
+                case 6:
+                    timespan = 2;
+                    break;
+            }
+
+            d.DeliveryDate = DateTime.Now.Date.AddDays(timespan);
+
+            /*end of set delivery date to next monday*/
+
             d.Status = "Scheduled";
             context.Delivery.Add(d);
 

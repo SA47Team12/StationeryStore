@@ -27,6 +27,7 @@ namespace SA47_Team12_StationeryStore.Views
                 else
                 {
                     Response.Write("<script>alert('No pending voucher !');</script>");
+                    
                 }
                 
             }
@@ -71,6 +72,8 @@ namespace SA47_Team12_StationeryStore.Views
         protected void PendingVouchersGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             int voucherId = Convert.ToInt32(PendingVouchersGridView.DataKeys[PendingVouchersGridView.SelectedRow.RowIndex].Values[0]);
+
+            ViewState["vid"] = (int)voucherId;
             PendingVoucherItemsGridView.DataSource = VoucherBizLogic.ListVoucherDetails((int)HttpContext.Current.Session["EmpID"], voucherId);
             PendingVoucherItemsGridView.DataBind();
             PendingVoucherItemsGridView.Visible = true;
@@ -99,9 +102,10 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void PendingVoucherItemsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            int voucherId=(int)ViewState["vid"];
+            PendingVoucherItemsGridView.DataSource = VoucherBizLogic.ListVoucherDetails((int)HttpContext.Current.Session["EmpID"], voucherId);
             PendingVoucherItemsGridView.PageIndex = e.NewPageIndex;
             PendingVoucherItemsGridView.DataBind();
-            BindGridAuto();
         }
 
     }

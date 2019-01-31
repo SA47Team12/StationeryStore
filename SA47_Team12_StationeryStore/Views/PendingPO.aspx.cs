@@ -38,13 +38,9 @@ namespace SA47_Team12_StationeryStore.Views
         }
 
         protected void PendingOrderGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            PendingOrderGridView.DataSource = POBizLogic.ListPendingPOByDate(EmpID);
-
+        {           
             PendingOrderGridView.PageIndex = e.NewPageIndex;
             PendingOrderGridView.DataBind();
-            BindGrid();
         }
 
         protected void AllSupplier_CheckedChanged(object sender, EventArgs e)

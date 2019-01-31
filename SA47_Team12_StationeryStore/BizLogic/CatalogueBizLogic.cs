@@ -48,7 +48,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                                         CategoryDescription = c.Category.Category_Description,
                                         ItemDescription = c.Item_Description,
                                         ReorderLevel = c.ReorderLevel,
-                                        ReorderQty = c.ReorderQty,
+                                        ReorderQty = c.ReorderQty, 
                                         UnitOfMeasure = c.UnitOfMeasure,
                                         UnitCost = c.UnitCost,
                                         ActualQty = c.ActualQty

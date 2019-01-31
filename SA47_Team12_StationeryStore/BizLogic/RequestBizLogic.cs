@@ -380,8 +380,9 @@ namespace SA47_Team12_StationeryStore.BizLogic
             }
         }
 
-        public static void ApproveRequest(int RequestId, DateTime datetime, string remarks)
+        public static void ApproveRequest(int RequestId, DateTime datetime, string remarks, int flag)
         {
+            string to;
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
 
@@ -390,10 +391,19 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 item.ApprovalDate = datetime;
                 item.Remarks = remarks;
                 context.SaveChanges();
+                to = item.Employee.Email;
+            }
+            if (flag == 0)
+            {
+                String from = "teststationery47@gmail.com";
+                String subject = "Request Status";
+                String body = "Your request has been approved.";
+                MailBizLogic.sendMail(from, to, subject, body);
             }
         }
-        public static void RejectRequest(int RequestId, DateTime datetime, string remarks)
+        public static void RejectRequest(int RequestId, DateTime datetime, string remarks, int flag)
         {
+            string to;
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
                 var item = context.Request.Where(c => c.RequestID == RequestId).Single();
@@ -401,6 +411,14 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 item.ApprovalDate = datetime;
                 item.Remarks = remarks;
                 context.SaveChanges();
+                to = item.Employee.Email;
+            }
+            if (flag == 0)
+            {
+                String from = "teststationery47@gmail.com";
+                String subject = "Request Status";
+                String body = "Sorry! Your request has been rejected.";
+                MailBizLogic.sendMail(from, to, subject, body);
             }
         }
 

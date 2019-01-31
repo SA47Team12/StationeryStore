@@ -77,8 +77,10 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(SearchTextBox.Text);
+            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(SearchTextBox.Text);        
             InventoryGridView.DataBind();
+            //for pagination
+            ViewState["search"] = (string)SearchTextBox.Text;
         }
 
         protected void InventoryGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,8 +112,8 @@ namespace SA47_Team12_StationeryStore.Views
         protected void InventoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             //pagination
-
-            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(SearchTextBox.Text);
+            string search= (string)ViewState["search"];
+            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(search);
             InventoryGridView.PageIndex = e.NewPageIndex;
             InventoryGridView.DataBind();
             BindGrid();
