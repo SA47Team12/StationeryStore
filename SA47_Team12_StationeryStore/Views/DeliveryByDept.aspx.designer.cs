@@ -13,13 +13,13 @@ namespace SA47_Team12_StationeryStore.Views {
     public partial class DeliveryByDept {
         
         /// <summary>
-        /// Label2 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// StatusRadioButtonList control.
@@ -40,13 +40,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Button ViewButton;
         
         /// <summary>
-        /// Label1 control.
+        /// LabelDep2001 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LabelDep2001;
         
         /// <summary>
         /// Dep2001 control.
@@ -58,13 +58,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label Dep2001;
         
         /// <summary>
-        /// Label3 control.
+        /// LabelCP2001 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LabelCP2001;
         
         /// <summary>
         /// CP2001 control.
@@ -76,13 +76,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label CP2001;
         
         /// <summary>
-        /// Label4 control.
+        /// LabelUR2001 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label LabelUR2001;
         
         /// <summary>
         /// UR2001 control.
@@ -112,13 +112,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Button Confirm2001;
         
         /// <summary>
-        /// Label5 control.
+        /// LabelDep2002 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label LabelDep2002;
         
         /// <summary>
         /// Dep2002 control.
@@ -130,13 +130,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label Dep2002;
         
         /// <summary>
-        /// Label7 control.
+        /// LabelCP2002 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.Label LabelCP2002;
         
         /// <summary>
         /// CP2002 control.
@@ -148,13 +148,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label CP2002;
         
         /// <summary>
-        /// Label9 control.
+        /// LabelUR2002 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
+        protected global::System.Web.UI.WebControls.Label LabelUR2002;
         
         /// <summary>
         /// UR2002 control.
@@ -184,13 +184,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Button Confirm2002;
         
         /// <summary>
-        /// Label6 control.
+        /// LabelDep2003 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label LabelDep2003;
         
         /// <summary>
         /// Dep2003 control.
@@ -202,13 +202,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label Dep2003;
         
         /// <summary>
-        /// Label10 control.
+        /// LabelCP2003 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
+        protected global::System.Web.UI.WebControls.Label LabelCP2003;
         
         /// <summary>
         /// CP2003 control.
@@ -220,13 +220,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label CP2003;
         
         /// <summary>
-        /// Label12 control.
+        /// LabelUR2003 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
+        protected global::System.Web.UI.WebControls.Label LabelUR2003;
         
         /// <summary>
         /// UR2003 control.
@@ -256,13 +256,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Button Confirm2003;
         
         /// <summary>
-        /// Label14 control.
+        /// LabelDep2004 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label14;
+        protected global::System.Web.UI.WebControls.Label LabelDep2004;
         
         /// <summary>
         /// Dep2004 control.
@@ -274,13 +274,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label Dep2004;
         
         /// <summary>
-        /// Label16 control.
+        /// LabelCP2004 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label16;
+        protected global::System.Web.UI.WebControls.Label LabelCP2004;
         
         /// <summary>
         /// CP2004 control.
@@ -292,13 +292,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label CP2004;
         
         /// <summary>
-        /// Label18 control.
+        /// LabelUR2004 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label18;
+        protected global::System.Web.UI.WebControls.Label LabelUR2004;
         
         /// <summary>
         /// UR2004 control.
@@ -328,13 +328,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Button Confirm2004;
         
         /// <summary>
-        /// Label20 control.
+        /// LabelDep2005 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label20;
+        protected global::System.Web.UI.WebControls.Label LabelDep2005;
         
         /// <summary>
         /// Dep2005 control.
@@ -346,13 +346,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label Dep2005;
         
         /// <summary>
-        /// Label22 control.
+        /// LabelCP2005 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label22;
+        protected global::System.Web.UI.WebControls.Label LabelCP2005;
         
         /// <summary>
         /// CP2005 control.
@@ -364,13 +364,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label CP2005;
         
         /// <summary>
-        /// Label24 control.
+        /// LabelUR2005 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label24;
+        protected global::System.Web.UI.WebControls.Label LabelUR2005;
         
         /// <summary>
         /// UR2005 control.
@@ -400,13 +400,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Button Confirm2005;
         
         /// <summary>
-        /// Label26 control.
+        /// LabelDep2006 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label26;
+        protected global::System.Web.UI.WebControls.Label LabelDep2006;
         
         /// <summary>
         /// Dep2006 control.
@@ -418,13 +418,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label Dep2006;
         
         /// <summary>
-        /// Label28 control.
+        /// LabelCP2006 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label28;
+        protected global::System.Web.UI.WebControls.Label LabelCP2006;
         
         /// <summary>
         /// CP2006 control.
@@ -436,13 +436,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label CP2006;
         
         /// <summary>
-        /// Label30 control.
+        /// LabelUR2006 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label30;
+        protected global::System.Web.UI.WebControls.Label LabelUR2006;
         
         /// <summary>
         /// UR2006 control.
@@ -472,13 +472,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Button Confirm2006;
         
         /// <summary>
-        /// Label32 control.
+        /// LabelDep2007 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label32;
+        protected global::System.Web.UI.WebControls.Label LabelDep2007;
         
         /// <summary>
         /// Dep2007 control.
@@ -490,13 +490,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label Dep2007;
         
         /// <summary>
-        /// Label34 control.
+        /// LabelCP2007 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label34;
+        protected global::System.Web.UI.WebControls.Label LabelCP2007;
         
         /// <summary>
         /// CP2007 control.
@@ -508,13 +508,13 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::System.Web.UI.WebControls.Label CP2007;
         
         /// <summary>
-        /// Label36 control.
+        /// LabelUR2007 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label36;
+        protected global::System.Web.UI.WebControls.Label LabelUR2007;
         
         /// <summary>
         /// UR2007 control.

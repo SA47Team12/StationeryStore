@@ -196,7 +196,8 @@ namespace SA47_Team12_StationeryStore.Views
         }
 
         protected void ViewPendingVouchersButton_Click(object sender, EventArgs e)
-        {
+        { 
+            
             Response.Redirect("~/Views/PendingVouchers.aspx");
         }
     }

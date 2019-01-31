@@ -30,51 +30,72 @@ namespace SA47_Team12_StationeryStore.Views
                     (placeholder.FindControl("Dep" + d.DepartmentID) as Label).Visible = true;
                     (placeholder.FindControl("CP" + d.DepartmentID) as Label).Visible = true;
                     (placeholder.FindControl("UR" + d.DepartmentID) as Label).Visible = true;
+                    (placeholder.FindControl("LabelDep" + d.DepartmentID) as Label).Visible = true;
+                    (placeholder.FindControl("LabelCP" + d.DepartmentID) as Label).Visible = true;
+                    (placeholder.FindControl("LabelUR" + d.DepartmentID) as Label).Visible = true;
                 }
             }
         }
 
         protected void HideGV()
         {
-            //List<int> deps = new List<int>{ 2001, 2002, 2003, 2004, 2005, 2006, 2007 };
-            //foreach(int dep in deps)
-            //{
-            //    DeliveryDepTable2001.Visible = false;
-            //    Confirm2001.Visible = false;
-            //    Dep2001.Visible = false;
-            //    CP2001.Visible = false;
-            //    UR2001.Visible = false;
-            //}
+            LabelDep2001.Visible = false;
+            LabelCP2001.Visible = false;
+            LabelUR2001.Visible = false;
             DeliveryDepTable2001.Visible = false;
             Confirm2001.Visible = false;
             Dep2001.Visible = false;
             CP2001.Visible = false;
             UR2001.Visible = false;
+
+            LabelDep2002.Visible = false;
+            LabelCP2002.Visible = false;
+            LabelUR2002.Visible = false;
             DeliveryDepTable2002.Visible = false;
             Confirm2002.Visible = false;
             Dep2002.Visible = false;
             CP2002.Visible = false;
             UR2002.Visible = false;
+
+            LabelDep2003.Visible = false;
+            LabelCP2003.Visible = false;
+            LabelUR2003.Visible = false;
             DeliveryDepTable2003.Visible = false;
             Confirm2003.Visible = false;
             Dep2003.Visible = false;
             CP2003.Visible = false;
             UR2003.Visible = false;
+
+            LabelDep2004.Visible = false;
+            LabelCP2004.Visible = false;
+            LabelUR2004.Visible = false;
             DeliveryDepTable2004.Visible = false;
             Confirm2004.Visible = false;
             Dep2004.Visible = false;
             CP2004.Visible = false;
             UR2004.Visible = false;
+
+            LabelDep2005.Visible = false;
+            LabelCP2005.Visible = false;
+            LabelUR2005.Visible = false;
             DeliveryDepTable2005.Visible = false;
             Confirm2005.Visible = false;
             Dep2005.Visible = false;
             CP2005.Visible = false;
             UR2005.Visible = false;
+
+            LabelDep2006.Visible = false;
+            LabelCP2006.Visible = false;
+            LabelUR2006.Visible = false;
             DeliveryDepTable2006.Visible = false;
             Confirm2006.Visible = false;
             Dep2006.Visible = false;
             CP2006.Visible = false;
             UR2006.Visible = false;
+
+            LabelDep2007.Visible = false;
+            LabelCP2007.Visible = false;
+            LabelUR2007.Visible = false;
             DeliveryDepTable2007.Visible = false;
             Confirm2007.Visible = false;
             Dep2007.Visible = false;

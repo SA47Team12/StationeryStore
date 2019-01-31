@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2 aria-dropeffect="none">Delivery Details by department</h2>
     <div>
-        <asp:Label ID="Label2" runat="server" Text="Select status:" Font-Size="Large"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Select status:" Font-Size="Large"></asp:Label>
         <br />
         <br />
         <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
@@ -15,22 +15,21 @@
         <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
         <br />
     </div>
-    
-               
+                  
     <div>
         <br />
         <br />
         <div class="row">
             <div class="col-sm-4">
-                <asp:Label ID="Label1" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelDep2001" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
                  <asp:Label ID="Dep2001" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="Label3" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+               <asp:Label ID="LabelCP2001" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2001" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="Label4" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="LabelUR2001" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
                 <asp:Label ID="UR2001" runat="server" Font-Size="Large"></asp:Label>               
             </div>
         </div>
@@ -85,15 +84,15 @@
         <br />
         <div class="row">
             <div class="col-sm-4">
-                <asp:Label ID="Label5" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelDep2002" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
                  <asp:Label ID="Dep2002" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="Label7" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+               <asp:Label ID="LabelCP2002" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2002" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="Label9" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="LabelUR2002" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
                 <asp:Label ID="UR2002" runat="server" Font-Size="Large"></asp:Label>               
             </div>
         </div>
@@ -148,15 +147,15 @@
         <br />
         <div class="row">
             <div class="col-sm-4">
-                <asp:Label ID="Label6" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelDep2003" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
                  <asp:Label ID="Dep2003" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="Label10" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+               <asp:Label ID="LabelCP2003" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2003" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="Label12" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="LabelUR2003" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
                 <asp:Label ID="UR2003" runat="server" Font-Size="Large"></asp:Label>               
             </div>
         </div>
@@ -211,15 +210,15 @@
         <br />
         <div class="row">
             <div class="col-sm-4">
-                <asp:Label ID="Label14" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelDep2004" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
                  <asp:Label ID="Dep2004" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="Label16" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+               <asp:Label ID="LabelCP2004" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2004" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="Label18" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="LabelUR2004" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
                 <asp:Label ID="UR2004" runat="server" Font-Size="Large"></asp:Label>               
             </div>
         </div>
@@ -272,15 +271,15 @@
         <br />
         <div class="row">
             <div class="col-sm-4">
-                <asp:Label ID="Label20" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelDep2005" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
                  <asp:Label ID="Dep2005" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="Label22" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+               <asp:Label ID="LabelCP2005" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2005" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="Label24" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="LabelUR2005" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
                 <asp:Label ID="UR2005" runat="server" Font-Size="Large"></asp:Label>               
             </div>
         </div>
@@ -333,15 +332,15 @@
         <br />
         <div class="row">
             <div class="col-sm-4">
-                <asp:Label ID="Label26" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelDep2006" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
                  <asp:Label ID="Dep2006" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="Label28" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+               <asp:Label ID="LabelCP2006" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2006" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="Label30" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="LabelUR2006" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
                 <asp:Label ID="UR2006" runat="server" Font-Size="Large"></asp:Label>               
             </div>
         </div>
@@ -394,15 +393,15 @@
         <br />
         <div class="row">
             <div class="col-sm-4">
-                <asp:Label ID="Label32" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelDep2007" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
                  <asp:Label ID="Dep2007" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="Label34" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+               <asp:Label ID="LabelCP2007" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2007" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="Label36" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
+                <asp:Label ID="LabelUR2007" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
                 <asp:Label ID="UR2007" runat="server" Font-Size="Large"></asp:Label>               
             </div>
         </div>

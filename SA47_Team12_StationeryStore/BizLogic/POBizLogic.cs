@@ -190,7 +190,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
 
 
-            DateTime today = DateTime.Now.Date;
+            DateTime today = DateTime.Now;
 
             var requestdetaillist = context.RequestDetail.Where(x => x.Request.Status == "Approved" && x.Request.ApprovalDate < today).ToList();
 

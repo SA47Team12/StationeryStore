@@ -16,11 +16,21 @@ namespace SA47_Team12_StationeryStore.Views
             if (stateOfRadioButton == "latest")
             {
                 int EmpID = (int)HttpContext.Current.Session["EmpID"];
-                List<PendingVoucherRequest> latestVoucherRequest = new List<PendingVoucherRequest>();
-                latestVoucherRequest.Add(VoucherBizLogic.ListPendingVoucherRequests(EmpID).Last());
-                PendingVouchersGridView.DataSource = latestVoucherRequest;  // hardcoded employeeid for now, need to retrieve later
-                PendingVouchersGridView.DataBind();
+                
+                if(VoucherBizLogic.ListPendingVoucherRequests(EmpID).Any())
+                {
+                    List<PendingVoucherRequest> latestVoucherRequest = new List<PendingVoucherRequest>();
+                    latestVoucherRequest.Add(VoucherBizLogic.ListPendingVoucherRequests(EmpID).Last());
+                    PendingVouchersGridView.DataSource = latestVoucherRequest;  // hardcoded employeeid for now, need to retrieve later
+                    PendingVouchersGridView.DataBind();
+                }
+                else
+                {
+                    Response.Write("<script>alert('No pending voucher !');</script>");
+                }
+                
             }
+
 
             else if (stateOfRadioButton == "all")
             {
@@ -77,7 +87,6 @@ namespace SA47_Team12_StationeryStore.Views
         {
             int voucherId = Convert.ToInt32(PendingVouchersGridView.DataKeys[e.RowIndex].Values[0]);
             VoucherBizLogic.DeletePendingVoucher(voucherId);
-            /*Change: Changed bindgrid() to bindgridauto() */
             BindGridAuto();
         }
 
@@ -85,7 +94,6 @@ namespace SA47_Team12_StationeryStore.Views
         {
             PendingVouchersGridView.PageIndex = e.NewPageIndex;
             PendingVouchersGridView.DataBind();
-            /*Change: Changed bindgrid() to bindgridauto() */
             BindGridAuto();
         }
 
@@ -93,17 +101,8 @@ namespace SA47_Team12_StationeryStore.Views
         {
             PendingVoucherItemsGridView.PageIndex = e.NewPageIndex;
             PendingVoucherItemsGridView.DataBind();
-            /*Change: Changed bindgrid() to bindgridauto() */
             BindGridAuto();
         }
-
-        //protected void PendingVoucherItemsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    PendingVoucherItemsGridView.PageIndex = e.NewPageIndex;
-        //    PendingVoucherItemsGridView.DataBind();
-        //    /*Change: Changed bindgrid() to bindgridauto() */
-        //    BindGridAuto();
-        //}
 
     }
 }

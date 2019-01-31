@@ -72,7 +72,8 @@ namespace SA47_Team12_StationeryStore.Views
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
             POBizLogic.ScheduleDelivery(EmpID);
-            //Response.Redirect("/Views/DeliveryByDept.aspx");
+            BindGrid();
+            Response.Redirect("/Views/DeliveryByDept.aspx");
         }
 
     }

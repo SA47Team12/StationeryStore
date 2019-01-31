@@ -34,13 +34,14 @@ namespace SA47_Team12_StationeryStore.BizLogic
             }
         }
 
+
         //assume clerk is searching by item category
         public static List<CatalogueInventoryViewModel> ListCatalogue(string searchString)
         {
             using (StationeryStoreEntities _entities = new StationeryStoreEntities())
             {
                 var catalogueList = _entities.CatalogueInventory
-                                    .Where(c => c.Category.Category_Description.Contains(searchString))
+                                    .Where(c => c.Item_Description.Contains(searchString))
                                     .Select(c => new CatalogueInventoryViewModel
                                     {
                                         ItemID = c.ItemID,

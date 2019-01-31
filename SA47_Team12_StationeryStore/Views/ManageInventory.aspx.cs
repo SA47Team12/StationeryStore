@@ -65,10 +65,11 @@ namespace SA47_Team12_StationeryStore.Views
             else
             {
                 PopulateControlLists();
-                BindGrid();
+                //BindGrid();
 
                 if (!IsPostBack)
-                {                   
+                {
+                    BindGrid();
                     SetVisibilityofControlLists("Search");
                 }
             }
