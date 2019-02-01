@@ -7,7 +7,7 @@
         <br />
         <br />
         <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
-            <asp:ListItem>Pending Delivery</asp:ListItem>
+            <asp:ListItem>Outstanding Delivery</asp:ListItem>
             <asp:ListItem Selected="True">Today's Delivery</asp:ListItem>
             <asp:ListItem>Upcoming Delivery</asp:ListItem>
         </asp:RadioButtonList>
@@ -15,22 +15,22 @@
         <asp:Button ID="ViewButton" runat="server" Height="26px" OnClick="ViewButton_Click" CssClass="btn btn-primary" Text=" View List" />
         <br />
     </div>
-                  
+
     <div>
         <br />
         <br />
         <div class="row">
             <div class="col-sm-4">
                 <asp:Label ID="LabelDep2001" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
-                 <asp:Label ID="Dep2001" runat="server" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Dep2001" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="LabelCP2001" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelCP2001" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2001" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="LabelUR2001" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
-                <asp:Label ID="UR2001" runat="server" Font-Size="Large"></asp:Label>               
+                <asp:Label ID="LabelUR2001" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="UR2001" runat="server" Font-Size="Large"></asp:Label>
             </div>
         </div>
         <br />
@@ -40,11 +40,11 @@
             OnRowUpdating="DeliveryDepTable2001_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2001_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DeliveryDepTable2001_RowCommand">
             <AlternatingRowStyle BackColor="White" />
 
             <Columns>
-                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="ItemID" />
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -67,7 +67,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
-
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -76,6 +80,7 @@
         </asp:GridView>
         <br />
         <asp:Button ID="Confirm2001" runat="server" Text="Confirm" OnClick="Confirm2001_Click" CssClass="btn btn-primary" Visible="false" />
+
     </div>
     <br />
     <br />
@@ -85,15 +90,15 @@
         <div class="row">
             <div class="col-sm-4">
                 <asp:Label ID="LabelDep2002" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
-                 <asp:Label ID="Dep2002" runat="server" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Dep2002" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="LabelCP2002" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelCP2002" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2002" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="LabelUR2002" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
-                <asp:Label ID="UR2002" runat="server" Font-Size="Large"></asp:Label>               
+                <asp:Label ID="LabelUR2002" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="UR2002" runat="server" Font-Size="Large"></asp:Label>
             </div>
         </div>
         <br />
@@ -103,11 +108,11 @@
             OnRowUpdating="DeliveryDepTable2002_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2002_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DeliveryDepTable2002_RowCommand">
             <AlternatingRowStyle BackColor="White" />
 
             <Columns>
-                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="Department" />
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -130,7 +135,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
-
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -148,15 +157,15 @@
         <div class="row">
             <div class="col-sm-4">
                 <asp:Label ID="LabelDep2003" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
-                 <asp:Label ID="Dep2003" runat="server" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Dep2003" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="LabelCP2003" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelCP2003" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2003" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="LabelUR2003" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
-                <asp:Label ID="UR2003" runat="server" Font-Size="Large"></asp:Label>               
+                <asp:Label ID="LabelUR2003" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="UR2003" runat="server" Font-Size="Large"></asp:Label>
             </div>
         </div>
         <br />
@@ -166,10 +175,10 @@
             OnRowUpdating="DeliveryDepTable2003_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2003_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DeliveryDepTable2003_RowCommand">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="Department" />
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -192,7 +201,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
-
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -211,15 +224,15 @@
         <div class="row">
             <div class="col-sm-4">
                 <asp:Label ID="LabelDep2004" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
-                 <asp:Label ID="Dep2004" runat="server" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Dep2004" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="LabelCP2004" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelCP2004" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2004" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="LabelUR2004" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
-                <asp:Label ID="UR2004" runat="server" Font-Size="Large"></asp:Label>               
+                <asp:Label ID="LabelUR2004" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="UR2004" runat="server" Font-Size="Large"></asp:Label>
             </div>
         </div>
         <br />
@@ -228,10 +241,10 @@
             OnRowCancelingEdit="DeliveryDepTable2004_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2004_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2004_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DeliveryDepTable2004_RowCommand">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="Department" />
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -254,7 +267,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
-
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -272,15 +289,15 @@
         <div class="row">
             <div class="col-sm-4">
                 <asp:Label ID="LabelDep2005" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
-                 <asp:Label ID="Dep2005" runat="server" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Dep2005" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="LabelCP2005" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelCP2005" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2005" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="LabelUR2005" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
-                <asp:Label ID="UR2005" runat="server" Font-Size="Large"></asp:Label>               
+                <asp:Label ID="LabelUR2005" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="UR2005" runat="server" Font-Size="Large"></asp:Label>
             </div>
         </div>
         <br />
@@ -289,10 +306,10 @@
             OnRowCancelingEdit="DeliveryDepTable2005_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2005_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2005_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DeliveryDepTable2005_RowCommand">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="Department" />
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -315,7 +332,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
-
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -333,15 +354,15 @@
         <div class="row">
             <div class="col-sm-4">
                 <asp:Label ID="LabelDep2006" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
-                 <asp:Label ID="Dep2006" runat="server" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Dep2006" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="LabelCP2006" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelCP2006" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2006" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="LabelUR2006" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
-                <asp:Label ID="UR2006" runat="server" Font-Size="Large"></asp:Label>               
+                <asp:Label ID="LabelUR2006" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="UR2006" runat="server" Font-Size="Large"></asp:Label>
             </div>
         </div>
         <br />
@@ -350,10 +371,10 @@
             OnRowCancelingEdit="DeliveryDepTable2006_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2006_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2006_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DeliveryDepTable2006_RowCommand">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="Department" />
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -376,7 +397,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
-
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -394,15 +419,15 @@
         <div class="row">
             <div class="col-sm-4">
                 <asp:Label ID="LabelDep2007" runat="server" Text="Department :" Font-Size="Large"></asp:Label>
-                 <asp:Label ID="Dep2007" runat="server" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Dep2007" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-               <asp:Label ID="LabelCP2007" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LabelCP2007" runat="server" Text="Collection Point :" Font-Size="Large"></asp:Label>
                 <asp:Label ID="CP2007" runat="server" Font-Size="Large"></asp:Label>
             </div>
             <div class="col-sm-4">
-                <asp:Label ID="LabelUR2007" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>    
-                <asp:Label ID="UR2007" runat="server" Font-Size="Large"></asp:Label>               
+                <asp:Label ID="LabelUR2007" runat="server" Text="User Representative :" Font-Size="Large"></asp:Label>
+                <asp:Label ID="UR2007" runat="server" Font-Size="Large"></asp:Label>
             </div>
         </div>
         <br />
@@ -411,10 +436,10 @@
             OnRowCancelingEdit="DeliveryDepTable2007_RowCancelingEdit" OnRowUpdating="DeliveryDepTable2007_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DeliveryDepTable2007_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DeliveryDepTable2007_RowCommand">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <%--<asp:BoundField DataField="DepartmentDes" ReadOnly="true" HeaderText="Department" />--%>
+                <asp:BoundField DataField="ItemID" ReadOnly="true" HeaderText="Department" />
                 <asp:BoundField DataField="ItemDes" ReadOnly="true" HeaderText="Description" />
 
                 <asp:TemplateField HeaderText="Disbursed Qty">
@@ -437,7 +462,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
-
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#284775" ForeColor="White" />
@@ -448,6 +477,5 @@
         <asp:Button ID="Confirm2007" runat="server" Text="Confirm" OnClick="Confirm2007_Click" CssClass="btn btn-primary" Visible="false" />
 
     </div>
-
 
 </asp:Content>

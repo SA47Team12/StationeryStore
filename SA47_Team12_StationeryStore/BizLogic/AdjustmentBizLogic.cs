@@ -50,8 +50,9 @@ namespace SA47_Team12_StationeryStore.BizLogic
             }
         }
 
-        public static void ApproveVoucher(string itemId, int actualqty, int voucherId, DateTime datetime, string remarks)
+        public static void ApproveVoucher(string itemId, int actualqty, int voucherId, DateTime datetime, string remarks, int count)
         {
+            string to;
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
                 var item = context.CatalogueInventory.Where(c => c.ItemID == itemId).Single();
@@ -62,11 +63,21 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 item2.Status = "Approved";
                 item2.ApprovalDate = datetime;
                 item2.Remarks = remarks;
+                to = item2.Employee.Email;
                 context.SaveChanges();
             }
+            if (count == 0)
+            {
+                //mail to employee who raised request
+                String from = "teststationery47@gmail.com";
+                String subject = "[Auto Notification] Voucher Status";
+                String body = String.Format("Your Voucher {0} has been approved.", voucherId);
+                MailBizLogic.sendMail(from, to, subject, body);
+            }
         }
-        public static void RejectVoucher(int voucherId, DateTime datetime, string remarks)
+        public static void RejectVoucher(int voucherId, DateTime datetime, string remarks, int count)
         {
+            string to;
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
                 var item = context.Voucher.Where(c => c.VoucherID == voucherId).Single();
@@ -74,10 +85,21 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 item.ApprovalDate = datetime;
                 item.Remarks = remarks;
                 context.SaveChanges();
+                to = item.Employee.Email;
+            }
+
+            if (count == 0)
+            {
+                //mail to employee who raised request
+                String from = "teststationery47@gmail.com";
+                String subject = "[Auto Notification] Voucher Status";
+                String body = String.Format("Sorry! Your Voucher {0} has been rejected.", voucherId);
+                MailBizLogic.sendMail(from, to, subject, body);
             }
         }
-        public static void UpdateStatus(int voucherId)
+        public static void UpdateStatus(int voucherId, int count)
         {
+            string to;
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
                 var item = context.Voucher.Where(c => c.VoucherID == voucherId).Single();
@@ -85,6 +107,15 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 item.Status = "Pending Manager Approval";
 
                 context.SaveChanges();
+                to = item.Employee.Email;
+            }
+            if (count == 0)
+            {
+                //mail to employee who raised request
+                String from = "teststationery47@gmail.com";
+                String subject = "[Auto Notification] Voucher Status";
+                String body = String.Format("Your voucher {0} has been moved to Manager notice, as the amount of item is more than $250.", voucherId);
+                MailBizLogic.sendMail(from, to, subject, body);
             }
         }
     }

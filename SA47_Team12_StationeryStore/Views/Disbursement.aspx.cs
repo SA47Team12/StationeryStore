@@ -28,10 +28,10 @@ namespace SA47_Team12_StationeryStore.Views
                     BindGrid();
                     if (DisbursementGridView.Rows.Count == 0)
                     {
-                        ProceedToDeliverButton.Visible = false;                       
+                        ProceedToDeliverButton.Visible = false;
                     }
                 }
-            }            
+            }
         }
 
 
@@ -52,12 +52,24 @@ namespace SA47_Team12_StationeryStore.Views
             GridViewRow row = DisbursementGridView.Rows[e.RowIndex];
             string ItemID = DisbursementGridView.DataKeys[e.RowIndex].Values[0].ToString();
             int OrderQty = Convert.ToInt32((row.FindControl("TextBox2") as TextBox).Text);
-            if(!POBizLogic.UpdateDisbursement(ItemID, OrderQty))
+            if (!POBizLogic.UpdateDisbursement(ItemID, OrderQty))
                 Response.Write("<script>alert('The Qty cannot be over the original requests!');</script>");
 
             DisbursementGridView.EditIndex = -1;
             BindGrid();
 
+        }
+
+        protected void DisbursementGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                string ItemID = row.Cells[0].Text;
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
         }
 
         protected void DisbursementGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -75,6 +87,5 @@ namespace SA47_Team12_StationeryStore.Views
             BindGrid();
             Response.Redirect("/Views/DeliveryByDept.aspx");
         }
-
     }
 }

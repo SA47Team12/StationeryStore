@@ -99,14 +99,6 @@ namespace SA47_Team12_StationeryStore.Views
                 count++;
             }
 
-            ////mail to employee who raised request
-            //String from = "teststationery47@gmail.com";
-            //String to = "yazh25894@gmail.com";
-            //String subject = "Request Status";
-            //String body = "Sorry! Your request has been rejected.";
-
-            //MailBizLogic.sendMail(from, to, subject, body);
-
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Request Rejected');window.location ='ManageRequest.aspx';", true);
         }
@@ -123,13 +115,6 @@ namespace SA47_Team12_StationeryStore.Views
                 RequestBizLogic.ApproveRequest(RequestId, dt, remarks,count);
                 count++;
             }
-            ////mail to employee who raised request
-            //String from = "teststationery47@gmail.com";
-            //String to = "yazh25894@gmail.com";
-            //String subject = "Request Status";
-            //String body = "Your request has been approved.";
-
-            //MailBizLogic.sendMail(from, to, subject, body);
 
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Request Approved');window.location ='ManageRequest.aspx';", true);

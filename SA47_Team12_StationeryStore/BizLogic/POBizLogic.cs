@@ -366,45 +366,37 @@ namespace SA47_Team12_StationeryStore.BizLogic
             Delivery d = new Delivery();
             d.DepartmentID = DepartmentID;
             d.EmployeeID = EmployeeID;
-            d.DeliveryDate = DateTime.Now.Date; //??need to set the next Monday
-
-            /*set delivery date to next monday*/
-            int timespan=0;
-            int today = (int) DateTime.Now.DayOfWeek;
+            //d.DeliveryDate = DateTime.Now.Date; //??need to set the next Monday
+            /*set delivery date to next monday */
+            int timespan = 0;
+            int today = (int)DateTime.Now.DayOfWeek;
             switch (today)
             {
                 case 0:
                     timespan = 1;
                     break;
-
                 case 1:
                     timespan = 7;
                     break;
-
                 case 2:
                     timespan = 6;
                     break;
-
                 case 3:
                     timespan = 5;
                     break;
-
                 case 4:
                     timespan = 4;
                     break;
 
                 case 5:
-                   timespan = 3;
+                    timespan = 3;
                     break;
-
                 case 6:
                     timespan = 2;
                     break;
             }
-
             d.DeliveryDate = DateTime.Now.Date.AddDays(timespan);
-
-            /*end of set delivery date to next monday*/
+            /*end of set delivery date to next monday */
 
             d.Status = "Scheduled";
             context.Delivery.Add(d);
@@ -434,19 +426,19 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 {
                     DepartmentID = (int)y.DepartmentID,
                     Description = y.Department.Description,
-                    Collection = context.UserRepCollection.Where(z=>z.DepartmentID == y.DepartmentID).Select(a=>a.Collection.Location).FirstOrDefault(),
+                    Collection = context.UserRepCollection.Where(z => z.DepartmentID == y.DepartmentID).Select(a => a.Collection.Location).FirstOrDefault(),
                     UserPresentative = context.UserRepCollection.Where(z => z.DepartmentID == y.DepartmentID).Select(a => a.Employee.Name).FirstOrDefault()
                 }).ToList<DepartmentInfo>();
                 return d;
             }
-            else if(status == "Pending Delivery")
+            else if (status == "Outstanding Delivery")
             {
                 List<DepartmentInfo> d = context.Disbursement.Where(x => x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate < today).Select(y => new DepartmentInfo()
                 {
                     DepartmentID = (int)y.DepartmentID,
                     Description = y.Department.Description,
                     Collection = context.UserRepCollection.Where(z => z.DepartmentID == y.DepartmentID).Select(a => a.Collection.Location).FirstOrDefault(),
-                    UserPresentative = y.CatalogueInventory.Item_Description
+                    UserPresentative = context.UserRepCollection.Where(z => z.DepartmentID == y.DepartmentID).Select(a => a.Employee.Name).FirstOrDefault()
                 }).ToList<DepartmentInfo>();
                 return d;
             }
@@ -457,7 +449,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                     DepartmentID = (int)y.DepartmentID,
                     Description = y.Department.Description,
                     Collection = context.UserRepCollection.Where(z => z.DepartmentID == y.DepartmentID).Select(a => a.Collection.Location).FirstOrDefault(),
-                    UserPresentative = y.CatalogueInventory.Item_Description
+                    UserPresentative = context.UserRepCollection.Where(z => z.DepartmentID == y.DepartmentID).Select(a => a.Employee.Name).FirstOrDefault()
                 }).ToList<DepartmentInfo>();
                 return d;
             }
@@ -467,7 +459,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
         public static List<DisburseInfo> BindDisbursementByEmp(int DepartmentID, string status)
         {
             DateTime today = DateTime.Now.Date;
-            
+
 
             if (status == "Today's Delivery")
             {
@@ -476,17 +468,19 @@ namespace SA47_Team12_StationeryStore.BizLogic
                     DisbursementID = y.DisbursementID,
                     DepartmentDes = y.Department.Description,
                     DisbursedQty = y.DisbursedQty,
+                    ItemID = y.ItemID,
                     ItemDes = y.CatalogueInventory.Item_Description
                 }).ToList<DisburseInfo>();
                 return d;
             }
-            else if (status == "Pending Delivery")
+            else if (status == "Outstanding Delivery")
             {
                 List<DisburseInfo> d = context.Disbursement.Where(x => x.DepartmentID == DepartmentID && x.Delivery.Status == "Scheduled" && x.Delivery.DeliveryDate < today).Select(y => new DisburseInfo()
                 {
                     DisbursementID = y.DisbursementID,
                     DepartmentDes = y.Department.Description,
                     DisbursedQty = y.DisbursedQty,
+                    ItemID = y.ItemID,
                     ItemDes = y.CatalogueInventory.Item_Description
                 }).ToList<DisburseInfo>();
                 return d;
@@ -498,6 +492,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                     DisbursementID = y.DisbursementID,
                     DepartmentDes = y.Department.Description,
                     DisbursedQty = y.DisbursedQty,
+                    ItemID = y.ItemID,
                     ItemDes = y.CatalogueInventory.Item_Description
                 }).ToList<DisburseInfo>();
                 return d;
@@ -566,11 +561,12 @@ namespace SA47_Team12_StationeryStore.BizLogic
         {
             //select today's delivery and set "Delivered"
             DateTime today = DateTime.Now.Date;
-            List<Delivery> deliveryList = context.Delivery.Where(x => x.DepartmentID == DepartmentID && x.DeliveryDate == today).ToList<Delivery>();
-            foreach (Delivery d in deliveryList) {
+            List<Delivery> deliveryList = context.Delivery.Where(x => x.DepartmentID == DepartmentID && x.DeliveryDate <= today).ToList<Delivery>();
+            foreach (Delivery d in deliveryList)
+            {
                 d.Status = "Delivered";
                 List<Disbursement> clist = context.Disbursement.Where(x => x.DeliveryID == d.DeliveryID).ToList<Disbursement>();
-                foreach(Disbursement dis in clist)
+                foreach (Disbursement dis in clist)
                 {
                     CatalogueInventory c = context.CatalogueInventory.Where(x => x.ItemID == dis.ItemID).FirstOrDefault<CatalogueInventory>();
                     c.ActualQty = c.ActualQty - dis.DisbursedQty;
@@ -591,7 +587,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 r.Status = "Delivered";
             }
 
-            
+
             List<Outstanding> outsList = context.Outstanding.Where(x => x.DepartmentID == DepartmentID).ToList<Outstanding>();
             foreach (Outstanding o in outsList)
             {
@@ -629,8 +625,6 @@ namespace SA47_Team12_StationeryStore.BizLogic
             //    }
             //}
             //ScheduleDelivery(1006);
-
-
 
             Console.ReadLine();
         }

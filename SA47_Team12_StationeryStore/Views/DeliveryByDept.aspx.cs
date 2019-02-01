@@ -24,6 +24,9 @@ namespace SA47_Team12_StationeryStore.Views
                     (placeholder.FindControl("DeliveryDepTable" + d.DepartmentID) as GridView).DataBind();
                     (placeholder.FindControl("DeliveryDepTable" + d.DepartmentID) as GridView).Visible = true;
                     (placeholder.FindControl("Confirm" + d.DepartmentID) as Button).Visible = true;
+                    status = StatusRadioButtonList.SelectedValue;
+                    if (status == "Upcoming Delivery")
+                        (placeholder.FindControl("Confirm" + d.DepartmentID) as Button).Enabled = false;
                     (placeholder.FindControl("Dep" + d.DepartmentID) as Label).Text = d.Description;
                     (placeholder.FindControl("CP" + d.DepartmentID) as Label).Text = d.Collection;
                     (placeholder.FindControl("UR" + d.DepartmentID) as Label).Text = d.UserPresentative;
@@ -33,6 +36,7 @@ namespace SA47_Team12_StationeryStore.Views
                     (placeholder.FindControl("LabelDep" + d.DepartmentID) as Label).Visible = true;
                     (placeholder.FindControl("LabelCP" + d.DepartmentID) as Label).Visible = true;
                     (placeholder.FindControl("LabelUR" + d.DepartmentID) as Label).Visible = true;
+
                 }
             }
         }
@@ -111,10 +115,9 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 if (!IsPostBack)
                 {
-                    BindGrid(status);                    
+                    BindGrid(status);
                 }
             }
-            
         }
 
         protected void ViewButton_Click(object sender, EventArgs e)
@@ -160,6 +163,18 @@ namespace SA47_Team12_StationeryStore.Views
             BindGrid(status);
         }
 
+        protected void DeliveryDepTable2001_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                string ItemID = row.Cells[0].Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
+        }
+
         protected void DeliveryDepTable2002_RowEditing(object sender, GridViewEditEventArgs e)
         {
             DeliveryDepTable2002.EditIndex = e.NewEditIndex;
@@ -181,6 +196,18 @@ namespace SA47_Team12_StationeryStore.Views
 
             DeliveryDepTable2002.EditIndex = -1;
             BindGrid(status);
+        }
+
+        protected void DeliveryDepTable2002_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                string ItemID = row.Cells[0].Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
         }
 
         protected void DeliveryDepTable2002_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -220,6 +247,18 @@ namespace SA47_Team12_StationeryStore.Views
             BindGrid(status);
         }
 
+        protected void DeliveryDepTable2003_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                string ItemID = row.Cells[0].Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
+        }
+
         protected void DeliveryDepTable2003_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             DeliveryDepTable2003.PageIndex = e.NewPageIndex;
@@ -256,7 +295,17 @@ namespace SA47_Team12_StationeryStore.Views
             DeliveryDepTable2004.EditIndex = -1;
             BindGrid(status);
         }
-
+        protected void DeliveryDepTable2004_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                string ItemID = row.Cells[0].Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
+        }
         protected void DeliveryDepTable2004_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             DeliveryDepTable2004.PageIndex = e.NewPageIndex;
@@ -293,7 +342,17 @@ namespace SA47_Team12_StationeryStore.Views
             DeliveryDepTable2005.EditIndex = -1;
             BindGrid(status);
         }
-
+        protected void DeliveryDepTable2005_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                string ItemID = row.Cells[0].Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
+        }
         protected void DeliveryDepTable2005_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             DeliveryDepTable2005.PageIndex = e.NewPageIndex;
@@ -330,7 +389,17 @@ namespace SA47_Team12_StationeryStore.Views
             DeliveryDepTable2006.EditIndex = -1;
             BindGrid(status);
         }
-
+        protected void DeliveryDepTable2006_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                string ItemID = row.Cells[0].Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
+        }
         protected void DeliveryDepTable2006_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             DeliveryDepTable2006.PageIndex = e.NewPageIndex;
@@ -367,7 +436,17 @@ namespace SA47_Team12_StationeryStore.Views
             DeliveryDepTable2007.EditIndex = -1;
             BindGrid(status);
         }
-
+        protected void DeliveryDepTable2007_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Redirect to AdjustVoucher Page after clicking adjustvoucher button for an item
+            if (e.CommandName == "AdjustVoucher")
+            {
+                GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+                //string itemCode = (row.FindControl("labelItemId_TemplateField") as Label).Text;
+                string ItemID = row.Cells[0].Text;
+                Response.Redirect(string.Format("~/Views/RequestVoucherDetails.aspx?Id={0}", ItemID));
+            }
+        }
         protected void DeliveryDepTable2007_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             DeliveryDepTable2007.PageIndex = e.NewPageIndex;
@@ -382,6 +461,5 @@ namespace SA47_Team12_StationeryStore.Views
             BindGrid(status);
         }
 
-        
     }
 }

@@ -274,6 +274,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\AddNewItem.aspx" />
+    <Content Include="Views\AddSupplier.aspx" />
     <Content Include="Views\CancelDelegation.aspx" />
     <Content Include="Views\ClerkReports.aspx" />
     <Content Include="Views\ClerkSup_ItemOrderedRpt.aspx" />
@@ -656,6 +657,13 @@
     </Compile>
     <Compile Include="Views\AddNewItem.aspx.designer.cs">
       <DependentUpon>AddNewItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSupplier.aspx.cs">
+      <DependentUpon>AddSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AddSupplier.aspx.designer.cs">
+      <DependentUpon>AddSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CancelDelegation.aspx.cs">
       <DependentUpon>CancelDelegation.aspx</DependentUpon>

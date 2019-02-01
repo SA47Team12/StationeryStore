@@ -134,6 +134,7 @@
                     <Nodes>
                         <asp:TreeNode Text="Purchasing Department's Menu">
                             <asp:TreeNode NavigateUrl="/Views/AddNewItem.aspx" Text="Add New Item" Value="Add New Item"></asp:TreeNode>
+                             <asp:TreeNode NavigateUrl="/Views/AddSupplier.aspx" Text="Add Supplier" Value="Add Supplier"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/ManageSupplier.aspx" Text="Manage Supplier" Value="Manage Supplier"></asp:TreeNode>
                             <asp:TreeNode NavigateUrl="/Views/UpdateItemSupplier.aspx" Text="Update Item Supplier" Value="Update Item Supplier"></asp:TreeNode>
                         </asp:TreeNode>

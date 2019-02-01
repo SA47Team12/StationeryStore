@@ -166,33 +166,6 @@ namespace SA47_Team12_StationeryStore.BizLogic
             }
         }
 
-        //8. View delivering list of request
-        //public static List<ViewRequest> ViewProcessedRequest(int id)
-        //{
-        //    using (StationeryStoreEntities context = new StationeryStoreEntities())
-        //    {
-        //        List<Request> r = context.Request.Where(x => x.EmployeeID == id && x.Status == "Processed").ToList(); //RequestID is null when request is not submitted
-
-        //        List<ViewRequest> req = new List<ViewRequest>();
-        //        for (int i = 0; i < r.Count; i++)
-        //        {
-        //            decimal?[] amt = new decimal?[r.Count];
-        //            amt[i] = 0;
-
-        //            HashSet<RequestDetail> l = (HashSet<RequestDetail>)r[i].RequestDetails;
-
-        //            foreach (RequestDetail rd in l)
-        //            {
-        //                amt[i] += rd.CatalogueInventory.UnitCost * rd.Qty;
-        //            }
-
-        //            ViewRequest rc = new ViewRequest(r[i].RequestID, null, String.Format("{0:ddd, MMM d, yyyy}", r[i].SubmissionDate), null, amt[i], null);
-        //            req.Add(rc);
-        //        }
-        //        return req;
-        //    }
-        //}
-
         //9. View approved list of request
         //8. View delivering list of request
         public static List<ViewRequest> ViewPendingRequest(int id)
@@ -396,7 +369,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
             if (flag == 0)
             {
                 String from = "teststationery47@gmail.com";
-                String subject = "Request Status";
+                String subject = "[Auto Notification] Request Status";
                 String body = "Your request has been approved.";
                 MailBizLogic.sendMail(from, to, subject, body);
             }
@@ -416,16 +389,10 @@ namespace SA47_Team12_StationeryStore.BizLogic
             if (flag == 0)
             {
                 String from = "teststationery47@gmail.com";
-                String subject = "Request Status";
+                String subject = "[Auto Notification] Request Status";
                 String body = "Sorry! Your request has been rejected.";
                 MailBizLogic.sendMail(from, to, subject, body);
             }
         }
-
-
-        //var item = context.Request.Where(c => c.RequestID == RequestId).Single();
-        //to = item.Employee.Email;
-
-        //    int? deptid = item.Employee.DepartmentID;
     }
 }

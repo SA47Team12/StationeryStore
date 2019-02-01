@@ -133,14 +133,6 @@ namespace SA47_Team12_StationeryStore.Views
                     Calendar1.SelectedDate = DateTime.Now.Date;
                     SelectStaffDropDownList.SelectedIndex = 0;
                     DateRadioButtonList.SelectedIndex = 0;
-
-                    //send mail to delegated employee
-                    String from = "teststationery47@gmail.com";
-                    String to = "yazh25894@gmail.com";
-                    String subject = "Job delegation";
-                    String body = "You have been delegated by Dept Head on his absence. Check website for further details.";
-
-                    MailBizLogic.sendMail(from, to, subject, body);
                 }
             }
             else

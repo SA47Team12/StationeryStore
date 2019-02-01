@@ -105,6 +105,7 @@ namespace SA47_Team12_StationeryStore.Views
             int voucherId=(int)ViewState["vid"];
             PendingVoucherItemsGridView.DataSource = VoucherBizLogic.ListVoucherDetails((int)HttpContext.Current.Session["EmpID"], voucherId);
             PendingVoucherItemsGridView.PageIndex = e.NewPageIndex;
+            PendingVoucherItemsGridView.Visible = true;
             PendingVoucherItemsGridView.DataBind();
         }
 

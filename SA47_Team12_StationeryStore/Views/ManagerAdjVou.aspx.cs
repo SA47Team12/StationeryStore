@@ -89,16 +89,10 @@ namespace SA47_Team12_StationeryStore.Views
                 int voucherId = (int)AdjVouDetailsGridView.DataKeys[row.RowIndex].Values["VoucherID"];
                 //string remarks = GridView2.DataKeys[row.RowIndex].Values["Remarks"].ToString();
                 DateTime dt = DateTime.Now;
-                AdjustmentBizLogic.RejectVoucher(voucherId, dt, remarks);
-
+                int count = 0;
+                AdjustmentBizLogic.RejectVoucher(voucherId, dt, remarks, count);
+                count++;
             }
-            //mail to employee who raised request
-            String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
-            String subject = "Voucher Status";
-            String body = "Sorry! Your Voucher has been rejected.";
-
-            MailBizLogic.sendMail(from, to, subject, body);
 
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Voucher Rejected');window.location ='ManagerAdjVou.aspx';", true);           
@@ -115,15 +109,10 @@ namespace SA47_Team12_StationeryStore.Views
                 int voucherId = (int)AdjVouDetailsGridView.DataKeys[row.RowIndex].Values["VoucherID"];
                 DateTime dt = DateTime.Now;
                 actualqty = actualqty + adjqty;
-                AdjustmentBizLogic.ApproveVoucher(itemId, actualqty, voucherId, dt, remarks);
+                int count = 0;
+                AdjustmentBizLogic.ApproveVoucher(itemId, actualqty, voucherId, dt, remarks, count);
+                count++;
             }
-            //mail to employee who raised request
-            String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
-            String subject = "Voucher Status";
-            String body = "Your Voucher has been approved.";
-
-            MailBizLogic.sendMail(from, to, subject, body);
 
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Voucher Approved');window.location ='ManagerAdjVou.aspx';", true);            

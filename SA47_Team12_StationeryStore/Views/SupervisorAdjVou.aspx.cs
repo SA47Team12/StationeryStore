@@ -68,6 +68,7 @@ namespace SA47_Team12_StationeryStore.Views
                 RejectButton.Visible = true;
                 Label3.Visible = true;
                 RemarkTextBox.Visible = true;
+                AdjVouDetailsGridView.Columns[5].Visible = false;
             }
         }
 
@@ -129,6 +130,7 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void ApproveButton_Click(object sender, EventArgs e)
         {
+                int count = 0;
                 string remarks = RemarkTextBox.Text;
                 foreach (GridViewRow row in AdjVouDetailsGridView.Rows)
                 {
@@ -138,39 +140,26 @@ namespace SA47_Team12_StationeryStore.Views
                     int voucherId = (int)AdjVouDetailsGridView.DataKeys[row.RowIndex].Values["VoucherID"];
                     DateTime dt = DateTime.Now;
                     actualqty = actualqty + adjqty;
-                    AdjustmentBizLogic.ApproveVoucher(itemId, actualqty, voucherId, dt, remarks);
-
+                    AdjustmentBizLogic.ApproveVoucher(itemId, actualqty, voucherId, dt, remarks, count);
+                    count++;
                 }
-            //mail to employee who raised request
-            String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
-            String subject = "Voucher Status";
-            String body = "Your Voucher has been approved.";
-
-            MailBizLogic.sendMail(from, to, subject, body);
-
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Voucher Approved');window.location ='SupervisorAdjVou.aspx';", true);
             }
 
         protected void RejectButton_Click(object sender, EventArgs e)
         {
+            int count = 0;
             string remarks = RemarkTextBox.Text;
             foreach (GridViewRow row in AdjVouDetailsGridView.Rows)
             {
                 int voucherId = (int)AdjVouDetailsGridView.DataKeys[row.RowIndex].Values["VoucherID"];
                 //string remarks = GridView2.DataKeys[row.RowIndex].Values["Remarks"].ToString();
                 DateTime dt = DateTime.Now;
-                AdjustmentBizLogic.RejectVoucher(voucherId, dt, remarks);
-
+                AdjustmentBizLogic.RejectVoucher(voucherId, dt, remarks, count);
+                count++;
             }
-            //mail to employee who raised request
-            String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
-            String subject = "Voucher Status";
-            String body = "Sorry! Your voucher has been rejected.";
-
-            MailBizLogic.sendMail(from, to, subject, body);
+            
 
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Voucher Rejected');window.location ='SupervisorAdjVou.aspx';", true);
@@ -178,23 +167,18 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void ManagerAppButton_Click(object sender, EventArgs e)
         {
+            int count = 0;
             foreach (GridViewRow row in AdjVouDetailsGridView.Rows)
             {
                 int voucherId = (int)AdjVouDetailsGridView.DataKeys[row.RowIndex].Values["VoucherID"];
-                AdjustmentBizLogic.UpdateStatus(voucherId);
-            }
-            //mail to employee who raised request
-            String from = "teststationery47@gmail.com";
-            String to = "yazh25894@gmail.com";
-            String subject = "Voucher Status";
-            String body = "Your voucher has been moved to Manager notice, as the amount of item is more than $250.";
-
-            MailBizLogic.sendMail(from, to, subject, body);
+                AdjustmentBizLogic.UpdateStatus(voucherId, count);
+                count++;
+            }         
 
             //mail to manager
             String from1 = "teststationery47@gmail.com";
             String to1 = "yazh25894@gmail.com";
-            String subject1 = "Voucher Status";
+            String subject1 = "[Auto Notification] Voucher Status";
             String body1 = "Adjustment Voucher has been moved to your notice, as the amount of item is more than $250.";
 
             MailBizLogic.sendMail(from1, to1, subject1, body1);

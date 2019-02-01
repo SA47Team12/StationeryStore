@@ -12,6 +12,7 @@ namespace SA47_Team12_StationeryStore.Views
     {
         private List<Control> searchControls;
         private List<Control> stockCardControls;
+        static string searchString = "";
 
         private void BindGrid()
         {
@@ -79,8 +80,8 @@ namespace SA47_Team12_StationeryStore.Views
         {
             InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(SearchTextBox.Text);        
             InventoryGridView.DataBind();
-            //for pagination
-            ViewState["search"] = (string)SearchTextBox.Text;
+            searchString = SearchTextBox.Text;
+
         }
 
         protected void InventoryGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,11 +113,10 @@ namespace SA47_Team12_StationeryStore.Views
         protected void InventoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             //pagination
-            string search= (string)ViewState["search"];
-            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(search);
+            //string search= (string)ViewState["search"];
+            InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(searchString);
             InventoryGridView.PageIndex = e.NewPageIndex;
             InventoryGridView.DataBind();
-            BindGrid();
         }
 
         protected void StockCardsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

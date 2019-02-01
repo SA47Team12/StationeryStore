@@ -7,16 +7,19 @@ namespace SA47_Team12_StationeryStore.BizLogic
 {
     public class SupplierBizLogic
     {
-        public static void AddSupplier(int SupplierID, string Name, string Address, string Phone)
+        public static void AddSupplier(string Name, string Address, string Phone)
         {
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
                 Supplier s = new Supplier
                 {
-                    SupplierID = SupplierID,
+                   
                     Name = Name,
                     Address = Address,
-                    Phone = Phone
+                    Phone = Phone,
+                    P1name = Name,
+                    P2name = Name,
+                    P3name = Name
                 };
                 context.Supplier.Add(s);
                 context.SaveChanges();
@@ -179,9 +182,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
             }
         }
        
-
         static StationeryStoreEntities _entities = new StationeryStoreEntities();
-        
 
         public static void CreateDelegation(int EmpID, DateTime start, DateTime end, int DepID)
         {
@@ -193,9 +194,16 @@ namespace SA47_Team12_StationeryStore.BizLogic
                     StartDate = start,
                     EndDate = end,
                     DepartmentID = DepID,
-                };
+                    
+            };
                 context.Delegation.Add(s);
                 context.SaveChanges();
+                
+                String from = "teststationery47@gmail.com";
+                String to = s.Employee.Email;
+                String subject = "[Auto Notification] Delegation Status";
+                String body = String.Format("You are Delegated from "+ start + " to " + end);
+                MailBizLogic.sendMail(from, to, subject, body);
             }
         }
 
@@ -212,14 +220,20 @@ namespace SA47_Team12_StationeryStore.BizLogic
 
         public static void DeleteDelegation(int DelegationID)
         {
+            Delegation s;
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
-                Delegation s = context.Delegation.Where(p => p.DelegationID == DelegationID).First<Delegation>();
+                s = context.Delegation.Where(p => p.DelegationID == DelegationID).First<Delegation>();
                 Employee e = context.Employee.Where(x => x.EmployeeID == s.EmployeeID).FirstOrDefault<Employee>();
                 context.Delegation.Remove(s);
                 e.isDelegated = 0;
                 context.SaveChanges();
             }
+            String from = "teststationery47@gmail.com";
+            String to = s.Employee.Email;
+            String subject = "[Auto Notification] Delegation Status";
+            String body = String.Format("Your delegation has been cancelled.");
+            MailBizLogic.sendMail(from, to, subject, body);
         }
 
         public static void UpdateDelegation(int DelegationID, DateTime? end)
