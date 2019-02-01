@@ -24,6 +24,7 @@
                     <asp:TemplateField HeaderText="Phone" SortExpression="Phone" ValidateRequestMode="Enabled">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox3" ValidationExpression="\d{8}" ErrorMessage="Please input 8 digit phone number" ForeColor="Red"></asp:RegularExpressionValidator>
                         </EditItemTemplate>                        
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("Phone") %>'></asp:Label>

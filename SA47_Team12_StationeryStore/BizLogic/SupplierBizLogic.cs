@@ -25,17 +25,17 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 context.SaveChanges();
             }
         }
-        public static void UpdateSupplier(int SupplierID, string Name, string Address, string Phone)
+        public static void UpdateSupplier(int SupplierID, string Address, string Phone)
         {
             using (StationeryStoreEntities context = new StationeryStoreEntities())
             {
                 Supplier s = context.Supplier.Where(p => p.SupplierID == SupplierID).First<Supplier>();
-                s.Name = Name;
+                //s.Name = Name;
                 s.Address = Address;
                 s.Phone = Phone;
-                s.P1name = Name;
-                s.P2name = Name;
-                s.P3name = Name;
+                //s.P1name = Name;
+                //s.P2name = Name;
+                //s.P3name = Name;
                 context.SaveChanges();
             }
         }

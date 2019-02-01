@@ -15,6 +15,7 @@
             <asp:TextBox ID="SupplierPhone" runat="server" Height="20px" Width="246px"></asp:TextBox>
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                 ControlToValidate="SupplierPhone" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="SupplierPhone" ValidationExpression="\d{8}" ErrorMessage="Please input 8 digit phone number" ForeColor="Red"></asp:RegularExpressionValidator>
        
         <br />
         <br />

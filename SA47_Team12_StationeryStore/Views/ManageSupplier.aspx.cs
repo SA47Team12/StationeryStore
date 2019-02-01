@@ -48,11 +48,11 @@ namespace SA47_Team12_StationeryStore.Views
             GridViewRow row = SupplierGridView.Rows[e.RowIndex];
             int SupplierID = Convert.ToInt32(SupplierGridView.DataKeys[e.RowIndex].Values[0]);
 
-            string name = (row.FindControl("Textbox1") as TextBox).Text;
+            //string name = (row.FindControl("Textbox1") as TextBox).Text;
             string address = (row.FindControl("Textbox2") as TextBox).Text;
             string phone = (row.FindControl("Textbox3") as TextBox).Text;
 
-            SupplierBizLogic.UpdateSupplier(SupplierID, name, address, phone);
+            SupplierBizLogic.UpdateSupplier(SupplierID, address, phone);
 
             SupplierGridView.EditIndex = -1;
             this.BindGrid();
