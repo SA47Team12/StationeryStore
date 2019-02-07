@@ -7,7 +7,7 @@
     <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ReportSourceID="CrystalReportSource6" />
     <p>
         <CR:CrystalReportSource ID="CrystalReportSource6" runat="server">
-            <Report FileName="~/bin/Reports/Clerk_ItemReqQtyBreakdown.rpt">
+            <Report FileName="~/bin/Reports/Clerk_ItemReqQtyBreakdownFull.rpt">
             </Report>
         </CR:CrystalReportSource>
     </p>
