@@ -27,11 +27,12 @@ namespace SA47_Team12_StationeryStore.Views
                 else
                 {
                     Response.Write("<script>alert('No pending voucher !');</script>");
-                    
-                }
-                
+                    /* Changed 7-2-19 */
+                    List<PendingVoucherRequest> emptyList = new List<PendingVoucherRequest>();
+                    PendingVouchersGridView.DataSource = emptyList;
+                    PendingVouchersGridView.DataBind();
+                }                
             }
-
 
             else if (stateOfRadioButton == "all")
             {
@@ -64,7 +65,6 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 BindGridAuto();
                 PendingVoucherItemsGridView.Visible = false;
-
             }
         }
 
@@ -83,13 +83,14 @@ namespace SA47_Team12_StationeryStore.Views
         protected void PendingVouchersGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             PendingVoucherItemsGridView.Visible = true;
-
         }
 
         protected void PendingVouchersGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int voucherId = Convert.ToInt32(PendingVouchersGridView.DataKeys[e.RowIndex].Values[0]);
             VoucherBizLogic.DeletePendingVoucher(voucherId);
+            /* Changed: 7-2-19 */
+            Response.Write("<script>alert('Selected items have been deleted');</script>");
             BindGridAuto();
         }
 
@@ -108,6 +109,5 @@ namespace SA47_Team12_StationeryStore.Views
             PendingVoucherItemsGridView.Visible = true;
             PendingVoucherItemsGridView.DataBind();
         }
-
     }
 }

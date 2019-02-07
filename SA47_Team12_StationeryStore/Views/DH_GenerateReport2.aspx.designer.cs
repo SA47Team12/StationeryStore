@@ -22,12 +22,12 @@ namespace SA47_Team12_StationeryStore.Views {
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
         
         /// <summary>
-        /// CrystalReportSource2 control.
+        /// CrystalReportSource17 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportSource CrystalReportSource2;
+        protected global::CrystalDecisions.Web.CrystalReportSource CrystalReportSource17;
     }
 }

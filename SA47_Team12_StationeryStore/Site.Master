@@ -118,12 +118,12 @@
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="DH's Menu">
-                            <asp:TreeNode NavigateUrl="/Views/ManageRequest.aspx" Text="Manage Request" Value="Manage Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/UpdateURep.aspx" Text="Update User Rep" Value="Update User Rep"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/CreateDelegation.aspx" Text="Create Delegation" Value="Create Delegation"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/CancelDelegation.aspx" Text="Cancel Delegation" Value="Cancel Delegation"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/DHReports.aspx" Text="DH Reports" Value="DH Reports"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageRequest.aspx" Text="Manage Request" Value="Manage Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/UpdateURep.aspx" Text="Update User Rep" Value="Update User Rep"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/CreateDelegation.aspx" Text="Create Delegation" Value="Create Delegation"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/CancelDelegation.aspx" Text="Cancel Delegation" Value="Cancel Delegation"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/DHReports.aspx" Text="DH Reports" Value="DH Reports"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
@@ -133,10 +133,10 @@
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="Purchasing Department's Menu">
-                            <asp:TreeNode NavigateUrl="/Views/AddNewItem.aspx" Text="Add New Item" Value="Add New Item"></asp:TreeNode>
-                             <asp:TreeNode NavigateUrl="/Views/AddSupplier.aspx" Text="Add Supplier" Value="Add Supplier"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManageSupplier.aspx" Text="Manage Supplier" Value="Manage Supplier"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/UpdateItemSupplier.aspx" Text="Update Item Supplier" Value="Update Item Supplier"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/AddNewItem.aspx" Text="Add New Item" Value="Add New Item"></asp:TreeNode>
+                             <asp:TreeNode NavigateUrl="~/Views/AddSupplier.aspx" Text="Add Supplier" Value="Add Supplier"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageSupplier.aspx" Text="Manage Supplier" Value="Manage Supplier"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/UpdateItemSupplier.aspx" Text="Update Item Supplier" Value="Update Item Supplier"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
@@ -146,8 +146,8 @@
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="Deptartment Staff's Menu">
-                            <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
@@ -158,9 +158,9 @@
 
                     <Nodes>
                         <asp:TreeNode Text="UR's Menu">
-                            <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
@@ -170,9 +170,9 @@
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="Manager's Menu">
-                            <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManagerAdjVou.aspx" Text="Manage Adjustment Voucher" Value="Manage Adjustment Voucher"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManagerAdjVou.aspx" Text="Manage Adjustment Voucher" Value="Manage Adjustment Voucher"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
@@ -182,10 +182,10 @@
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="Supervisor's Menu">
-                            <asp:TreeNode NavigateUrl="/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/SupervisorAdjVou.aspx" Text="Manage Adjustment Voucher" Value="Manage Adjustment Voucher"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/SupervisorReports.aspx" Text="Supervisor Reports" Value="Supervisor Reports"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/RaiseRequest.aspx" Text="Raise Request" Value="Raise Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageOwnRequest.aspx" Text="Manage Own Request" Value="Manage Own Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/SupervisorAdjVou.aspx" Text="Manage Adjustment Voucher" Value="Manage Adjustment Voucher"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/SupervisorReports.aspx" Text="Supervisor Reports" Value="Supervisor Reports"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>
@@ -195,15 +195,14 @@
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
                     <Nodes>
                         <asp:TreeNode Text="Clerk's Menu">
-                            <asp:TreeNode NavigateUrl="/Views/ManageInventory.aspx" Text="Manage Inventory" Value="Manage Inventory"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ManageCatalogue.aspx" Text="Manage Catalogue" Value="Manage Catalogue"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/PlaceOrder.aspx" Text="Place order" Value="Place order"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/PendingPO.aspx" Text="Pending PO" Value="Pending PO"></asp:TreeNode>
-                            <%--<asp:TreeNode NavigateUrl="/Views/ConfirmOrder.aspx" Text="Confirm Order" Value="Confirm Order"></asp:TreeNode>--%>
-                            <asp:TreeNode NavigateUrl="/Views/Disbursement.aspx" Text="Disbursement" Value="Disbursement"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/DeliveryByDept.aspx" Text="Delivery By Dept" Value="Delivery By Dept"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/RequestVoucherDetails.aspx" Text="Request Voucher" Value="Request Voucher"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="/Views/ClerkReports.aspx" Text="Clerk Reports" Value="Clerk Reports"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageInventory.aspx" Text="Manage Inventory" Value="Manage Inventory"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ManageCatalogue.aspx" Text="Manage Catalogue" Value="Manage Catalogue"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/PlaceOrder.aspx" Text="Place order" Value="Place order"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/PendingPO.aspx" Text="Pending PO" Value="Pending PO"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/Disbursement.aspx" Text="Disbursement" Value="Disbursement"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/DeliveryByDept.aspx" Text="Delivery By Dept" Value="Delivery By Dept"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/RequestVoucherDetails.aspx" Text="Request Voucher" Value="Request Voucher"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/ClerkReports.aspx" Text="Clerk Reports" Value="Clerk Reports"></asp:TreeNode>
                         </asp:TreeNode>
                     </Nodes>
                 </asp:TreeView>

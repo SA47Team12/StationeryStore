@@ -81,7 +81,6 @@ namespace SA47_Team12_StationeryStore.Views
             InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(SearchTextBox.Text);        
             InventoryGridView.DataBind();
             searchString = SearchTextBox.Text;
-
         }
 
         protected void InventoryGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,7 +111,6 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void InventoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //pagination
             //string search= (string)ViewState["search"];
             InventoryGridView.DataSource = CatalogueBizLogic.ListCatalogue(searchString);
             InventoryGridView.PageIndex = e.NewPageIndex;
@@ -121,7 +119,6 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void StockCardsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //pagination code
             string itemCode = (string)ViewState["itemcode"];
             StockCardsGridView.DataSource = InventoryBizLogic.GetCatalogueItem(itemCode);
 

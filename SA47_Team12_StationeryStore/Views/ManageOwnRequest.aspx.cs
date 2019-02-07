@@ -59,15 +59,6 @@ namespace SA47_Team12_StationeryStore.Views
                 RequestDetailsGridView.Visible = false;
                 //DeleteButton.Visible = false;
             }
-            //if (value == "Processed")
-            //{
-            //    RequestGridView.DataSource = RequestBizLogic.ViewProcessedRequest(EmpID);//hardcord employeeId for testing
-            //    RequestGridView.DataBind();
-            //    RequestGridView.Visible = true;
-            //    PendingRequestGridView.Visible = false;
-            //    RequestDetailsGridView.Visible = false;
-            //    //DeleteButton.Visible = false;
-            //}
         }
 
         protected void RequestGridView_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -91,7 +82,6 @@ namespace SA47_Team12_StationeryStore.Views
             }
             RequestGridView.PageIndex = e.NewPageIndex;
             RequestGridView.DataBind();
-            //BindGrid();
         }
 
         protected void ButtonDeleteRequest_Click(object sender, EventArgs e)
@@ -100,7 +90,6 @@ namespace SA47_Team12_StationeryStore.Views
             RequestBizLogic.DeletePendingRequest(EmpID);//hardcord for testing
             RequestGridView.Visible = false;
         }
-
 
         protected void RequestGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -127,19 +116,17 @@ namespace SA47_Team12_StationeryStore.Views
 
             int requestID = Convert.ToInt32(PendingRequestGridView.DataKeys[e.RowIndex].Values[0]);
             RequestBizLogic.DeleteSelectedPendingRequest(requestID);
-            PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);//hardcord employeeId for testing
+            PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);
             PendingRequestGridView.DataBind();
             RequestDetailsGridView.Visible = false;
-
         }
 
         protected void PendingRequestGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
-            PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);//hardcord employeeId for testing
+            PendingRequestGridView.DataSource = RequestBizLogic.ViewPendingRequest(EmpID);
             PendingRequestGridView.PageIndex = e.NewPageIndex;
             PendingRequestGridView.DataBind();
-
         }
 
         protected void RequestDetailsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

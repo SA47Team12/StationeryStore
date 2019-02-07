@@ -31,6 +31,17 @@ namespace SA47_Team12_StationeryStore.Views
                     SupplierName.Text = "";
                     SupplierAdd.Text = "";
                     SupplierPhone.Text = "";
+
+                    //send mail to clerk
+                    String from = "teststationery47@gmail.com";
+                    List<String> toAddress = MailBizLogic.ClerkEmail();
+                    String subject = "[Auto Notification] Added new supplier";
+                    String body = "New supplier has been added. Check website for further details.";
+
+                    foreach (String to in toAddress)
+                    {
+                        MailBizLogic.sendMail(from, to, subject, body);
+                    }
                 }
                 catch (Exception exp)
                 {

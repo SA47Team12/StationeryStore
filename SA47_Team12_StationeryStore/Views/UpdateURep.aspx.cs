@@ -39,7 +39,6 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void BindData(int DepID)
         {
-
             Label2.Text = SupplierBizLogic.FindCollectionByDepID(DepID).EmployeeName.ToString();
 
             URDropDownList.DataSource = SupplierBizLogic.FindEmpByDepID(DepID);
@@ -72,15 +71,14 @@ namespace SA47_Team12_StationeryStore.Views
             try
             {
                 String from = "teststationery47@gmail.com";
-                String to1 = "sithulinhtut16@gmail.com";
-                String to2 = "yanyuhan96@gmail.com";
-                String to3 = "shree.sri23@gmail.com";
+                List<String> toAddress = MailBizLogic.ClerkEmail();
                 String subject = String.Format("[Auto Notification] Changes on User Representative for {0}", updatedDeptURCollection.Department.Description);
                 String body = String.Format("New User Representative For '{0}' has been assigned to {1}.\n\nThis is a system generated email, please do not reply", updatedDeptURCollection.Department.Description, updatedDeptURCollection.Employee.Name);
 
-                MailBizLogic.sendMail(from, to1, subject, body);
-                MailBizLogic.sendMail(from, to2, subject, body);
-                MailBizLogic.sendMail(from, to3, subject, body);
+                foreach (String to in toAddress)
+                {
+                    MailBizLogic.sendMail(from, to, subject, body);
+                }
             }
             catch (Exception ex)
             {

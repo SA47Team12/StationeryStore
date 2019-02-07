@@ -56,16 +56,14 @@ namespace SA47_Team12_StationeryStore.Views
 
                     //send mail to clerk
                     String from = "teststationery47@gmail.com";
-                    String to1 = "sithulinhtut16@gmail.com";
-                    String to2 = "yanyuhan96@gmail.com";
-                    String to3 = "shree.sri23@gmail.com";
+                    List<String> toAddress = MailBizLogic.ClerkEmail();
                     String subject = "[Auto Notification] Added new item";
                     String body = "New item has been added to the inventory. Check inventory for further details.";
 
-                    MailBizLogic.sendMail(from, to1, subject, body);
-                    MailBizLogic.sendMail(from, to2, subject, body);
-                    MailBizLogic.sendMail(from, to3, subject, body);
-
+                    foreach(String to in toAddress)
+                    {
+                        MailBizLogic.sendMail(from, to, subject, body);
+                    }                    
                 }
                 catch (Exception exp)
                 {
@@ -76,7 +74,6 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 Response.Write("<script>alert('Item Already Exist');</script>");
             }
-
         }
 
         protected void CategoryDropDownList_DataBound(object sender, EventArgs e)

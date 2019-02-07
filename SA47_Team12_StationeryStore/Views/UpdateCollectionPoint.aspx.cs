@@ -41,7 +41,6 @@ namespace SA47_Team12_StationeryStore.Views
         {
             Label1.Text = SupplierBizLogic.FindCollectionByDepID(DepID).CollectionPoint.ToString();
             CPRadioButtonList.SelectedValue = SupplierBizLogic.FindCollectionByDepID(DepID).CollectionPointID.ToString();
-
         }
 
         protected void UpdateButton_Click(object sender, EventArgs e)
@@ -68,16 +67,14 @@ namespace SA47_Team12_StationeryStore.Views
                 //to clerk
                 string oldCollection = Label1.Text;
                 String from = "teststationery47@gmail.com";
-                String to1 = "sithulinhtut16@gmail.com";
-                String to2 = "yanyuhan96@gmail.com";
-                String to3 = "shree.sri23@gmail.com";
+                List<String> toAddress = MailBizLogic.ClerkEmail();
                 String subject = String.Format("[Auto Notification] Changes on Collection Point for {0}", updatedDeptURCollection.Department.Description);
                 String body = String.Format("Collection Point For '{0}' has been changed from '{1}' to '{2}'.\n\nThis is a system generated email, please do not reply", updatedDeptURCollection.Department.Description, oldCollection, updatedDeptURCollection.Collection.Location);
 
-                MailBizLogic.sendMail(from, to1, subject, body);
-                MailBizLogic.sendMail(from, to2, subject, body);
-                MailBizLogic.sendMail(from, to3, subject, body);
-
+                foreach (String to in toAddress)
+                {
+                    MailBizLogic.sendMail(from, to, subject, body);
+                }
             }
             catch (Exception ex)
             {

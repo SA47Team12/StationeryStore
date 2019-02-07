@@ -13,8 +13,7 @@ namespace SA47_Team12_StationeryStore.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["EmpID"] == null)
-                Response.Redirect("/Account/Login.aspx");
-            
+                Response.Redirect("/Account/Login.aspx");            
         }
 
         protected void ViewButton_Click(object sender, EventArgs e)
@@ -46,7 +45,6 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 ApproveButton.Visible = false;
                 RejectButton.Visible = false;
-
             }
             else if (StatusRadioButtonList.SelectedValue == "Pending Manager Approval")
             {
@@ -63,12 +61,6 @@ namespace SA47_Team12_StationeryStore.Views
             AdjVouGridView.DataSource = AdjustmentBizLogic.ListVouchers(status);
             AdjVouGridView.PageIndex = e.NewPageIndex;
             AdjVouGridView.DataBind();
-            //BindGrid();
-        }
-
-        protected void AdjVouDetailsGridView_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-
         }
 
         protected void AdjVouDetailsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

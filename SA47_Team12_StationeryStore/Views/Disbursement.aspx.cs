@@ -34,7 +34,6 @@ namespace SA47_Team12_StationeryStore.Views
             }
         }
 
-
         protected void DisbursementGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
             DisbursementGridView.EditIndex = e.NewEditIndex;
@@ -57,7 +56,6 @@ namespace SA47_Team12_StationeryStore.Views
 
             DisbursementGridView.EditIndex = -1;
             BindGrid();
-
         }
 
         protected void DisbursementGridView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -85,7 +83,7 @@ namespace SA47_Team12_StationeryStore.Views
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
             POBizLogic.ScheduleDelivery(EmpID);
             BindGrid();
-            Response.Redirect("/Views/DeliveryByDept.aspx");
+            Response.Redirect("~/Views/DeliveryByDept.aspx");
         }
     }
 }

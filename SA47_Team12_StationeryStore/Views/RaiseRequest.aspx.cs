@@ -139,7 +139,6 @@ namespace SA47_Team12_StationeryStore.Views
 
             CartGridView.EditIndex = -1;
             GridViewCartBindGrid();
-
         }
 
         protected void CartGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -162,17 +161,18 @@ namespace SA47_Team12_StationeryStore.Views
         protected void ButtonSubmitRequest_Click(object sender, EventArgs e)
         {
             int EmpID = (int)HttpContext.Current.Session["EmpID"];
+            int DeptID = (int)HttpContext.Current.Session["DeptID"];
             RequestBizLogic.SubmitRequest(EmpID);//hardcord for testing
             GridViewCartBindGrid();
             Response.Write("<script>alert('Request Submitted Successfully !');</script>");
-            
-            //send mail to DH
+
+            //send mail to DH (String)HttpContext.Current.Session["Email"];
             String from = "teststationery47@gmail.com";
-            String to = (String)HttpContext.Current.Session["Email"];
-            String subject = "New Request";
+            String to = MailBizLogic.DeptHeadEmail(DeptID);
+            String subject = "[Auto Notification] New Request";
             String body = "New Request has been raised. Check website for further deatils.";
 
-            MailBizLogic.sendMail(from, to, subject, body);
+            MailBizLogic.sendMail(from, to, subject, body);            
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
@@ -234,7 +234,6 @@ namespace SA47_Team12_StationeryStore.Views
                 ButtonDeleteRequest.Visible = false;
                 ButtonSubmitRequest.Visible = false;
             }
-            //Response.Redirect("UserViewCart.aspx?id=" + empID);
         }
 
         private void HideButton()
@@ -303,10 +302,7 @@ namespace SA47_Team12_StationeryStore.Views
             CartGridView.Visible = true;
 
             ButtonSubmitRequest.Visible = true;
-            ButtonDeleteRequest.Visible = true;
-
-            
+            ButtonDeleteRequest.Visible = true;            
         }
-
     }
 }

@@ -282,6 +282,13 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 int dId = (int)r.Request.Employee.DepartmentID;
                 dIdlist.Add(dId);
             }
+            List<Outstanding> olist = context.Outstanding.Where(x => x.ItemID == ItemID && x.Status == "Processed" && x.Qty > 0)
+                                        .ToList<Outstanding>();
+            foreach (Outstanding o in olist)
+            {
+                int oId = (int)o.DepartmentID;
+                dIdlist.Add(oId);
+            }
             return dIdlist;
         }
 
@@ -294,7 +301,9 @@ namespace SA47_Team12_StationeryStore.BizLogic
             {
                 itemQty += (int)o.Qty;
             }
-            itemQty += (int)context.RequestDetail.Where(x => x.ItemID == ItemID && x.Request.Status == "Processed").Sum(y => y.Qty);
+            List<RequestDetail> requestDetails = context.RequestDetail.Where(x => x.ItemID == ItemID && x.Request.Status == "Processed").ToList<RequestDetail>();
+            if (requestDetails != null)
+                itemQty += (int)requestDetails.Sum(y => y.Qty);
             return itemQty;
         }
 
@@ -305,7 +314,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
             List<Outstanding> outslist = context.Outstanding.Where(x => x.Status == null && x.ItemID == ItemID).ToList<Outstanding>();
             foreach (Outstanding o in outslist)
             {
-                Disbursement d = context.Disbursement.Where(x => x.ItemID == o.ItemID && x.DepartmentID == o.DepartmentID).ToList<Disbursement>().FirstOrDefault();
+                Disbursement d = context.Disbursement.Where(x => x.ItemID == o.ItemID && x.DepartmentID == o.DepartmentID && x.DeliveryID == null).ToList<Disbursement>().FirstOrDefault();
                 d.DisbursedQty += o.Qty;
                 context.Outstanding.Remove(o);
             }
@@ -405,6 +414,8 @@ namespace SA47_Team12_StationeryStore.BizLogic
             List<Disbursement> disbursements = context.Disbursement.Where(x => x.DepartmentID == DepartmentID && x.DeliveryID == null).ToList<Disbursement>();
             foreach (Disbursement dis in disbursements)
             {
+                if (dis.DisbursedQty == 0)
+                    context.Disbursement.Remove(dis);
                 dis.DeliveryID = d.DeliveryID;
             }
 
@@ -508,7 +519,10 @@ namespace SA47_Team12_StationeryStore.BizLogic
             {
                 itemQty += (int)o.Qty;
             }
-            itemQty += (int)context.RequestDetail.Where(x => x.ItemID == ItemID && x.Request.Status == "Scheduled" && x.Employee.DepartmentID == DepartmentID).Sum(y => y.Qty);
+            List<RequestDetail> requestDetails = context.RequestDetail.Where(x => x.ItemID == ItemID && x.Request.Status == "Scheduled" && x.Employee.DepartmentID == DepartmentID).ToList<RequestDetail>();
+            if (requestDetails != null)
+                itemQty += (int)requestDetails.Sum(y => y.Qty);
+            //itemQty += (int)context.RequestDetail.Where(x => x.ItemID == ItemID && x.Request.Status == "Scheduled" && x.Employee.DepartmentID == DepartmentID).Sum(y => y.Qty);
             return itemQty;
         }
 
@@ -516,7 +530,7 @@ namespace SA47_Team12_StationeryStore.BizLogic
         public static bool UpdateDepDisbursement(int DisbursementID, int Qty)
         {
             //select the request with last ApprovalDate
-            Disbursement b = context.Disbursement.Where(x => x.DisbursementID == DisbursementID).ToList<Disbursement>().First();
+            Disbursement b = context.Disbursement.Where(x => x.DisbursementID == DisbursementID).ToList<Disbursement>().FirstOrDefault();
             Outstanding outs = context.Outstanding.Where(x => x.Status == null && x.DepartmentID == b.DepartmentID && x.ItemID == b.ItemID).ToList<Outstanding>().FirstOrDefault();
             if (Qty > RequestQty(b.ItemID, (int)b.DepartmentID)) return false;
             else if (Qty < RequestQty(b.ItemID, (int)b.DepartmentID))

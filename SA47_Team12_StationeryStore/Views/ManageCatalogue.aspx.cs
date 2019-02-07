@@ -30,7 +30,7 @@ namespace SA47_Team12_StationeryStore.Views
                 Response.Redirect("/Account/Login.aspx");
             else if (!IsPostBack)
             {
-                BindGrid(); // previously BindGrid1();
+                BindGrid();
             }
         }
 

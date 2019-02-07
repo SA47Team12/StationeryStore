@@ -126,7 +126,6 @@ namespace SA47_Team12_StationeryStore.Views
             RequestDetailsGridView.DataSource = RequestBizLogic.ListRequestDetails(RequestID);
             RequestDetailsGridView.PageIndex = e.NewPageIndex;
             RequestDetailsGridView.DataBind();
-
         }
     }
 }

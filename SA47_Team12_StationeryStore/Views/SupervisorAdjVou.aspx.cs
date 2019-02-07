@@ -17,7 +17,6 @@ namespace SA47_Team12_StationeryStore.Views
         {
             if (HttpContext.Current.Session["EmpID"] == null)
                 Response.Redirect("/Account/Login.aspx");
-            
         }
 
         protected void ViewButton_Click(object sender, EventArgs e)
@@ -74,9 +73,9 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void AdjVouGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            string status = (string) ViewState["status"];
+            string status = (string)ViewState["status"];
             AdjVouGridView.DataSource = AdjustmentBizLogic.ListVouchers(status);
-            
+
             AdjVouGridView.PageIndex = e.NewPageIndex;
             AdjVouGridView.DataBind();
             //BindGrid();
@@ -84,7 +83,6 @@ namespace SA47_Team12_StationeryStore.Views
 
         protected void AdjVouDetailsGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
@@ -96,27 +94,33 @@ namespace SA47_Team12_StationeryStore.Views
                     e.Row.Cells[4].Text = String.Format("{0}", totalamt);
                 }
 
+                bool found = false;
                 foreach (GridViewRow row in AdjVouDetailsGridView.Rows)
                 {   //loop through each row in the GridView 
                     //for any row where adjamt > 250, will have option to route to manager for approval
                     decimal adjamt = (decimal)AdjVouDetailsGridView.DataKeys[row.RowIndex].Values["AdjAmt"];
                     if (Math.Abs(adjamt) >= 250)
                     {
-                        ApproveButton.Enabled = false;
-                        ManagerAppButton.Enabled = true;
-                        RejectButton.Enabled = false;
-                        RemarkTextBox.Enabled = false;
-                    }
-                    else
-                    {
-                        ApproveButton.Enabled = true;
-                        ManagerAppButton.Enabled = false;
-                        RejectButton.Enabled = true;
-                        RemarkTextBox.Enabled = true;
+                        found = true;
+                        break;
                     }
                 }
+                if (found == true)
+                {
+                    ApproveButton.Enabled = false;
+                    ManagerAppButton.Enabled = true;
+                    RejectButton.Enabled = false;
+                    RemarkTextBox.Enabled = false;
+                }
+                if (found == false)
+                {
+                    ApproveButton.Enabled = true;
+                    ManagerAppButton.Enabled = false;
+                    RejectButton.Enabled = true;
+                    RemarkTextBox.Enabled = true;
+                }
             }
-        }
+        }           
 
         protected void AdjVouDetailsGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -158,8 +162,7 @@ namespace SA47_Team12_StationeryStore.Views
                 DateTime dt = DateTime.Now;
                 AdjustmentBizLogic.RejectVoucher(voucherId, dt, remarks, count);
                 count++;
-            }
-            
+            }            
 
             //to generate popup page and then refresh page again
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Voucher Rejected');window.location ='SupervisorAdjVou.aspx';", true);
@@ -173,15 +176,18 @@ namespace SA47_Team12_StationeryStore.Views
                 int voucherId = (int)AdjVouDetailsGridView.DataKeys[row.RowIndex].Values["VoucherID"];
                 AdjustmentBizLogic.UpdateStatus(voucherId, count);
                 count++;
-            }         
+            }
 
             //mail to manager
-            String from1 = "teststationery47@gmail.com";
-            String to1 = "yazh25894@gmail.com";
-            String subject1 = "[Auto Notification] Voucher Status";
-            String body1 = "Adjustment Voucher has been moved to your notice, as the amount of item is more than $250.";
+            String from = "teststationery47@gmail.com";
+            List<String> toAddress = MailBizLogic.ManagerEmail();
+            String subject = "[Auto Notification] Voucher Status";
+            String body = "Adjustment Voucher has been moved to your notice, as the amount of item is more than $250.";
 
-            MailBizLogic.sendMail(from1, to1, subject1, body1);
+            foreach (String to in toAddress)
+            {
+                MailBizLogic.sendMail(from, to, subject, body);
+            }
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Routed to Manager for approval');window.location ='SupervisorAdjVou.aspx';", true);
         }        

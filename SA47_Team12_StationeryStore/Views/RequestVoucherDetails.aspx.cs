@@ -14,13 +14,49 @@ namespace SA47_Team12_StationeryStore.Views
 
         private void BindGrid()
         {
-
             RaiseVouReqGridView.DataSource = VoucherBizLogic.ListVoucherDetails((int)HttpContext.Current.Session["EmpID"]); // previously hardcoded as 1005
             RaiseVouReqGridView.DataBind();
             if (RaiseVouReqGridView.Rows.Count == 0)
             {
                 RaiseVouReqButton.Visible = false;
             }
+        }
+
+        private void ChangeControlsVisibility(string view)
+        {
+
+            if (view == "Raise")
+            {
+                Label1.Visible = false;
+                Label2.Visible = false;
+                Label3.Visible = false;
+                ItemCodeTextBox.Visible = false;
+                AdjQtyTextBox.Visible = false;
+                ReasonTextBox.Visible = false;
+                AddVouButton1.Visible = false;
+
+                AddVouButton2.Visible = true;
+                RaiseVouReqGridView.Visible = true;
+                RaiseVouReqButton.Visible = true;
+                ViewPendingVouchersButton.Visible = true;
+            }
+
+            else if (view == "Add")
+            {
+                Label1.Visible = true;
+                Label2.Visible = true;
+                Label3.Visible = true;
+                ItemCodeTextBox.Visible = true;
+                AdjQtyTextBox.Visible = true;
+                ReasonTextBox.Visible = true;
+                AddVouButton1.Visible = true;
+
+                AddVouButton2.Visible = false;
+                RaiseVouReqGridView.Visible = false;
+                RaiseVouReqButton.Visible = false;
+                ViewPendingVouchersButton.Visible = false;
+            }
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -33,23 +69,7 @@ namespace SA47_Team12_StationeryStore.Views
                 {
                     if (!Request.Url.ToString().Contains("?Id")) // coming direct to request adjustment voucher page
                     {
-                        // make add voucher detail page non-visible                    
-                        Label1.Visible = false;
-                        Label2.Visible = false;
-                        Label3.Visible = false;
-
-                        ItemCodeTextBox.Visible = false;
-                        AdjQtyTextBox.Visible = false;
-                        ReasonTextBox.Visible = false;
-
-                        AddVouButton1.Visible = false;
-
-                        // make raise request page visible
-                        AddVouButton2.Visible = true;
-                        RaiseVouReqGridView.Visible = true;
-                        RaiseVouReqButton.Visible = true;
-                        ViewPendingVouchersButton.Visible = true;
-
+                        ChangeControlsVisibility("Raise");
                         BindGrid();
                     }
 
@@ -58,11 +78,7 @@ namespace SA47_Team12_StationeryStore.Views
                         itemId = Request.QueryString["Id"];  // retrieve query string from raise voucher button on manage inventory page
                         ItemCodeTextBox.Text = itemId;
 
-                        //make raise request page non-visible // see UI screen
-                        AddVouButton2.Visible = false;
-                        RaiseVouReqGridView.Visible = false;
-                        RaiseVouReqButton.Visible = false;
-                        ViewPendingVouchersButton.Visible = false;
+                        ChangeControlsVisibility("Add");
                     }
                 }
             }
@@ -77,25 +93,32 @@ namespace SA47_Team12_StationeryStore.Views
                 int adjustedQty = Convert.ToInt32(AdjQtyTextBox.Text);
                 string Remarks = ReasonTextBox.Text;
 
-                VoucherBizLogic.CreateVoucherDetail(itemId, adjustedQty, Remarks, (int)HttpContext.Current.Session["EmpID"]);// previously hardcoded employeeid as 1005; to retrieve employeeID from login later
-                BindGrid();
+                if (adjustedQty < 0)
+                {
+                    if (Math.Abs(adjustedQty) > Convert.ToInt32(InventoryBizLogic.GetInventoryItemQty(itemId)))
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Please input a valid adjusted qty');", true);
+                        this.Page_Load(null, null); // need this or else page won't add item the second time around
+                    }
 
-                // make add voucher detail page non-visible
-                Label1.Visible = false;
-                Label2.Visible = false;
-                Label3.Visible = false;
+                    else
+                    {
+                        VoucherBizLogic.CreateVoucherDetail(itemId, adjustedQty, Remarks, (int)HttpContext.Current.Session["EmpID"]);// previously hardcoded employeeid as 1005; to retrieve employeeID from login later
+                        BindGrid();
 
-                ItemCodeTextBox.Visible = false;
-                AdjQtyTextBox.Visible = false;
-                ReasonTextBox.Visible = false;
+                        /* Change: 6-2-19 */
+                        ChangeControlsVisibility("Raise");
+                    }
+                }
 
-                AddVouButton1.Visible = false;
+                else
+                {
+                    VoucherBizLogic.CreateVoucherDetail(itemId, adjustedQty, Remarks, (int)HttpContext.Current.Session["EmpID"]);// previously hardcoded employeeid as 1005; to retrieve employeeID from login later
+                    BindGrid();
 
-                // make raise request page visible
-                AddVouButton2.Visible = true;
-                RaiseVouReqGridView.Visible = true;
-                RaiseVouReqButton.Visible = true;
-                ViewPendingVouchersButton.Visible = true;
+                    /* Change 6/2/19 */
+                    ChangeControlsVisibility("Raise");
+                }   
             }
         }
 
@@ -106,21 +129,7 @@ namespace SA47_Team12_StationeryStore.Views
             AdjQtyTextBox.Text = "";
             ReasonTextBox.Text = "";
 
-
-            // make add voucher detail page visible
-            Label1.Visible = true;
-            Label2.Visible = true;
-            Label3.Visible = true;
-            ItemCodeTextBox.Visible = true;
-            AdjQtyTextBox.Visible = true;
-            ReasonTextBox.Visible = true;
-            AddVouButton1.Visible = true;
-
-            // make raise request page non-visible
-            AddVouButton2.Visible = false;
-            RaiseVouReqGridView.Visible = false;
-            RaiseVouReqButton.Visible = false;
-            ViewPendingVouchersButton.Visible = false;
+            ChangeControlsVisibility("Add");
         }
 
         //to raise request
@@ -131,6 +140,18 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 int EmpID = (int)HttpContext.Current.Session["EmpID"];
                 VoucherBizLogic.CreateVoucher(EmpID);
+
+                //mail supervisor
+                String from = "teststationery47@gmail.com";
+                List<String> toAddress = MailBizLogic.SupervisorEmail();
+                String subject = "[Auto Notification] New Voucher Request";
+                String body = "New Voucher Request has been raised. Check website for further details.";
+
+                foreach (String to in toAddress)
+                {
+                    MailBizLogic.sendMail(from, to, subject, body);
+                }
+
                 Response.Redirect("~/Views/PendingVouchers.aspx");
             }
             else
@@ -196,8 +217,7 @@ namespace SA47_Team12_StationeryStore.Views
         }
 
         protected void ViewPendingVouchersButton_Click(object sender, EventArgs e)
-        { 
-            
+        {             
             Response.Redirect("~/Views/PendingVouchers.aspx");
         }
     }

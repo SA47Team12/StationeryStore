@@ -30,6 +30,19 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 return listOfInventoryItems;
             }
         }
+
+        /*Change: 7-2-19 */
+        public static int? GetInventoryItemQty(string itemId)
+        {
+            using (StationeryStoreEntities _entities = new StationeryStoreEntities())
+            {
+                var selectedInventoryItem = _entities.CatalogueInventory.Where(c => c.ItemID == itemId).First();
+
+                int? selectedInventoryItemQty = selectedInventoryItem.ActualQty;
+
+                return selectedInventoryItemQty;
+            }
+        }
        
         // after clicking on an item "details" button, page will load gridview with the list of stockcards for item
         public static List<StockCardView> GetStockCardsForItem(string itemId)

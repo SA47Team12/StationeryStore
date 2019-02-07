@@ -230,7 +230,15 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Model2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model2.edmx.diagram">
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -241,6 +249,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.cs</LastGenOutput>
     </Content>
     <Content Include="PlaceOrder.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -285,8 +303,21 @@
     <Content Include="Views\CreateDelegation.aspx" />
     <Content Include="Views\DeliveryByDept.aspx" />
     <Content Include="Views\DHReports.aspx" />
-    <Content Include="Views\DH_GenerateReport.aspx" />
     <Content Include="Views\DH_GenerateReport2.aspx" />
+    <Content Include="Views\DH_ReqAmtRpt_Commerce.aspx" />
+    <Content Include="Views\DH_ReqAmtRpt_CompSc.aspx" />
+    <Content Include="Views\DH_ReqAmtRpt_English.aspx" />
+    <Content Include="Views\DH_ReqAmtRpt_Purchasing.aspx" />
+    <Content Include="Views\DH_ReqAmtRpt_Registrar.aspx" />
+    <Content Include="Views\DH_ReqAmtRpt_Store.aspx" />
+    <Content Include="Views\DH_ReqAmtRpt_Zoology.aspx" />
+    <Content Include="Views\DH_ReqFreqRpt_Commerce.aspx" />
+    <Content Include="Views\DH_ReqFreqRpt_CompSc.aspx" />
+    <Content Include="Views\DH_ReqFreqRpt_English.aspx" />
+    <Content Include="Views\DH_ReqFreqRpt_Purchasing.aspx" />
+    <Content Include="Views\DH_ReqFreqRpt_Registrar.aspx" />
+    <Content Include="Views\DH_ReqFreqRpt_Store.aspx" />
+    <Content Include="Views\DH_ReqFreqRpt_Zoology.aspx" />
     <Content Include="Views\Disbursement.aspx" />
     <Content Include="Views\ManageCatalogue.aspx" />
     <Content Include="Views\ManageInventory.aspx" />
@@ -437,6 +468,9 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AspNetUserRole.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="AssignRoles.aspx.cs">
       <DependentUpon>AssignRoles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -459,6 +493,21 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\DepartmentInfo.cs" />
+    <Compile Include="Model2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ClerkSup_ItemOrdered.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -593,17 +642,101 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Reports\DH_ReqByDeptSortByFreq.cs">
+    <Compile Include="Reports\DH_ReqByDeptSortByFreq_Zoology.cs">
+      <DependentUpon>DH_ReqByDeptSortByFreq_Zoology.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByFreq_Store.cs">
+      <DependentUpon>DH_ReqByDeptSortByFreq_Store.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByFreq_Registrar.cs">
+      <DependentUpon>DH_ReqByDeptSortByFreq_Registrar.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByFreq_Purchasing.cs">
+      <DependentUpon>DH_ReqByDeptSortByFreq_Purchasing.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByFreq_English.cs">
+      <DependentUpon>DH_ReqByDeptSortByFreq_English.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByFreq_CompSc.cs">
+      <DependentUpon>DH_ReqByDeptSortByFreq_CompSc.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByFreq_Commerce.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DH_ReqByDeptSortByFreq.rpt</DependentUpon>
+      <DependentUpon>DH_ReqByDeptSortByFreq_Commerce.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt.cs">
+    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt_Zoology.cs">
+      <DependentUpon>DH_ReqByDeptSortByTotalAmt_Zoology.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt_Store.cs">
+      <DependentUpon>DH_ReqByDeptSortByTotalAmt_Store.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt_Registrar.cs">
+      <DependentUpon>DH_ReqByDeptSortByTotalAmt_Registrar.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt_Purchasing.cs">
+      <DependentUpon>DH_ReqByDeptSortByTotalAmt_Purchasing.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt_English.cs">
+      <DependentUpon>DH_ReqByDeptSortByTotalAmt_English.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt_CompSc.cs">
+      <DependentUpon>DH_ReqByDeptSortByTotalAmt_CompSc.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DH_ReqByDeptSortByTotalAmt_Commerce.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DH_ReqByDeptSortByTotalAmt.rpt</DependentUpon>
+      <DependentUpon>DH_ReqByDeptSortByTotalAmt_Commerce.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -616,7 +749,7 @@
     <Compile Include="SCCategory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleEmail.cs" />
+    <Compile Include="BizLogic\ScheduleEmail.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -735,19 +868,110 @@
     <Compile Include="Views\DHReports.aspx.designer.cs">
       <DependentUpon>DHReports.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\DH_GenerateReport.aspx.cs">
-      <DependentUpon>DH_GenerateReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\DH_GenerateReport.aspx.designer.cs">
-      <DependentUpon>DH_GenerateReport.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\DH_GenerateReport2.aspx.cs">
       <DependentUpon>DH_GenerateReport2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\DH_GenerateReport2.aspx.designer.cs">
       <DependentUpon>DH_GenerateReport2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Commerce.aspx.cs">
+      <DependentUpon>DH_ReqAmtRpt_Commerce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Commerce.aspx.designer.cs">
+      <DependentUpon>DH_ReqAmtRpt_Commerce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_CompSc.aspx.cs">
+      <DependentUpon>DH_ReqAmtRpt_CompSc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_CompSc.aspx.designer.cs">
+      <DependentUpon>DH_ReqAmtRpt_CompSc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_English.aspx.cs">
+      <DependentUpon>DH_ReqAmtRpt_English.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_English.aspx.designer.cs">
+      <DependentUpon>DH_ReqAmtRpt_English.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Purchasing.aspx.cs">
+      <DependentUpon>DH_ReqAmtRpt_Purchasing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Purchasing.aspx.designer.cs">
+      <DependentUpon>DH_ReqAmtRpt_Purchasing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Registrar.aspx.cs">
+      <DependentUpon>DH_ReqAmtRpt_Registrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Registrar.aspx.designer.cs">
+      <DependentUpon>DH_ReqAmtRpt_Registrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Store.aspx.cs">
+      <DependentUpon>DH_ReqAmtRpt_Store.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Store.aspx.designer.cs">
+      <DependentUpon>DH_ReqAmtRpt_Store.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Zoology.aspx.cs">
+      <DependentUpon>DH_ReqAmtRpt_Zoology.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqAmtRpt_Zoology.aspx.designer.cs">
+      <DependentUpon>DH_ReqAmtRpt_Zoology.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Commerce.aspx.cs">
+      <DependentUpon>DH_ReqFreqRpt_Commerce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Commerce.aspx.designer.cs">
+      <DependentUpon>DH_ReqFreqRpt_Commerce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_CompSc.aspx.cs">
+      <DependentUpon>DH_ReqFreqRpt_CompSc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_CompSc.aspx.designer.cs">
+      <DependentUpon>DH_ReqFreqRpt_CompSc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_English.aspx.cs">
+      <DependentUpon>DH_ReqFreqRpt_English.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_English.aspx.designer.cs">
+      <DependentUpon>DH_ReqFreqRpt_English.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Purchasing.aspx.cs">
+      <DependentUpon>DH_ReqFreqRpt_Purchasing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Purchasing.aspx.designer.cs">
+      <DependentUpon>DH_ReqFreqRpt_Purchasing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Registrar.aspx.cs">
+      <DependentUpon>DH_ReqFreqRpt_Registrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Registrar.aspx.designer.cs">
+      <DependentUpon>DH_ReqFreqRpt_Registrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Store.aspx.cs">
+      <DependentUpon>DH_ReqFreqRpt_Store.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Store.aspx.designer.cs">
+      <DependentUpon>DH_ReqFreqRpt_Store.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Zoology.aspx.cs">
+      <DependentUpon>DH_ReqFreqRpt_Zoology.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqFreqRpt_Zoology.aspx.designer.cs">
+      <DependentUpon>DH_ReqFreqRpt_Zoology.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Disbursement.aspx.cs">
       <DependentUpon>Disbursement.aspx</DependentUpon>
@@ -928,14 +1152,74 @@
       <LastGenOutput>ClerkSup_ItemOrderedRpt%28notinuse%29.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq.rpt">
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_Zoology.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>DH_ReqByDeptSortByFreq.cs</LastGenOutput>
+      <LastGenOutput>DH_ReqByDeptSortByFreq_Zoology.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt.rpt">
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_Store.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>DH_ReqByDeptSortByTotalAmt.cs</LastGenOutput>
+      <LastGenOutput>DH_ReqByDeptSortByFreq_Store.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_Registrar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByFreq_Registrar.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_Purchasing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByFreq_Purchasing.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_English.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByFreq_English.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_CompSc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByFreq_CompSc.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_Commerce.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByFreq_Commerce.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_Zoology.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByTotalAmt_Zoology.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_Store.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByTotalAmt_Store.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_Registrar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByTotalAmt_Registrar.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_Purchasing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByTotalAmt_Purchasing.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_English.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByTotalAmt_English.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_CompSc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByTotalAmt_CompSc.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_Commerce.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqByDeptSortByTotalAmt_Commerce.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
