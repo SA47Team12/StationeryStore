@@ -44,7 +44,7 @@
         OnRowUpdating="CartGridView_RowUpdating" OnRowCreated="CartGridView_RowCreated"
         Style="text-align: left" AutoGenerateColumns="False"
         EmptyDataText="There are no items in cart." ShowHeaderWhenEmpty="True"
-        AllowPaging="True" OnPageIndexChanging="CartGridView_PageIndexChanging" PageSize="5"
+        AllowPaging="False" OnPageIndexChanging="CartGridView_PageIndexChanging" PageSize="5"
         GridLines="None" CellPadding="4" ForeColor="#333333">
         <AlternatingRowStyle BackColor="White" />
         <Columns>

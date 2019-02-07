@@ -15,7 +15,7 @@
             OnRowCancelingEdit="ManageCatalogueGridView_RowCancelingEdit"
             OnRowUpdating="ManageCatalogueGridView_RowUpdating" EmptyDataText="There are no catalogue items" ShowHeaderWhenEmpty="True"
             CellPadding="4" ForeColor="#333333" GridLines="None"
-            OnPageIndexChanging="ManageCatalogueGridView_PageIndexChanging" PageSize="5">
+            OnPageIndexChanging="ManageCatalogueGridView_PageIndexChanging" PageSize="15" AllowPaging="True">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="SerialNo" ReadOnly="true" HeaderText="Serial No." />
