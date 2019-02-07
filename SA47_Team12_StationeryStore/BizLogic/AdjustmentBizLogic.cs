@@ -64,6 +64,16 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 item2.ApprovalDate = datetime;
                 item2.Remarks = remarks;
                 to = item2.Employee.Email;
+                
+                //update Stockcard
+                StockCard sc = new StockCard();
+                sc.ItemID = itemId;
+                sc.SCCatID = 18001;
+                sc.Description = context.Voucher.Where(x => x.VoucherID == voucherId).Select(y => y.Employee.Name).FirstOrDefault();
+                sc.AdjustedQty = actualqty;
+                sc.TransactionDate = DateTime.Now.Date;
+                context.StockCard.Add(sc);
+
                 context.SaveChanges();
             }
             if (count == 0)

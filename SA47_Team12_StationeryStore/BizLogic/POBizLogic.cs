@@ -178,9 +178,19 @@ namespace SA47_Team12_StationeryStore.BizLogic
             PO p = context.PO.Where(f => f.POID == POID).ToList().First();
             p.DeliveryDate = DateTime.Now.Date;
             p.Status = "Delivered";
+            
             //update Inventory
             CatalogueInventory c = context.CatalogueInventory.Where(x => x.ItemID == p.ItemID).ToList<CatalogueInventory>().FirstOrDefault();
             c.ActualQty += p.Qty;
+
+            //update Stockcard
+            StockCard sc = new StockCard();
+            sc.ItemID = p.ItemID;
+            sc.SCCatID = 18003;
+            sc.Description = p.Supplier.Name;
+            sc.AdjustedQty = p.Qty;
+            sc.TransactionDate = DateTime.Now.Date;
+            context.StockCard.Add(sc);
             context.SaveChanges();
         }
 
@@ -582,18 +592,19 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 List<Disbursement> clist = context.Disbursement.Where(x => x.DeliveryID == d.DeliveryID).ToList<Disbursement>();
                 foreach (Disbursement dis in clist)
                 {
+                    //update catalogueInventory
                     CatalogueInventory c = context.CatalogueInventory.Where(x => x.ItemID == dis.ItemID).FirstOrDefault<CatalogueInventory>();
                     c.ActualQty = c.ActualQty - dis.DisbursedQty;
+                    //update stockCard
+                    StockCard sc = new StockCard();
+                    sc.ItemID = dis.ItemID;
+                    sc.SCCatID = 18002;
+                    sc.Description = dis.Department.Description;
+                    sc.AdjustedQty = -dis.DisbursedQty;
+                    sc.TransactionDate = DateTime.Now.Date;
+                    context.StockCard.Add(sc);
                 }
-            }
-            //assign disbursement to this delivery
-            //List<Disbursement> disbursements = context.Disbursement.Where(x => x.DepartmentID == DepartmentID && x.DeliveryID == null).ToList<Disbursement>();
-            //foreach (Disbursement dis in disbursements)
-            //{
-            //    dis.DeliveryID = d.DeliveryID;
-            //}
-
-            //change delivered requests status to "Delivered"
+            }         
 
             List<Request> requests = context.Request.Where(x => x.Employee.DepartmentID == DepartmentID && x.Status == "Scheduled").ToList<Request>();
             foreach (Request r in requests)

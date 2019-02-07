@@ -128,6 +128,19 @@
                     </Nodes>
                 </asp:TreeView>
 
+                <asp:TreeView ID="DelStaffTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
+                    NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
+                    LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">
+                    <Nodes>
+                        <asp:TreeNode Text="Delegated Staff's Menu">
+                            <asp:TreeNode NavigateUrl="~/Views/ManageRequest.aspx" Text="Manage Request" Value="Manage Request"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Update Collection Point"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/UpdateURep.aspx" Text="Update User Rep" Value="Update User Rep"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/Views/DHReports.aspx" Text="DH Reports" Value="DH Reports"></asp:TreeNode>
+                        </asp:TreeNode>
+                    </Nodes>
+                </asp:TreeView>
+
                 <asp:TreeView ID="PurchasingDHTreeView" runat="server" Visible="False" LeafNodeStyle-NodeSpacing="5px"
                     NodeStyle-CssClass="treeNode" RootNodeStyle-CssClass="rootNode"
                     LeafNodeStyle-CssClass="leafNode" SelectedNodeStyle-CssClass="selectNode">

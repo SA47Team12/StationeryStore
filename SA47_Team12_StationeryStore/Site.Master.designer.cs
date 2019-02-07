@@ -31,6 +31,15 @@ namespace SA47_Team12_StationeryStore {
         protected global::System.Web.UI.WebControls.TreeView DHTreeView;
         
         /// <summary>
+        /// DelStaffTreeView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TreeView DelStaffTreeView;
+        
+        /// <summary>
         /// PurchasingDHTreeView control.
         /// </summary>
         /// <remarks>

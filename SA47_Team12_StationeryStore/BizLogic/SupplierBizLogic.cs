@@ -193,16 +193,16 @@ namespace SA47_Team12_StationeryStore.BizLogic
                     EmployeeID = EmpID,
                     StartDate = start,
                     EndDate = end,
-                    DepartmentID = DepID,
-                    
-            };
+                    DepartmentID = DepID,                    
+                };
                 context.Delegation.Add(s);
                 context.SaveChanges();
-                
+
+                Employee e = context.Employee.Where(x => x.EmployeeID == EmpID).FirstOrDefault();
                 String from = "teststationery47@gmail.com";
-                String to = s.Employee.Email;
+                String to = e.Email;
                 String subject = "[Auto Notification] Delegation Status";
-                String body = String.Format("You are Delegated from "+ start + " to " + end);
+                String body = String.Format("You are Delegated from " + start + " to " + end);
                 MailBizLogic.sendMail(from, to, subject, body);
             }
         }
@@ -228,12 +228,14 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 context.Delegation.Remove(s);
                 e.isDelegated = 0;
                 context.SaveChanges();
+
+
+                String from = "teststationery47@gmail.com";
+                String to = e.Email;
+                String subject = "[Auto Notification] Delegation Status";
+                String body = String.Format("Your delegation has been cancelled.");
+                MailBizLogic.sendMail(from, to, subject, body);
             }
-            String from = "teststationery47@gmail.com";
-            String to = s.Employee.Email;
-            String subject = "[Auto Notification] Delegation Status";
-            String body = String.Format("Your delegation has been cancelled.");
-            MailBizLogic.sendMail(from, to, subject, body);
         }
 
         public static void UpdateDelegation(int DelegationID, DateTime? end)

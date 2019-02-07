@@ -133,6 +133,8 @@ namespace SA47_Team12_StationeryStore.Views
                     Calendar1.SelectedDate = DateTime.Now.Date;
                     SelectStaffDropDownList.SelectedIndex = 0;
                     DateRadioButtonList.SelectedIndex = 0;
+
+                    
                 }
             }
             else

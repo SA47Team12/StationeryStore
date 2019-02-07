@@ -107,7 +107,7 @@ namespace SA47_Team12_StationeryStore
                         Delegation d = context.Delegation.Where(x => x.EmployeeID == empId && (x.StartDate <= today && x.EndDate >= today)).FirstOrDefault<Delegation>();
                         if (d != null)
                         {
-                            DHTreeView.Visible = true;
+                            DelStaffTreeView.Visible = true;
                         }
                         else
                         {

@@ -27,6 +27,7 @@ namespace SA47_Team12_StationeryStore.Views
                     status = StatusRadioButtonList.SelectedValue;
                     if (status == "Upcoming Delivery")
                         (placeholder.FindControl("Confirm" + d.DepartmentID) as Button).Enabled = false;
+                    else (placeholder.FindControl("Confirm" + d.DepartmentID) as Button).Enabled = true;
                     (placeholder.FindControl("Dep" + d.DepartmentID) as Label).Text = d.Description;
                     (placeholder.FindControl("CP" + d.DepartmentID) as Label).Text = d.Collection;
                     (placeholder.FindControl("UR" + d.DepartmentID) as Label).Text = d.UserPresentative;
