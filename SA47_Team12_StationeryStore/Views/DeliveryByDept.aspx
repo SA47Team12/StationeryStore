@@ -57,8 +57,12 @@
                                 ControlToValidate="TextBox2" ErrorMessage="Input must be a number" Font-Bold="False" ForeColor="Red"></asp:CompareValidator>
                         </div>
                         <div>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ForeColor="Red"
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
+                        </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -125,8 +129,12 @@
                                 ControlToValidate="TextBox2" ErrorMessage="Input must be a number" Font-Bold="False" ForeColor="Red"></asp:CompareValidator>
                         </div>
                         <div>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ForeColor="Red"
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
+                        </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -191,8 +199,12 @@
                                 ControlToValidate="TextBox2" ErrorMessage="Input must be a number" Font-Bold="False" ForeColor="Red"></asp:CompareValidator>
                         </div>
                         <div>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ForeColor="Red"
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
+                        </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -257,8 +269,12 @@
                                 ControlToValidate="TextBox2" ErrorMessage="Input must be a number" Font-Bold="False" ForeColor="Red"></asp:CompareValidator>
                         </div>
                         <div>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ForeColor="Red"
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
+                        </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -322,8 +338,12 @@
                                 ControlToValidate="TextBox2" ErrorMessage="Input must be a number" Font-Bold="False" ForeColor="Red"></asp:CompareValidator>
                         </div>
                         <div>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ForeColor="Red"
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
+                        </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -387,8 +407,12 @@
                                 ControlToValidate="TextBox2" ErrorMessage="Input must be a number" Font-Bold="False" ForeColor="Red"></asp:CompareValidator>
                         </div>
                         <div>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ForeColor="Red"
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
+                        </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
                     <ItemTemplate>
@@ -452,8 +476,12 @@
                                 ControlToValidate="TextBox2" ErrorMessage="Input must be a number" Font-Bold="False" ForeColor="Red"></asp:CompareValidator>
                         </div>
                         <div>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ForeColor="Red"
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
+                        </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
                     <ItemTemplate>
