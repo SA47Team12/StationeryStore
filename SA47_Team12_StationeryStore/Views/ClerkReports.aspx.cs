@@ -26,6 +26,12 @@ namespace SA47_Team12_StationeryStore.Views
             {
                 Response.Redirect("~/Views/ClerkSup_ItemOrderedRpt.aspx");
             }
+
+            else if (ClerkReportsDropDownList.SelectedValue == "Reorder Stock Forecast")
+            {
+                Response.Redirect("~/Views/Clerk_PredictedReorderQtyRpt.aspx");
+            }
+        
         }
     }
 }

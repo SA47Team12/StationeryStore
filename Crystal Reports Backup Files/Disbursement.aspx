@@ -9,7 +9,7 @@
             OnRowUpdating="DisbursementGridView_RowUpdating"
             EmptyDataText="There are no items need to Deliver." ShowHeaderWhenEmpty="True"
             AllowPaging="True" OnPageIndexChanging="DisbursementGridView_PageIndexChanging" PageSize="5"
-            GridLines="None" CellPadding="4" ForeColor="#333333">
+            GridLines="None" CellPadding="4" ForeColor="#333333" OnRowCommand="DisbursementGridView_RowCommand">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
 
@@ -35,6 +35,11 @@
                 </asp:TemplateField>
 
                 <asp:CommandField ButtonType="Button" HeaderText="Update" ShowEditButton="True" />
+                <asp:TemplateField HeaderText="Adjust Voucher" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdjustVoucher" runat="server" CausesValidation="False" CommandName="AdjustVoucher" Text="Adjust Voucher" />
+                    </ItemTemplate>
+                </asp:TemplateField>
 
             </Columns>
             <EditRowStyle BackColor="#999999" />

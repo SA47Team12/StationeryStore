@@ -45,16 +45,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportSource">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Shared">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Web">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -239,6 +239,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -300,6 +301,7 @@
     <Content Include="Views\ClerkSup_ItemReqHistoryFullRpt.aspx" />
     <Content Include="Views\ClerkSup_ItemReqQtyBreakdownRpt.aspx" />
     <Content Include="Views\Clerk_ItemStockRpt.aspx" />
+    <Content Include="Views\Clerk_PredictedReorderQtyRpt.aspx" />
     <Content Include="Views\CreateDelegation.aspx" />
     <Content Include="Views\DeliveryByDept.aspx" />
     <Content Include="Views\DHReports.aspx" />
@@ -335,7 +337,9 @@
     <Content Include="Views\UpdateCollectionPoint.aspx" />
     <Content Include="Views\UpdateItemSupplier.aspx" />
     <Content Include="Views\UpdateURep.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
@@ -642,6 +646,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Reports\Clerk_PredictedReorderQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clerk_PredictedReorderQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Reports\DH_ReqByDeptSortByFreq_Zoology.cs">
       <DependentUpon>DH_ReqByDeptSortByFreq_Zoology.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -846,6 +857,13 @@
     </Compile>
     <Compile Include="Views\Clerk_ItemStockRpt.aspx.designer.cs">
       <DependentUpon>Clerk_ItemStockRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clerk_PredictedReorderQtyRpt.aspx.cs">
+      <DependentUpon>Clerk_PredictedReorderQtyRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Clerk_PredictedReorderQtyRpt.aspx.designer.cs">
+      <DependentUpon>Clerk_PredictedReorderQtyRpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CreateDelegation.aspx.cs">
       <DependentUpon>CreateDelegation.aspx</DependentUpon>
@@ -1150,6 +1168,11 @@
     <EmbeddedResource Include="Reports\ClerkSup_ItemOrderedRpt%28notinuse%29.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ClerkSup_ItemOrderedRpt%28notinuse%29.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Clerk_PredictedReorderQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Clerk_PredictedReorderQty.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\DH_ReqByDeptSortByFreq_Zoology.rpt">

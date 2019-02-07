@@ -74,7 +74,7 @@
             &nbsp;&nbsp;&nbsp;<br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="ManagerAppButton" runat="server" OnClick="ManagerAppButton_Click" Text="Submit to Manager for Approval" CssClass="btn" Visible="False" Width="293px" />
+            <asp:Button ID="ManagerAppButton" runat="server" OnClick="ManagerAppButton_Click" CssClass="btn btn-primary" Text="Submit to Manager for Approval" Visible="False" Width="293px" />
         </div>
     </div>
 

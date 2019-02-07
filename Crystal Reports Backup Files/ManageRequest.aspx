@@ -40,7 +40,7 @@
             <br />
             <asp:GridView ID="RequestDetailsGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"
                 EmptyDataText="There are no request to display."  ShowHeaderWhenEmpty="True"  DataKeyNames="Id"
-                AllowPaging="True" OnPageIndexChanging="RequestGridView_PageIndexChanging" PageSize="5" 
+                AllowPaging="True" OnPageIndexChanging="RequestDetailsGridView_PageIndexChanging" PageSize="5" 
                 GridLines="None" CellPadding="4" ForeColor="#333333">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>

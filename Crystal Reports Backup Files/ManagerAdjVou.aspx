@@ -42,8 +42,9 @@
             </asp:GridView>
             <br />
             <asp:GridView ID="AdjVouDetailsGridView" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False"  
-                DataKeyNames="ItemID,ActualQty,AdjQty,VoucherID,ApprovalDate" Height="191px" OnRowDataBound="AdjVouDetailsGridView_RowDataBound" 
-                AllowPaging="True" OnPageIndexChanging="AdjVouDetailsGridView_PageIndexChanging" PageSize="5" GridLines="None" CellPadding="4" ForeColor="#333333">
+                DataKeyNames="ItemID,ActualQty,AdjQty,VoucherID,ApprovalDate" Height="191px"
+                AllowPaging="True" OnPageIndexChanging="AdjVouDetailsGridView_PageIndexChanging" PageSize="5" 
+                GridLines="None" CellPadding="4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="VoucherID" HeaderText="Voucher ID" />
