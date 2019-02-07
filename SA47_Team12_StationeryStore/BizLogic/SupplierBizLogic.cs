@@ -202,7 +202,11 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 String from = "teststationery47@gmail.com";
                 String to = e.Email;
                 String subject = "[Auto Notification] Delegation Status";
-                String body = String.Format("You are Delegated from " + start + " to " + end);
+                String body = String.Format("You are Delegated from " + start + " to " + end +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.");
                 MailBizLogic.sendMail(from, to, subject, body);
             }
         }
@@ -233,7 +237,11 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 String from = "teststationery47@gmail.com";
                 String to = e.Email;
                 String subject = "[Auto Notification] Delegation Status";
-                String body = String.Format("Your delegation has been cancelled.");
+                String body = String.Format("Your delegation {0} has been cancelled." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", DelegationID);
                 MailBizLogic.sendMail(from, to, subject, body);
             }
         }

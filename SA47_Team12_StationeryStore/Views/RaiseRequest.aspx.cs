@@ -170,7 +170,11 @@ namespace SA47_Team12_StationeryStore.Views
             String from = "teststationery47@gmail.com";
             String to = MailBizLogic.DeptHeadEmail(DeptID);
             String subject = "[Auto Notification] New Request";
-            String body = "New Request has been raised. Check website for further deatils.";
+            String body = String.Format("New Request by {0} has been raised. Check website for further deatils." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", EmpID);
 
             MailBizLogic.sendMail(from, to, subject, body);            
         }

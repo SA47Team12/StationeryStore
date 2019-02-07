@@ -89,7 +89,11 @@ namespace SA47_Team12_StationeryStore.Views
                 String from = "teststationery47@gmail.com";
                 List<String> toAddress = MailBizLogic.ClerkEmail();
                 String subject = "[Auto Notification] Item supplier update";
-                String body = "Item supplier's priority has been chnaged. Check website for further details.";
+                String body = String.Format("Supplier's priority has been changed for item {0}. Check website for further details." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", ItemID);
 
                 foreach (String to in toAddress)
                 {

@@ -33,7 +33,11 @@ namespace SA47_Team12_StationeryStore.BizLogic
                     mailMessage.To.Add(to);
                     mailMessage.From = new MailAddress("teststationery47@gmail.com");
                     mailMessage.Subject = String.Format("[Auto Notification] Item {0} is low in stock - {1}", c.ItemID, c.ItemDescription);
-                    mailMessage.Body = String.Format(" Item {0} is low in stock - {1}", c.ItemID, c.ItemDescription);
+                    mailMessage.Body = String.Format(" Item {0} is low in stock - {1}" +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", c.ItemID, c.ItemDescription);
 
                     smtpClient.EnableSsl = true;
                     smtpClient.Send(mailMessage);

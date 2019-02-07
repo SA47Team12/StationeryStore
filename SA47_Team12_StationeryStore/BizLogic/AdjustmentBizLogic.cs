@@ -81,7 +81,11 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 //mail to employee who raised request
                 String from = "teststationery47@gmail.com";
                 String subject = "[Auto Notification] Voucher Status";
-                String body = String.Format("Your Voucher {0} has been approved.", voucherId);
+                String body = String.Format("Your Voucher {0} has been approved." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", voucherId);
                 MailBizLogic.sendMail(from, to, subject, body);
             }
         }
@@ -103,7 +107,11 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 //mail to employee who raised request
                 String from = "teststationery47@gmail.com";
                 String subject = "[Auto Notification] Voucher Status";
-                String body = String.Format("Sorry! Your Voucher {0} has been rejected.", voucherId);
+                String body = String.Format("Sorry! Your Voucher {0} has been rejected." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", voucherId);
                 MailBizLogic.sendMail(from, to, subject, body);
             }
         }
@@ -124,7 +132,11 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 //mail to employee who raised request
                 String from = "teststationery47@gmail.com";
                 String subject = "[Auto Notification] Voucher Status";
-                String body = String.Format("Your voucher {0} has been moved to Manager notice, as the amount of item is more than $250.", voucherId);
+                String body = String.Format("Your voucher {0} has been moved to Manager notice, as the amount of item is more than $250." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", voucherId);
                 MailBizLogic.sendMail(from, to, subject, body);
             }
         }

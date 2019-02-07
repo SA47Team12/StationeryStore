@@ -69,7 +69,11 @@ namespace SA47_Team12_StationeryStore.Views
                 String from = "teststationery47@gmail.com";
                 List<String> toAddress = MailBizLogic.ClerkEmail();
                 String subject = String.Format("[Auto Notification] Changes on Collection Point for {0}", updatedDeptURCollection.Department.Description);
-                String body = String.Format("Collection Point For '{0}' has been changed from '{1}' to '{2}'.\n\nThis is a system generated email, please do not reply", updatedDeptURCollection.Department.Description, oldCollection, updatedDeptURCollection.Collection.Location);
+                String body = String.Format("Collection Point For '{0}' has been changed from '{1}' to '{2}'." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.", updatedDeptURCollection.Department.Description, oldCollection, updatedDeptURCollection.Collection.Location);
 
                 foreach (String to in toAddress)
                 {

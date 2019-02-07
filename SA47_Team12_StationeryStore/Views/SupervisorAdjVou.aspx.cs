@@ -182,7 +182,11 @@ namespace SA47_Team12_StationeryStore.Views
             String from = "teststationery47@gmail.com";
             List<String> toAddress = MailBizLogic.ManagerEmail();
             String subject = "[Auto Notification] Voucher Status";
-            String body = "Adjustment Voucher has been moved to your notice, as the amount of item is more than $250.";
+            String body = String.Format("Adjustment Voucher has been moved to your notice, as the amount of item is more than $250." +
+                        "\n\nNote: This is an auto-generated email.  Please do not reply to this email." +
+                        "\n\nThis email is confidential and may be privileged.If you are not the intended recipient, " +
+                        "please delete it and notify us immediately; you should not copy or use it for any purpose, " +
+                        "nor disclose its contents to any other person.\n\nThank you.");
 
             foreach (String to in toAddress)
             {
