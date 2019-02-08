@@ -139,6 +139,7 @@ namespace SA47_Team12_StationeryStore.Views
             if (RaiseVouReqGridView.Rows.Count != 0)
             {
                 int EmpID = (int)HttpContext.Current.Session["EmpID"];
+               
                 VoucherBizLogic.CreateVoucher(EmpID);
 
                 //mail supervisor

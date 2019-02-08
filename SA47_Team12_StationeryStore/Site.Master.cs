@@ -89,6 +89,7 @@ namespace SA47_Team12_StationeryStore
                     Employee emp = context.Employee.Where(x => x.Id == id).ToList().FirstOrDefault();
                     int empId = emp.EmployeeID;
                     int deptID = (int)emp.DepartmentID;
+                    
 
                     if (HttpContext.Current.User.IsInRole("Dept Head"))
                     {

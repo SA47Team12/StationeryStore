@@ -70,7 +70,8 @@ namespace SA47_Team12_StationeryStore.BizLogic
                 sc.ItemID = itemId;
                 sc.SCCatID = 18001;
                 sc.Description = context.Voucher.Where(x => x.VoucherID == voucherId).Select(y => y.Employee.Name).FirstOrDefault();
-                sc.AdjustedQty = actualqty;
+                //sc.AdjustedQty = actualqty;
+                sc.AdjustedQty = context.VoucherDetail.Where(x => x.VoucherID == voucherId && x.ItemID==itemId).Select(y => y.AdjustedQty).FirstOrDefault();
                 sc.TransactionDate = DateTime.Now.Date;
                 context.StockCard.Add(sc);
 
