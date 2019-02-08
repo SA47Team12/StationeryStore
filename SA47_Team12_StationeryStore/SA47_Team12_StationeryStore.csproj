@@ -241,6 +241,7 @@
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile3.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile4.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -321,6 +322,7 @@
     <Content Include="Views\DH_ReqFreqRpt_Registrar.aspx" />
     <Content Include="Views\DH_ReqFreqRpt_Store.aspx" />
     <Content Include="Views\DH_ReqFreqRpt_Zoology.aspx" />
+    <Content Include="Views\DH_ReqSortByDateRpt.aspx" />
     <Content Include="Views\Disbursement.aspx" />
     <Content Include="Views\ManageCatalogue.aspx" />
     <Content Include="Views\ManageInventory.aspx" />
@@ -752,6 +754,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Reports\DH_ReqItemFull.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DH_ReqItemFull.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Request.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -991,6 +1000,13 @@
     </Compile>
     <Compile Include="Views\DH_ReqFreqRpt_Zoology.aspx.designer.cs">
       <DependentUpon>DH_ReqFreqRpt_Zoology.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DH_ReqSortByDateRpt.aspx.cs">
+      <DependentUpon>DH_ReqSortByDateRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DH_ReqSortByDateRpt.aspx.designer.cs">
+      <DependentUpon>DH_ReqSortByDateRpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Disbursement.aspx.cs">
       <DependentUpon>Disbursement.aspx</DependentUpon>
@@ -1244,6 +1260,11 @@
     <EmbeddedResource Include="Reports\DH_ReqByDeptSortByTotalAmt_Commerce.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DH_ReqByDeptSortByTotalAmt_Commerce.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DH_ReqItemFull.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DH_ReqItemFull.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
