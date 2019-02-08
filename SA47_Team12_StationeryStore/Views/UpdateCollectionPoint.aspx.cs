@@ -79,6 +79,7 @@ namespace SA47_Team12_StationeryStore.Views
                 {
                     MailBizLogic.sendMail(from, to, subject, body);
                 }
+                BindData(DepID);
             }
             catch (Exception ex)
             {

@@ -60,6 +60,7 @@ namespace SA47_Team12_StationeryStore.Views
                 (e.Row.Cells[4].Controls[0] as LinkButton).Attributes["onclick"] =
                     "return confirm('Do you want to Cancel this Delegation?');";
             }
+
         }
 
         protected void DelegationHistoryGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

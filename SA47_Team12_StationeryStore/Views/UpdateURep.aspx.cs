@@ -83,6 +83,7 @@ namespace SA47_Team12_StationeryStore.Views
                 {
                     MailBizLogic.sendMail(from, to, subject, body);
                 }
+                Label2.Text = SupplierBizLogic.FindCollectionByDepID(DepID).EmployeeName.ToString();
             }
             catch (Exception ex)
             {
