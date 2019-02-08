@@ -7,6 +7,7 @@
         <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="Select Report Type:"></asp:Label>
         &nbsp;&nbsp;
         <asp:DropDownList ID="DHReportsDropDownList" runat="server">
+            <asp:ListItem>Requests Sort by Date</asp:ListItem>
             <asp:ListItem>Requests Sort by Frequency</asp:ListItem>
             <asp:ListItem>Requests Sort by Total Amt</asp:ListItem>
         </asp:DropDownList>

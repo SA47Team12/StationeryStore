@@ -87,7 +87,14 @@ namespace SA47_Team12_StationeryStore.Views
             else if (DHReportsDropDownList.SelectedValue == "Requests Sort by Total Amt" && EmpID == 1018)
             {
                 Response.Redirect("~/Views/DH_ReqAmtRpt_Store.aspx");
-            }          
+            }
+            //for report sort by date
+
+            else if (DHReportsDropDownList.SelectedValue == "Requests Sort by Date" && EmpID == 1001)
+            {
+                Response.Redirect("~/Views/DH_ReqSortByDateRpt.aspx");
+            }
+           
         }
     }
 }
