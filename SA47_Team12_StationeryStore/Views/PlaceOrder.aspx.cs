@@ -27,6 +27,10 @@ namespace SA47_Team12_StationeryStore.Views
                     int EmpID = (int)HttpContext.Current.Session["EmpID"];
                     PlaceOrderGridView.DataSource = POBizLogic.InitialPO(EmpID);
                     PlaceOrderGridView.DataBind();
+                    if (PlaceOrderGridView.Rows.Count == 0)
+                    {
+                        ConfirmButton.Visible = false;
+                    }
                 }
             }
         }

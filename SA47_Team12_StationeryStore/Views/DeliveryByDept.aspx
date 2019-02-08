@@ -8,7 +8,7 @@
         <br />
         <asp:RadioButtonList ID="StatusRadioButtonList" runat="server">
             <asp:ListItem>Outstanding Delivery</asp:ListItem>
-            <asp:ListItem Selected="True">Today's Delivery</asp:ListItem>
+            <asp:ListItem>Today's Delivery</asp:ListItem>
             <asp:ListItem>Upcoming Delivery</asp:ListItem>
         </asp:RadioButtonList>
         <br />

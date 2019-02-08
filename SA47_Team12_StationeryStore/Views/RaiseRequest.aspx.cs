@@ -82,6 +82,12 @@ namespace SA47_Team12_StationeryStore.Views
             GridViewCartBindGrid();
             ViewGVCart();
             HideGV();
+
+            if (CartGridView.Rows.Count == 0)
+            {
+                ButtonDeleteRequest.Visible = false;
+                ButtonSubmitRequest.Visible = false;
+            }
         }
 
         protected void CartGridView_RowEditing(object sender, GridViewEditEventArgs e)
@@ -238,6 +244,7 @@ namespace SA47_Team12_StationeryStore.Views
                 ButtonDeleteRequest.Visible = false;
                 ButtonSubmitRequest.Visible = false;
             }
+            ButtonViewCart.Visible = false;
         }
 
         private void HideButton()

@@ -35,6 +35,10 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1"
                                 ErrorMessage="Input cannot be empty" Font-Bold="False" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
+                        <div>
+                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox1" ForeColor="Red" Type="Integer"
+                             MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
+                        </div>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("ReorderLevel") %>'></asp:Label>
@@ -54,7 +58,7 @@
                                 ErrorMessage="Input cannot be empty"></asp:RequiredFieldValidator>
                         </div>
                         <div>
-                            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
+                            <asp:RangeValidator ID="RangeValidator2" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TextBox2" ForeColor="Red" Type="Integer"
                              MaximumValue="500" MinimumValue="0">Qty should not be negative</asp:RangeValidator>
                         </div>
                     </EditItemTemplate>
